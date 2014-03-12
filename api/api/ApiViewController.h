@@ -1,5 +1,5 @@
 //
-//  ApiAppDelegate.h
+//  ApiViewController.h
 //  api
 //
 //  Created by Paulo McNally on 3/12/14.
@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ApiAppDelegate : UIResponder <UIApplicationDelegate>
+@interface ApiViewController : UIViewController
 
-@property (strong, nonatomic) UIWindow *window;
+@property(nonatomic,strong) IBOutlet UIWebView *webView;
 
 @end
