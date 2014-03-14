@@ -17,12 +17,12 @@
 
 - (void)viewDidLoad
 {
-    
-    
-    NSURL *url = [[NSBundle mainBundle] URLForResource:@"_toc" withExtension:@"html" ];
-    NSString *html = [NSString stringWithContentsOfURL:url encoding:NSUTF8StringEncoding error:nil];
-    NSURL *baseUrl = [NSURL fileURLWithPath:[[NSBundle mainBundle] bundlePath]];
-    [webView loadHTMLString:html baseURL:baseUrl];
+
+    NSString *filePath=[[NSBundle mainBundle]pathForResource:@"_toc" ofType:@"html" inDirectory:nil];
+
+    NSString *htmlstring=[NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:nil];
+    [webView loadHTMLString:htmlstring baseURL:nil];
+
     
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.

@@ -7,6 +7,47 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8B15B83318D3C7E100CC0059 /* _toc.html in Resources */ = {isa = PBXBuildFile; fileRef = 8B15B80A18D3C15200CC0059 /* _toc.html */; };
+		8B15B83418D3C7E100CC0059 /* addons.html in Resources */ = {isa = PBXBuildFile; fileRef = 8B15B80B18D3C15200CC0059 /* addons.html */; };
+		8B15B83518D3C7E100CC0059 /* all.html in Resources */ = {isa = PBXBuildFile; fileRef = 8B15B80C18D3C15200CC0059 /* all.html */; };
+		8B15B83618D3C7E100CC0059 /* assert.html in Resources */ = {isa = PBXBuildFile; fileRef = 8B15B80D18D3C15200CC0059 /* assert.html */; };
+		8B15B83718D3C7E100CC0059 /* buffer.html in Resources */ = {isa = PBXBuildFile; fileRef = 8B15B80E18D3C15200CC0059 /* buffer.html */; };
+		8B15B83818D3C7E100CC0059 /* child_process.html in Resources */ = {isa = PBXBuildFile; fileRef = 8B15B80F18D3C15200CC0059 /* child_process.html */; };
+		8B15B83918D3C7E100CC0059 /* cluster.html in Resources */ = {isa = PBXBuildFile; fileRef = 8B15B81018D3C15200CC0059 /* cluster.html */; };
+		8B15B83A18D3C7E100CC0059 /* console.html in Resources */ = {isa = PBXBuildFile; fileRef = 8B15B81118D3C15200CC0059 /* console.html */; };
+		8B15B83B18D3C7E100CC0059 /* crypto.html in Resources */ = {isa = PBXBuildFile; fileRef = 8B15B81218D3C15200CC0059 /* crypto.html */; };
+		8B15B83C18D3C7E100CC0059 /* debugger.html in Resources */ = {isa = PBXBuildFile; fileRef = 8B15B81318D3C15200CC0059 /* debugger.html */; };
+		8B15B83D18D3C7E100CC0059 /* dgram.html in Resources */ = {isa = PBXBuildFile; fileRef = 8B15B81418D3C15200CC0059 /* dgram.html */; };
+		8B15B83E18D3C7E100CC0059 /* dns.html in Resources */ = {isa = PBXBuildFile; fileRef = 8B15B81518D3C15200CC0059 /* dns.html */; };
+		8B15B83F18D3C7E100CC0059 /* documentation.html in Resources */ = {isa = PBXBuildFile; fileRef = 8B15B81618D3C15200CC0059 /* documentation.html */; };
+		8B15B84018D3C7E100CC0059 /* domain.html in Resources */ = {isa = PBXBuildFile; fileRef = 8B15B81718D3C15200CC0059 /* domain.html */; };
+		8B15B84118D3C7E100CC0059 /* events.html in Resources */ = {isa = PBXBuildFile; fileRef = 8B15B81818D3C15200CC0059 /* events.html */; };
+		8B15B84218D3C7E100CC0059 /* fs.html in Resources */ = {isa = PBXBuildFile; fileRef = 8B15B81918D3C15200CC0059 /* fs.html */; };
+		8B15B84318D3C7E100CC0059 /* globals.html in Resources */ = {isa = PBXBuildFile; fileRef = 8B15B81A18D3C15200CC0059 /* globals.html */; };
+		8B15B84418D3C7E100CC0059 /* http.html in Resources */ = {isa = PBXBuildFile; fileRef = 8B15B81B18D3C15200CC0059 /* http.html */; };
+		8B15B84518D3C7E100CC0059 /* https.html in Resources */ = {isa = PBXBuildFile; fileRef = 8B15B81C18D3C15200CC0059 /* https.html */; };
+		8B15B84618D3C7E100CC0059 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 8B15B81D18D3C15200CC0059 /* index.html */; };
+		8B15B84718D3C7E100CC0059 /* modules.html in Resources */ = {isa = PBXBuildFile; fileRef = 8B15B81E18D3C15200CC0059 /* modules.html */; };
+		8B15B84818D3C7E100CC0059 /* net.html in Resources */ = {isa = PBXBuildFile; fileRef = 8B15B81F18D3C15200CC0059 /* net.html */; };
+		8B15B84918D3C7E100CC0059 /* os.html in Resources */ = {isa = PBXBuildFile; fileRef = 8B15B82018D3C15200CC0059 /* os.html */; };
+		8B15B84A18D3C7E100CC0059 /* path.html in Resources */ = {isa = PBXBuildFile; fileRef = 8B15B82118D3C15200CC0059 /* path.html */; };
+		8B15B84B18D3C7E100CC0059 /* process.html in Resources */ = {isa = PBXBuildFile; fileRef = 8B15B82218D3C15200CC0059 /* process.html */; };
+		8B15B84C18D3C7E100CC0059 /* punycode.html in Resources */ = {isa = PBXBuildFile; fileRef = 8B15B82318D3C15200CC0059 /* punycode.html */; };
+		8B15B84D18D3C7E100CC0059 /* querystring.html in Resources */ = {isa = PBXBuildFile; fileRef = 8B15B82418D3C15200CC0059 /* querystring.html */; };
+		8B15B84E18D3C7E100CC0059 /* readline.html in Resources */ = {isa = PBXBuildFile; fileRef = 8B15B82518D3C15200CC0059 /* readline.html */; };
+		8B15B84F18D3C7E100CC0059 /* repl.html in Resources */ = {isa = PBXBuildFile; fileRef = 8B15B82618D3C15200CC0059 /* repl.html */; };
+		8B15B85018D3C7E100CC0059 /* smalloc.html in Resources */ = {isa = PBXBuildFile; fileRef = 8B15B82718D3C15200CC0059 /* smalloc.html */; };
+		8B15B85118D3C7E100CC0059 /* stream.html in Resources */ = {isa = PBXBuildFile; fileRef = 8B15B82818D3C15200CC0059 /* stream.html */; };
+		8B15B85218D3C7E100CC0059 /* string_decoder.html in Resources */ = {isa = PBXBuildFile; fileRef = 8B15B82918D3C15200CC0059 /* string_decoder.html */; };
+		8B15B85318D3C7E100CC0059 /* synopsis.html in Resources */ = {isa = PBXBuildFile; fileRef = 8B15B82A18D3C15200CC0059 /* synopsis.html */; };
+		8B15B85418D3C7E100CC0059 /* timers.html in Resources */ = {isa = PBXBuildFile; fileRef = 8B15B82B18D3C15200CC0059 /* timers.html */; };
+		8B15B85518D3C7E100CC0059 /* tls.html in Resources */ = {isa = PBXBuildFile; fileRef = 8B15B82C18D3C15200CC0059 /* tls.html */; };
+		8B15B85618D3C7E100CC0059 /* tracing.html in Resources */ = {isa = PBXBuildFile; fileRef = 8B15B82D18D3C15200CC0059 /* tracing.html */; };
+		8B15B85718D3C7E100CC0059 /* tty.html in Resources */ = {isa = PBXBuildFile; fileRef = 8B15B82E18D3C15200CC0059 /* tty.html */; };
+		8B15B85818D3C7E100CC0059 /* url.html in Resources */ = {isa = PBXBuildFile; fileRef = 8B15B82F18D3C15200CC0059 /* url.html */; };
+		8B15B85918D3C7E100CC0059 /* util.html in Resources */ = {isa = PBXBuildFile; fileRef = 8B15B83018D3C15200CC0059 /* util.html */; };
+		8B15B85A18D3C7E100CC0059 /* vm.html in Resources */ = {isa = PBXBuildFile; fileRef = 8B15B83118D3C15200CC0059 /* vm.html */; };
+		8B15B85B18D3C7E100CC0059 /* zlib.html in Resources */ = {isa = PBXBuildFile; fileRef = 8B15B83218D3C15200CC0059 /* zlib.html */; };
 		8BD1F5A218D1168B00C76610 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BD1F5A118D1168B00C76610 /* Foundation.framework */; };
 		8BD1F5A418D1168B00C76610 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BD1F5A318D1168B00C76610 /* CoreGraphics.framework */; };
 		8BD1F5A618D1168C00C76610 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BD1F5A518D1168C00C76610 /* UIKit.framework */; };
@@ -180,6 +221,7 @@
 				8BD1F59F18D1168B00C76610 /* Products */,
 			);
 			sourceTree = "<group>";
+			usesTabs = 0;
 		};
 		8BD1F59F18D1168B00C76610 /* Products */ = {
 			isa = PBXGroup;
@@ -322,6 +364,47 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B15B83318D3C7E100CC0059 /* _toc.html in Resources */,
+				8B15B83418D3C7E100CC0059 /* addons.html in Resources */,
+				8B15B83518D3C7E100CC0059 /* all.html in Resources */,
+				8B15B83618D3C7E100CC0059 /* assert.html in Resources */,
+				8B15B83718D3C7E100CC0059 /* buffer.html in Resources */,
+				8B15B83818D3C7E100CC0059 /* child_process.html in Resources */,
+				8B15B83918D3C7E100CC0059 /* cluster.html in Resources */,
+				8B15B83A18D3C7E100CC0059 /* console.html in Resources */,
+				8B15B83B18D3C7E100CC0059 /* crypto.html in Resources */,
+				8B15B83C18D3C7E100CC0059 /* debugger.html in Resources */,
+				8B15B83D18D3C7E100CC0059 /* dgram.html in Resources */,
+				8B15B83E18D3C7E100CC0059 /* dns.html in Resources */,
+				8B15B83F18D3C7E100CC0059 /* documentation.html in Resources */,
+				8B15B84018D3C7E100CC0059 /* domain.html in Resources */,
+				8B15B84118D3C7E100CC0059 /* events.html in Resources */,
+				8B15B84218D3C7E100CC0059 /* fs.html in Resources */,
+				8B15B84318D3C7E100CC0059 /* globals.html in Resources */,
+				8B15B84418D3C7E100CC0059 /* http.html in Resources */,
+				8B15B84518D3C7E100CC0059 /* https.html in Resources */,
+				8B15B84618D3C7E100CC0059 /* index.html in Resources */,
+				8B15B84718D3C7E100CC0059 /* modules.html in Resources */,
+				8B15B84818D3C7E100CC0059 /* net.html in Resources */,
+				8B15B84918D3C7E100CC0059 /* os.html in Resources */,
+				8B15B84A18D3C7E100CC0059 /* path.html in Resources */,
+				8B15B84B18D3C7E100CC0059 /* process.html in Resources */,
+				8B15B84C18D3C7E100CC0059 /* punycode.html in Resources */,
+				8B15B84D18D3C7E100CC0059 /* querystring.html in Resources */,
+				8B15B84E18D3C7E100CC0059 /* readline.html in Resources */,
+				8B15B84F18D3C7E100CC0059 /* repl.html in Resources */,
+				8B15B85018D3C7E100CC0059 /* smalloc.html in Resources */,
+				8B15B85118D3C7E100CC0059 /* stream.html in Resources */,
+				8B15B85218D3C7E100CC0059 /* string_decoder.html in Resources */,
+				8B15B85318D3C7E100CC0059 /* synopsis.html in Resources */,
+				8B15B85418D3C7E100CC0059 /* timers.html in Resources */,
+				8B15B85518D3C7E100CC0059 /* tls.html in Resources */,
+				8B15B85618D3C7E100CC0059 /* tracing.html in Resources */,
+				8B15B85718D3C7E100CC0059 /* tty.html in Resources */,
+				8B15B85818D3C7E100CC0059 /* url.html in Resources */,
+				8B15B85918D3C7E100CC0059 /* util.html in Resources */,
+				8B15B85A18D3C7E100CC0059 /* vm.html in Resources */,
+				8B15B85B18D3C7E100CC0059 /* zlib.html in Resources */,
 				8BD1F5B818D1168C00C76610 /* Main_iPad.storyboard in Resources */,
 				8BD1F5BD18D1168C00C76610 /* Images.xcassets in Resources */,
 				8BD1F5B518D1168C00C76610 /* Main_iPhone.storyboard in Resources */,
@@ -483,10 +566,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "api/api-Prefix.pch";
 				INFOPLIST_FILE = "api/api-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -496,10 +581,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "api/api-Prefix.pch";
 				INFOPLIST_FILE = "api/api-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
