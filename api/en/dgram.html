@@ -1,0 +1,1455 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dgram</title>
+    <style type="text/css">
+    /*!
+* Bootstrap v3.1.1 (http://getbootstrap.com)
+* Copyright 2011-2014 Twitter, Inc.
+* Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+*/
+
+    /*! normalize.css v3.0.0 | MIT License | git.io/normalize */
+    html {
+        font-family: sans-serif;
+        -ms-text-size-adjust: 100%;
+        -webkit-text-size-adjust: 100%;
+    }
+    body {
+        margin: 0;
+    }
+    article,
+    aside,
+    details,
+    figcaption,
+    figure,
+    footer,
+    header,
+    hgroup,
+    main,
+    nav,
+    section,
+    summary {
+        display: block;
+    }
+    audio,
+    canvas,
+    progress,
+    video {
+        display: inline-block;
+        vertical-align: baseline;
+    }
+    audio:not([controls]) {
+        display: none;
+        height: 0;
+    }
+    [hidden],
+    template {
+        display: none;
+    }
+    a {
+        background: transparent;
+    }
+    a:active,
+    a:hover {
+        outline: 0;
+    }
+    abbr[title] {
+        border-bottom: 1px dotted;
+    }
+    b,
+    strong {
+        font-weight: bold;
+    }
+    dfn {
+        font-style: italic;
+    }
+    h1 {
+        font-size: 2em;
+        margin: 0.67em 0;
+    }
+    mark {
+        background: #ff0;
+        color: #000;
+    }
+    small {
+        font-size: 80%;
+    }
+    sub,
+    sup {
+        font-size: 75%;
+        line-height: 0;
+        position: relative;
+        vertical-align: baseline;
+    }
+    sup {
+        top: -0.5em;
+    }
+    sub {
+        bottom: -0.25em;
+    }
+    img {
+        border: 0;
+    }
+    svg:not(:root) {
+        overflow: hidden;
+    }
+    figure {
+        margin: 1em 40px;
+    }
+    hr {
+        -moz-box-sizing: content-box;
+        box-sizing: content-box;
+        height: 0;
+    }
+    pre {
+        overflow: auto;
+    }
+    code,
+    kbd,
+    pre,
+    samp {
+        font-family: monospace, monospace;
+        font-size: 1em;
+    }
+    button,
+    input,
+    optgroup,
+    select,
+    textarea {
+        color: inherit;
+        font: inherit;
+        margin: 0;
+    }
+    button {
+        overflow: visible;
+    }
+    button,
+    select {
+        text-transform: none;
+    }
+    button,
+    html input[type="button"],
+    input[type="reset"],
+    input[type="submit"] {
+        -webkit-appearance: button;
+        cursor: pointer;
+    }
+    button[disabled],
+    html input[disabled] {
+        cursor: default;
+    }
+    button::-moz-focus-inner,
+    input::-moz-focus-inner {
+        border: 0;
+        padding: 0;
+    }
+    input {
+        line-height: normal;
+    }
+    input[type="checkbox"],
+    input[type="radio"] {
+        box-sizing: border-box;
+        padding: 0;
+    }
+    input[type="number"]::-webkit-inner-spin-button,
+    input[type="number"]::-webkit-outer-spin-button {
+        height: auto;
+    }
+    input[type="search"] {
+        -webkit-appearance: textfield;
+        -moz-box-sizing: content-box;
+        -webkit-box-sizing: content-box;
+        box-sizing: content-box;
+    }
+    input[type="search"]::-webkit-search-cancel-button,
+    input[type="search"]::-webkit-search-decoration {
+        -webkit-appearance: none;
+    }
+    fieldset {
+        border: 1px solid #c0c0c0;
+        margin: 0 2px;
+        padding: 0.35em 0.625em 0.75em;
+    }
+    legend {
+        border: 0;
+        padding: 0;
+    }
+    textarea {
+        overflow: auto;
+    }
+    optgroup {
+        font-weight: bold;
+    }
+    table {
+        border-collapse: collapse;
+        border-spacing: 0;
+    }
+    td,
+    th {
+        padding: 0;
+    }
+    @media print {
+        * {
+            text-shadow: none !important;
+            color: #000 !important;
+            background: transparent !important;
+            box-shadow: none !important;
+        }
+        a,
+        a:visited {
+            text-decoration: underline;
+        }
+        a[href]:after {
+            content: " (" attr(href) ")";
+        }
+        abbr[title]:after {
+            content: " (" attr(title) ")";
+        }
+        a[href^="javascript:"]:after,
+        a[href^="#"]:after {
+            content: "";
+        }
+        pre,
+        blockquote {
+            border: 1px solid #999;
+            page-break-inside: avoid;
+        }
+        thead {
+            display: table-header-group;
+        }
+        tr,
+        img {
+            page-break-inside: avoid;
+        }
+        img {
+            max-width: 100% !important;
+        }
+        p,
+        h2,
+        h3 {
+            orphans: 3;
+            widows: 3;
+        }
+        h2,
+        h3 {
+            page-break-after: avoid;
+        }
+        select {
+            background: #fff !important;
+        }
+        .navbar {
+            display: none;
+        }
+        .table td,
+        .table th {
+            background-color: #fff !important;
+        }
+        .btn > .caret,
+        .dropup > .btn > .caret {
+            border-top-color: #000 !important;
+        }
+        .label {
+            border: 1px solid #000;
+        }
+        .table {
+            border-collapse: collapse !important;
+        }
+        .table-bordered th,
+        .table-bordered td {
+            border: 1px solid #ddd !important;
+        }
+    }
+    * {
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+    *:before,
+    *:after {
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+    html {
+        font-size: 62.5%;
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    }
+    body {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        line-height: 1.42857143;
+        color: #333333;
+        background-color: #ffffff;
+    }
+    input,
+    button,
+    select,
+    textarea {
+        font-family: inherit;
+        font-size: inherit;
+        line-height: inherit;
+    }
+    a {
+        color: #428bca;
+        text-decoration: none;
+    }
+    a:hover,
+    a:focus {
+        color: #2a6496;
+        text-decoration: underline;
+    }
+    a:focus {
+        outline: thin dotted;
+        outline: 5px auto -webkit-focus-ring-color;
+        outline-offset: -2px;
+    }
+    figure {
+        margin: 0;
+    }
+    img {
+        vertical-align: middle;
+    }
+    .img-responsive {
+        display: block;
+        max-width: 100%;
+        height: auto;
+    }
+    .img-rounded {
+        border-radius: 6px;
+    }
+    .img-thumbnail {
+        padding: 4px;
+        line-height: 1.42857143;
+        background-color: #ffffff;
+        border: 1px solid #dddddd;
+        border-radius: 4px;
+        -webkit-transition: all 0.2s ease-in-out;
+        transition: all 0.2s ease-in-out;
+        display: inline-block;
+        max-width: 100%;
+        height: auto;
+    }
+    .img-circle {
+        border-radius: 50%;
+    }
+    hr {
+        margin-top: 20px;
+        margin-bottom: 20px;
+        border: 0;
+        border-top: 1px solid #eeeeee;
+    }
+    .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        margin: -1px;
+        padding: 0;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        border: 0;
+    }
+    code,
+    kbd,
+    pre,
+    samp {
+        font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+    }
+    code {
+        padding: 2px 4px;
+        font-size: 90%;
+        color: #c7254e;
+        background-color: #f9f2f4;
+        white-space: nowrap;
+        border-radius: 4px;
+    }
+    kbd {
+        padding: 2px 4px;
+        font-size: 90%;
+        color: #ffffff;
+        background-color: #333333;
+        border-radius: 3px;
+        box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.25);
+    }
+    pre {
+        display: block;
+        padding: 9.5px;
+        margin: 0 0 10px;
+        font-size: 13px;
+        line-height: 1.42857143;
+        word-break: break-all;
+        word-wrap: break-word;
+        color: #333333;
+        background-color: #f5f5f5;
+        border: 1px solid #cccccc;
+        border-radius: 4px;
+    }
+    pre code {
+        padding: 0;
+        font-size: inherit;
+        color: inherit;
+        white-space: pre-wrap;
+        background-color: transparent;
+        border-radius: 0;
+    }
+    .pre-scrollable {
+        max-height: 340px;
+        overflow-y: scroll;
+    }
+    .container {
+        margin-right: auto;
+        margin-left: auto;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    @media (min-width: 768px) {
+        .container {
+            width: 750px;
+        }
+    }
+    @media (min-width: 992px) {
+        .container {
+            width: 970px;
+        }
+    }
+    @media (min-width: 1200px) {
+        .container {
+            width: 1170px;
+        }
+    }
+    .container-fluid {
+        margin-right: auto;
+        margin-left: auto;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    .row {
+        margin-left: -15px;
+        margin-right: -15px;
+    }
+    .col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 {
+        position: relative;
+        min-height: 1px;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    .col-xs-1, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9, .col-xs-10, .col-xs-11, .col-xs-12 {
+        float: left;
+    }
+    .col-xs-12 {
+        width: 100%;
+    }
+    .col-xs-11 {
+        width: 91.66666667%;
+    }
+    .col-xs-10 {
+        width: 83.33333333%;
+    }
+    .col-xs-9 {
+        width: 75%;
+    }
+    .col-xs-8 {
+        width: 66.66666667%;
+    }
+    .col-xs-7 {
+        width: 58.33333333%;
+    }
+    .col-xs-6 {
+        width: 50%;
+    }
+    .col-xs-5 {
+        width: 41.66666667%;
+    }
+    .col-xs-4 {
+        width: 33.33333333%;
+    }
+    .col-xs-3 {
+        width: 25%;
+    }
+    .col-xs-2 {
+        width: 16.66666667%;
+    }
+    .col-xs-1 {
+        width: 8.33333333%;
+    }
+    .col-xs-pull-12 {
+        right: 100%;
+    }
+    .col-xs-pull-11 {
+        right: 91.66666667%;
+    }
+    .col-xs-pull-10 {
+        right: 83.33333333%;
+    }
+    .col-xs-pull-9 {
+        right: 75%;
+    }
+    .col-xs-pull-8 {
+        right: 66.66666667%;
+    }
+    .col-xs-pull-7 {
+        right: 58.33333333%;
+    }
+    .col-xs-pull-6 {
+        right: 50%;
+    }
+    .col-xs-pull-5 {
+        right: 41.66666667%;
+    }
+    .col-xs-pull-4 {
+        right: 33.33333333%;
+    }
+    .col-xs-pull-3 {
+        right: 25%;
+    }
+    .col-xs-pull-2 {
+        right: 16.66666667%;
+    }
+    .col-xs-pull-1 {
+        right: 8.33333333%;
+    }
+    .col-xs-pull-0 {
+        right: 0%;
+    }
+    .col-xs-push-12 {
+        left: 100%;
+    }
+    .col-xs-push-11 {
+        left: 91.66666667%;
+    }
+    .col-xs-push-10 {
+        left: 83.33333333%;
+    }
+    .col-xs-push-9 {
+        left: 75%;
+    }
+    .col-xs-push-8 {
+        left: 66.66666667%;
+    }
+    .col-xs-push-7 {
+        left: 58.33333333%;
+    }
+    .col-xs-push-6 {
+        left: 50%;
+    }
+    .col-xs-push-5 {
+        left: 41.66666667%;
+    }
+    .col-xs-push-4 {
+        left: 33.33333333%;
+    }
+    .col-xs-push-3 {
+        left: 25%;
+    }
+    .col-xs-push-2 {
+        left: 16.66666667%;
+    }
+    .col-xs-push-1 {
+        left: 8.33333333%;
+    }
+    .col-xs-push-0 {
+        left: 0%;
+    }
+    .col-xs-offset-12 {
+        margin-left: 100%;
+    }
+    .col-xs-offset-11 {
+        margin-left: 91.66666667%;
+    }
+    .col-xs-offset-10 {
+        margin-left: 83.33333333%;
+    }
+    .col-xs-offset-9 {
+        margin-left: 75%;
+    }
+    .col-xs-offset-8 {
+        margin-left: 66.66666667%;
+    }
+    .col-xs-offset-7 {
+        margin-left: 58.33333333%;
+    }
+    .col-xs-offset-6 {
+        margin-left: 50%;
+    }
+    .col-xs-offset-5 {
+        margin-left: 41.66666667%;
+    }
+    .col-xs-offset-4 {
+        margin-left: 33.33333333%;
+    }
+    .col-xs-offset-3 {
+        margin-left: 25%;
+    }
+    .col-xs-offset-2 {
+        margin-left: 16.66666667%;
+    }
+    .col-xs-offset-1 {
+        margin-left: 8.33333333%;
+    }
+    .col-xs-offset-0 {
+        margin-left: 0%;
+    }
+    @media (min-width: 768px) {
+        .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12 {
+            float: left;
+        }
+        .col-sm-12 {
+            width: 100%;
+        }
+        .col-sm-11 {
+            width: 91.66666667%;
+        }
+        .col-sm-10 {
+            width: 83.33333333%;
+        }
+        .col-sm-9 {
+            width: 75%;
+        }
+        .col-sm-8 {
+            width: 66.66666667%;
+        }
+        .col-sm-7 {
+            width: 58.33333333%;
+        }
+        .col-sm-6 {
+            width: 50%;
+        }
+        .col-sm-5 {
+            width: 41.66666667%;
+        }
+        .col-sm-4 {
+            width: 33.33333333%;
+        }
+        .col-sm-3 {
+            width: 25%;
+        }
+        .col-sm-2 {
+            width: 16.66666667%;
+        }
+        .col-sm-1 {
+            width: 8.33333333%;
+        }
+        .col-sm-pull-12 {
+            right: 100%;
+        }
+        .col-sm-pull-11 {
+            right: 91.66666667%;
+        }
+        .col-sm-pull-10 {
+            right: 83.33333333%;
+        }
+        .col-sm-pull-9 {
+            right: 75%;
+        }
+        .col-sm-pull-8 {
+            right: 66.66666667%;
+        }
+        .col-sm-pull-7 {
+            right: 58.33333333%;
+        }
+        .col-sm-pull-6 {
+            right: 50%;
+        }
+        .col-sm-pull-5 {
+            right: 41.66666667%;
+        }
+        .col-sm-pull-4 {
+            right: 33.33333333%;
+        }
+        .col-sm-pull-3 {
+            right: 25%;
+        }
+        .col-sm-pull-2 {
+            right: 16.66666667%;
+        }
+        .col-sm-pull-1 {
+            right: 8.33333333%;
+        }
+        .col-sm-pull-0 {
+            right: 0%;
+        }
+        .col-sm-push-12 {
+            left: 100%;
+        }
+        .col-sm-push-11 {
+            left: 91.66666667%;
+        }
+        .col-sm-push-10 {
+            left: 83.33333333%;
+        }
+        .col-sm-push-9 {
+            left: 75%;
+        }
+        .col-sm-push-8 {
+            left: 66.66666667%;
+        }
+        .col-sm-push-7 {
+            left: 58.33333333%;
+        }
+        .col-sm-push-6 {
+            left: 50%;
+        }
+        .col-sm-push-5 {
+            left: 41.66666667%;
+        }
+        .col-sm-push-4 {
+            left: 33.33333333%;
+        }
+        .col-sm-push-3 {
+            left: 25%;
+        }
+        .col-sm-push-2 {
+            left: 16.66666667%;
+        }
+        .col-sm-push-1 {
+            left: 8.33333333%;
+        }
+        .col-sm-push-0 {
+            left: 0%;
+        }
+        .col-sm-offset-12 {
+            margin-left: 100%;
+        }
+        .col-sm-offset-11 {
+            margin-left: 91.66666667%;
+        }
+        .col-sm-offset-10 {
+            margin-left: 83.33333333%;
+        }
+        .col-sm-offset-9 {
+            margin-left: 75%;
+        }
+        .col-sm-offset-8 {
+            margin-left: 66.66666667%;
+        }
+        .col-sm-offset-7 {
+            margin-left: 58.33333333%;
+        }
+        .col-sm-offset-6 {
+            margin-left: 50%;
+        }
+        .col-sm-offset-5 {
+            margin-left: 41.66666667%;
+        }
+        .col-sm-offset-4 {
+            margin-left: 33.33333333%;
+        }
+        .col-sm-offset-3 {
+            margin-left: 25%;
+        }
+        .col-sm-offset-2 {
+            margin-left: 16.66666667%;
+        }
+        .col-sm-offset-1 {
+            margin-left: 8.33333333%;
+        }
+        .col-sm-offset-0 {
+            margin-left: 0%;
+        }
+    }
+    @media (min-width: 992px) {
+        .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12 {
+            float: left;
+        }
+        .col-md-12 {
+            width: 100%;
+        }
+        .col-md-11 {
+            width: 91.66666667%;
+        }
+        .col-md-10 {
+            width: 83.33333333%;
+        }
+        .col-md-9 {
+            width: 75%;
+        }
+        .col-md-8 {
+            width: 66.66666667%;
+        }
+        .col-md-7 {
+            width: 58.33333333%;
+        }
+        .col-md-6 {
+            width: 50%;
+        }
+        .col-md-5 {
+            width: 41.66666667%;
+        }
+        .col-md-4 {
+            width: 33.33333333%;
+        }
+        .col-md-3 {
+            width: 25%;
+        }
+        .col-md-2 {
+            width: 16.66666667%;
+        }
+        .col-md-1 {
+            width: 8.33333333%;
+        }
+        .col-md-pull-12 {
+            right: 100%;
+        }
+        .col-md-pull-11 {
+            right: 91.66666667%;
+        }
+        .col-md-pull-10 {
+            right: 83.33333333%;
+        }
+        .col-md-pull-9 {
+            right: 75%;
+        }
+        .col-md-pull-8 {
+            right: 66.66666667%;
+        }
+        .col-md-pull-7 {
+            right: 58.33333333%;
+        }
+        .col-md-pull-6 {
+            right: 50%;
+        }
+        .col-md-pull-5 {
+            right: 41.66666667%;
+        }
+        .col-md-pull-4 {
+            right: 33.33333333%;
+        }
+        .col-md-pull-3 {
+            right: 25%;
+        }
+        .col-md-pull-2 {
+            right: 16.66666667%;
+        }
+        .col-md-pull-1 {
+            right: 8.33333333%;
+        }
+        .col-md-pull-0 {
+            right: 0%;
+        }
+        .col-md-push-12 {
+            left: 100%;
+        }
+        .col-md-push-11 {
+            left: 91.66666667%;
+        }
+        .col-md-push-10 {
+            left: 83.33333333%;
+        }
+        .col-md-push-9 {
+            left: 75%;
+        }
+        .col-md-push-8 {
+            left: 66.66666667%;
+        }
+        .col-md-push-7 {
+            left: 58.33333333%;
+        }
+        .col-md-push-6 {
+            left: 50%;
+        }
+        .col-md-push-5 {
+            left: 41.66666667%;
+        }
+        .col-md-push-4 {
+            left: 33.33333333%;
+        }
+        .col-md-push-3 {
+            left: 25%;
+        }
+        .col-md-push-2 {
+            left: 16.66666667%;
+        }
+        .col-md-push-1 {
+            left: 8.33333333%;
+        }
+        .col-md-push-0 {
+            left: 0%;
+        }
+        .col-md-offset-12 {
+            margin-left: 100%;
+        }
+        .col-md-offset-11 {
+            margin-left: 91.66666667%;
+        }
+        .col-md-offset-10 {
+            margin-left: 83.33333333%;
+        }
+        .col-md-offset-9 {
+            margin-left: 75%;
+        }
+        .col-md-offset-8 {
+            margin-left: 66.66666667%;
+        }
+        .col-md-offset-7 {
+            margin-left: 58.33333333%;
+        }
+        .col-md-offset-6 {
+            margin-left: 50%;
+        }
+        .col-md-offset-5 {
+            margin-left: 41.66666667%;
+        }
+        .col-md-offset-4 {
+            margin-left: 33.33333333%;
+        }
+        .col-md-offset-3 {
+            margin-left: 25%;
+        }
+        .col-md-offset-2 {
+            margin-left: 16.66666667%;
+        }
+        .col-md-offset-1 {
+            margin-left: 8.33333333%;
+        }
+        .col-md-offset-0 {
+            margin-left: 0%;
+        }
+    }
+    @media (min-width: 1200px) {
+        .col-lg-1, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-10, .col-lg-11, .col-lg-12 {
+            float: left;
+        }
+        .col-lg-12 {
+            width: 100%;
+        }
+        .col-lg-11 {
+            width: 91.66666667%;
+        }
+        .col-lg-10 {
+            width: 83.33333333%;
+        }
+        .col-lg-9 {
+            width: 75%;
+        }
+        .col-lg-8 {
+            width: 66.66666667%;
+        }
+        .col-lg-7 {
+            width: 58.33333333%;
+        }
+        .col-lg-6 {
+            width: 50%;
+        }
+        .col-lg-5 {
+            width: 41.66666667%;
+        }
+        .col-lg-4 {
+            width: 33.33333333%;
+        }
+        .col-lg-3 {
+            width: 25%;
+        }
+        .col-lg-2 {
+            width: 16.66666667%;
+        }
+        .col-lg-1 {
+            width: 8.33333333%;
+        }
+        .col-lg-pull-12 {
+            right: 100%;
+        }
+        .col-lg-pull-11 {
+            right: 91.66666667%;
+        }
+        .col-lg-pull-10 {
+            right: 83.33333333%;
+        }
+        .col-lg-pull-9 {
+            right: 75%;
+        }
+        .col-lg-pull-8 {
+            right: 66.66666667%;
+        }
+        .col-lg-pull-7 {
+            right: 58.33333333%;
+        }
+        .col-lg-pull-6 {
+            right: 50%;
+        }
+        .col-lg-pull-5 {
+            right: 41.66666667%;
+        }
+        .col-lg-pull-4 {
+            right: 33.33333333%;
+        }
+        .col-lg-pull-3 {
+            right: 25%;
+        }
+        .col-lg-pull-2 {
+            right: 16.66666667%;
+        }
+        .col-lg-pull-1 {
+            right: 8.33333333%;
+        }
+        .col-lg-pull-0 {
+            right: 0%;
+        }
+        .col-lg-push-12 {
+            left: 100%;
+        }
+        .col-lg-push-11 {
+            left: 91.66666667%;
+        }
+        .col-lg-push-10 {
+            left: 83.33333333%;
+        }
+        .col-lg-push-9 {
+            left: 75%;
+        }
+        .col-lg-push-8 {
+            left: 66.66666667%;
+        }
+        .col-lg-push-7 {
+            left: 58.33333333%;
+        }
+        .col-lg-push-6 {
+            left: 50%;
+        }
+        .col-lg-push-5 {
+            left: 41.66666667%;
+        }
+        .col-lg-push-4 {
+            left: 33.33333333%;
+        }
+        .col-lg-push-3 {
+            left: 25%;
+        }
+        .col-lg-push-2 {
+            left: 16.66666667%;
+        }
+        .col-lg-push-1 {
+            left: 8.33333333%;
+        }
+        .col-lg-push-0 {
+            left: 0%;
+        }
+        .col-lg-offset-12 {
+            margin-left: 100%;
+        }
+        .col-lg-offset-11 {
+            margin-left: 91.66666667%;
+        }
+        .col-lg-offset-10 {
+            margin-left: 83.33333333%;
+        }
+        .col-lg-offset-9 {
+            margin-left: 75%;
+        }
+        .col-lg-offset-8 {
+            margin-left: 66.66666667%;
+        }
+        .col-lg-offset-7 {
+            margin-left: 58.33333333%;
+        }
+        .col-lg-offset-6 {
+            margin-left: 50%;
+        }
+        .col-lg-offset-5 {
+            margin-left: 41.66666667%;
+        }
+        .col-lg-offset-4 {
+            margin-left: 33.33333333%;
+        }
+        .col-lg-offset-3 {
+            margin-left: 25%;
+        }
+        .col-lg-offset-2 {
+            margin-left: 16.66666667%;
+        }
+        .col-lg-offset-1 {
+            margin-left: 8.33333333%;
+        }
+        .col-lg-offset-0 {
+            margin-left: 0%;
+        }
+    }
+    .clearfix:before,
+    .clearfix:after,
+    .container:before,
+    .container:after,
+    .container-fluid:before,
+    .container-fluid:after,
+    .row:before,
+    .row:after {
+        content: " ";
+        display: table;
+    }
+    .clearfix:after,
+    .container:after,
+    .container-fluid:after,
+    .row:after {
+        clear: both;
+    }
+    .center-block {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .pull-right {
+        float: right !important;
+    }
+    .pull-left {
+        float: left !important;
+    }
+    .hide {
+        display: none !important;
+    }
+    .show {
+        display: block !important;
+    }
+    .invisible {
+        visibility: hidden;
+    }
+    .text-hide {
+        font: 0/0 a;
+        color: transparent;
+        text-shadow: none;
+        background-color: transparent;
+        border: 0;
+    }
+    .hidden {
+        display: none !important;
+        visibility: hidden !important;
+    }
+    .affix {
+        position: fixed;
+    }
+    @-ms-viewport {
+        width: device-width;
+    }
+    .visible-xs,
+    .visible-sm,
+    .visible-md,
+    .visible-lg {
+        display: none !important;
+    }
+    @media (max-width: 767px) {
+        .visible-xs {
+            display: block !important;
+        }
+        table.visible-xs {
+            display: table;
+        }
+        tr.visible-xs {
+            display: table-row !important;
+        }
+        th.visible-xs,
+        td.visible-xs {
+            display: table-cell !important;
+        }
+    }
+    @media (min-width: 768px) and (max-width: 991px) {
+        .visible-sm {
+            display: block !important;
+        }
+        table.visible-sm {
+            display: table;
+        }
+        tr.visible-sm {
+            display: table-row !important;
+        }
+        th.visible-sm,
+        td.visible-sm {
+            display: table-cell !important;
+        }
+    }
+    @media (min-width: 992px) and (max-width: 1199px) {
+        .visible-md {
+            display: block !important;
+        }
+        table.visible-md {
+            display: table;
+        }
+        tr.visible-md {
+            display: table-row !important;
+        }
+        th.visible-md,
+        td.visible-md {
+            display: table-cell !important;
+        }
+    }
+    @media (min-width: 1200px) {
+        .visible-lg {
+            display: block !important;
+        }
+        table.visible-lg {
+            display: table;
+        }
+        tr.visible-lg {
+            display: table-row !important;
+        }
+        th.visible-lg,
+        td.visible-lg {
+            display: table-cell !important;
+        }
+    }
+    @media (max-width: 767px) {
+        .hidden-xs {
+            display: none !important;
+        }
+    }
+    @media (min-width: 768px) and (max-width: 991px) {
+        .hidden-sm {
+            display: none !important;
+        }
+    }
+    @media (min-width: 992px) and (max-width: 1199px) {
+        .hidden-md {
+            display: none !important;
+        }
+    }
+    @media (min-width: 1200px) {
+        .hidden-lg {
+            display: none !important;
+        }
+    }
+    .visible-print {
+        display: none !important;
+    }
+    @media print {
+        .visible-print {
+            display: block !important;
+        }
+        table.visible-print {
+            display: table;
+        }
+        tr.visible-print {
+            display: table-row !important;
+        }
+        th.visible-print,
+        td.visible-print {
+            display: table-cell !important;
+        }
+    }
+    @media print {
+        .hidden-print {
+            display: none !important;
+        }
+    }
+
+    h1{
+        color: #480 !important;
+    }
+
+    </style>
+</head>
+<body>
+<div class="container"><h1 id="udp-datagram-sockets">UDP / Datagram Sockets</h1>
+<pre><code>Stability: 3 - Stable
+</code></pre><!-- name=dgram -->
+
+<p>Datagram sockets are available through <code>require(&#39;dgram&#39;)</code>.</p>
+<p>Important note: the behavior of <code>dgram.Socket#bind()</code> has changed in v0.10
+and is always asynchronous now.  If you have code that looks like this:</p>
+<pre><code>var s = dgram.createSocket(&#39;udp4&#39;);
+s.bind(1234);
+s.addMembership(&#39;224.0.0.114&#39;);
+</code></pre><p>You have to change it to this:</p>
+<pre><code>var s = dgram.createSocket(&#39;udp4&#39;);
+s.bind(1234, function() {
+  s.addMembership(&#39;224.0.0.114&#39;);
+});
+</code></pre><h2 id="dgram-createsocket-type-callback-">dgram.createSocket(type, [callback])</h2>
+<ul>
+<li><code>type</code> String. Either &#39;udp4&#39; or &#39;udp6&#39;</li>
+<li><code>callback</code> Function. Attached as a listener to <code>message</code> events.
+Optional</li>
+<li>Returns: Socket object</li>
+</ul>
+<p>Creates a datagram Socket of the specified types.  Valid types are <code>udp4</code>
+and <code>udp6</code>.</p>
+<p>Takes an optional callback which is added as a listener for <code>message</code> events.</p>
+<p>Call <code>socket.bind</code> if you want to receive datagrams. <code>socket.bind()</code> will bind
+to the &quot;all interfaces&quot; address on a random port (it does the right thing for
+both <code>udp4</code> and <code>udp6</code> sockets). You can then retrieve the address and port
+with <code>socket.address().address</code> and <code>socket.address().port</code>.</p>
+<h2 id="class-dgram-socket">Class: dgram.Socket</h2>
+<p>The dgram Socket class encapsulates the datagram functionality.  It
+should be created via <code>dgram.createSocket(type, [callback])</code>.</p>
+<h3 id="event-message-">Event: &#39;message&#39;</h3>
+<ul>
+<li><code>msg</code> Buffer object. The message</li>
+<li><code>rinfo</code> Object. Remote address information</li>
+</ul>
+<p>Emitted when a new datagram is available on a socket.  <code>msg</code> is a <code>Buffer</code> and
+<code>rinfo</code> is an object with the sender&#39;s address information:</p>
+<pre><code>socket.on(&#39;message&#39;, function(msg, rinfo) {
+  console.log(&#39;Received %d bytes from %s:%d\n&#39;,
+              msg.length, rinfo.address, rinfo.port);
+});
+</code></pre><h3 id="event-listening-">Event: &#39;listening&#39;</h3>
+<p>Emitted when a socket starts listening for datagrams.  This happens as soon as UDP sockets
+are created.</p>
+<h3 id="event-close-">Event: &#39;close&#39;</h3>
+<p>Emitted when a socket is closed with <code>close()</code>.  No new <code>message</code> events will be emitted
+on this socket.</p>
+<h3 id="event-error-">Event: &#39;error&#39;</h3>
+<ul>
+<li><code>exception</code> Error object</li>
+</ul>
+<p>Emitted when an error occurs.</p>
+<h3 id="socket-send-buf-offset-length-port-address-callback-">socket.send(buf, offset, length, port, address, [callback])</h3>
+<ul>
+<li><code>buf</code> Buffer object or string.  Message to be sent</li>
+<li><code>offset</code> Integer. Offset in the buffer where the message starts.</li>
+<li><code>length</code> Integer. Number of bytes in the message.</li>
+<li><code>port</code> Integer. Destination port.</li>
+<li><code>address</code> String. Destination hostname or IP address.</li>
+<li><code>callback</code> Function. Called when the message has been sent. Optional.</li>
+</ul>
+<p>For UDP sockets, the destination port and address must be specified.  A string
+may be supplied for the <code>address</code> parameter, and it will be resolved with DNS.</p>
+<p>If the address is omitted or is an empty string, <code>&#39;0.0.0.0&#39;</code> or <code>&#39;::0&#39;</code> is used
+instead.  Depending on the network configuration, those defaults may or may not
+work; it&#39;s best to be explicit about the destination address.</p>
+<p>If the socket has not been previously bound with a call to <code>bind</code>, it gets
+assigned a random port number and is bound to the &quot;all interfaces&quot; address
+(<code>&#39;0.0.0.0&#39;</code> for <code>udp4</code> sockets, <code>&#39;::0&#39;</code> for <code>udp6</code> sockets.)</p>
+<p>An optional callback may be specified to detect DNS errors or for determining
+when it&#39;s safe to reuse the <code>buf</code> object.  Note that DNS lookups delay the time
+to send for at least one tick.  The only way to know for sure that the datagram
+has been sent is by using a callback.</p>
+<p>With consideration for multi-byte characters, <code>offset</code> and <code>length</code> will
+be calculated with respect to
+<a href="buffer.html#buffer_class_method_buffer_bytelength_string_encoding">byte length</a>
+and not the character position.</p>
+<p>Example of sending a UDP packet to a random port on <code>localhost</code>;</p>
+<pre><code>var dgram = require(&#39;dgram&#39;);
+var message = new Buffer(&quot;Some bytes&quot;);
+var client = dgram.createSocket(&quot;udp4&quot;);
+client.send(message, 0, message.length, 41234, &quot;localhost&quot;, function(err) {
+  client.close();
+});
+</code></pre><p><strong>A Note about UDP datagram size</strong></p>
+<p>The maximum size of an <code>IPv4/v6</code> datagram depends on the <code>MTU</code> (<em>Maximum Transmission Unit</em>)
+and on the <code>Payload Length</code> field size.</p>
+<ul>
+<li><p>The <code>Payload Length</code> field is <code>16 bits</code> wide, which means that a normal payload
+cannot be larger than 64K octets including internet header and data
+(65,507 bytes = 65,535 − 8 bytes UDP header − 20 bytes IP header);
+this is generally true for loopback interfaces, but such long datagrams
+are impractical for most hosts and networks.</p>
+</li>
+<li><p>The <code>MTU</code> is the largest size a given link layer technology can support for datagrams.
+For any link, <code>IPv4</code> mandates a minimum <code>MTU</code> of <code>68</code> octets, while the recommended <code>MTU</code>
+for IPv4 is <code>576</code> (typically recommended as the <code>MTU</code> for dial-up type applications),
+whether they arrive whole or in fragments.</p>
+<p>For <code>IPv6</code>, the minimum <code>MTU</code> is <code>1280</code> octets, however, the mandatory minimum
+fragment reassembly buffer size is <code>1500</code> octets.
+The value of <code>68</code> octets is very small, since most current link layer technologies have
+a minimum <code>MTU</code> of <code>1500</code> (like Ethernet).</p>
+</li>
+</ul>
+<p>Note that it&#39;s impossible to know in advance the MTU of each link through which
+a packet might travel, and that generally sending a datagram greater than
+the (receiver) <code>MTU</code> won&#39;t work (the packet gets silently dropped, without
+informing the source that the data did not reach its intended recipient).</p>
+<h3 id="socket-bind-port-address-callback-">socket.bind(port, [address], [callback])</h3>
+<ul>
+<li><code>port</code> Integer</li>
+<li><code>address</code> String, Optional</li>
+<li><code>callback</code> Function with no parameters, Optional. Callback when
+binding is done.</li>
+</ul>
+<p>For UDP sockets, listen for datagrams on a named <code>port</code> and optional
+<code>address</code>. If <code>address</code> is not specified, the OS will try to listen on
+all addresses.  After binding is done, a &quot;listening&quot; event is emitted
+and the <code>callback</code>(if specified) is called. Specifying both a
+&quot;listening&quot; event listener and <code>callback</code> is not harmful but not very
+useful.</p>
+<p>A bound datagram socket keeps the node process running to receive
+datagrams.</p>
+<p>If binding fails, an &quot;error&quot; event is generated. In rare case (e.g.
+binding a closed socket), an <code>Error</code> may be thrown by this method.</p>
+<p>Example of a UDP server listening on port 41234:</p>
+<pre><code>var dgram = require(&quot;dgram&quot;);
+
+var server = dgram.createSocket(&quot;udp4&quot;);
+
+server.on(&quot;error&quot;, function (err) {
+  console.log(&quot;server error:\n&quot; + err.stack);
+  server.close();
+});
+
+server.on(&quot;message&quot;, function (msg, rinfo) {
+  console.log(&quot;server got: &quot; + msg + &quot; from &quot; +
+    rinfo.address + &quot;:&quot; + rinfo.port);
+});
+
+server.on(&quot;listening&quot;, function () {
+  var address = server.address();
+  console.log(&quot;server listening &quot; +
+      address.address + &quot;:&quot; + address.port);
+});
+
+server.bind(41234);
+// server listening 0.0.0.0:41234
+</code></pre><h3 id="socket-close-">socket.close()</h3>
+<p>Close the underlying socket and stop listening for data on it.</p>
+<h3 id="socket-address-">socket.address()</h3>
+<p>Returns an object containing the address information for a socket.  For UDP sockets,
+this object will contain <code>address</code> , <code>family</code> and <code>port</code>.</p>
+<h3 id="socket-setbroadcast-flag-">socket.setBroadcast(flag)</h3>
+<ul>
+<li><code>flag</code> Boolean</li>
+</ul>
+<p>Sets or clears the <code>SO_BROADCAST</code> socket option.  When this option is set, UDP packets
+may be sent to a local interface&#39;s broadcast address.</p>
+<h3 id="socket-setttl-ttl-">socket.setTTL(ttl)</h3>
+<ul>
+<li><code>ttl</code> Integer</li>
+</ul>
+<p>Sets the <code>IP_TTL</code> socket option.  TTL stands for &quot;Time to Live,&quot; but in this context it
+specifies the number of IP hops that a packet is allowed to go through.  Each router or
+gateway that forwards a packet decrements the TTL.  If the TTL is decremented to 0 by a
+router, it will not be forwarded.  Changing TTL values is typically done for network
+probes or when multicasting.</p>
+<p>The argument to <code>setTTL()</code> is a number of hops between 1 and 255.  The default on most
+systems is 64.</p>
+<h3 id="socket-setmulticastttl-ttl-">socket.setMulticastTTL(ttl)</h3>
+<ul>
+<li><code>ttl</code> Integer</li>
+</ul>
+<p>Sets the <code>IP_MULTICAST_TTL</code> socket option.  TTL stands for &quot;Time to Live,&quot; but in this
+context it specifies the number of IP hops that a packet is allowed to go through,
+specifically for multicast traffic.  Each router or gateway that forwards a packet
+decrements the TTL. If the TTL is decremented to 0 by a router, it will not be forwarded.</p>
+<p>The argument to <code>setMulticastTTL()</code> is a number of hops between 0 and 255.  The default on most
+systems is 1.</p>
+<h3 id="socket-setmulticastloopback-flag-">socket.setMulticastLoopback(flag)</h3>
+<ul>
+<li><code>flag</code> Boolean</li>
+</ul>
+<p>Sets or clears the <code>IP_MULTICAST_LOOP</code> socket option.  When this option is set, multicast
+packets will also be received on the local interface.</p>
+<h3 id="socket-addmembership-multicastaddress-multicastinterface-">socket.addMembership(multicastAddress, [multicastInterface])</h3>
+<ul>
+<li><code>multicastAddress</code> String</li>
+<li><code>multicastInterface</code> String, Optional</li>
+</ul>
+<p>Tells the kernel to join a multicast group with <code>IP_ADD_MEMBERSHIP</code> socket option.</p>
+<p>If <code>multicastInterface</code> is not specified, the OS will try to add membership to all valid
+interfaces.</p>
+<h3 id="socket-dropmembership-multicastaddress-multicastinterface-">socket.dropMembership(multicastAddress, [multicastInterface])</h3>
+<ul>
+<li><code>multicastAddress</code> String</li>
+<li><code>multicastInterface</code> String, Optional</li>
+</ul>
+<p>Opposite of <code>addMembership</code> - tells the kernel to leave a multicast group with
+<code>IP_DROP_MEMBERSHIP</code> socket option. This is automatically called by the kernel
+when the socket is closed or process terminates, so most apps will never need to call
+this.</p>
+<p>If <code>multicastInterface</code> is not specified, the OS will try to drop membership to all valid
+interfaces.</p>
+<h3 id="socket-unref-">socket.unref()</h3>
+<p>Calling <code>unref</code> on a socket will allow the program to exit if this is the only
+active socket in the event system. If the socket is already <code>unref</code>d calling
+<code>unref</code> again will have no effect.</p>
+<h3 id="socket-ref-">socket.ref()</h3>
+<p>Opposite of <code>unref</code>, calling <code>ref</code> on a previously <code>unref</code>d socket will <em>not</em>
+let the program exit if it&#39;s the only socket left (the default behavior). If
+the socket is <code>ref</code>d calling <code>ref</code> again will have no effect.</p>
+</div>
+</body>
+</html>

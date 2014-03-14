@@ -1,0 +1,1640 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modules</title>
+    <style type="text/css">
+    /*!
+* Bootstrap v3.1.1 (http://getbootstrap.com)
+* Copyright 2011-2014 Twitter, Inc.
+* Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+*/
+
+    /*! normalize.css v3.0.0 | MIT License | git.io/normalize */
+    html {
+        font-family: sans-serif;
+        -ms-text-size-adjust: 100%;
+        -webkit-text-size-adjust: 100%;
+    }
+    body {
+        margin: 0;
+    }
+    article,
+    aside,
+    details,
+    figcaption,
+    figure,
+    footer,
+    header,
+    hgroup,
+    main,
+    nav,
+    section,
+    summary {
+        display: block;
+    }
+    audio,
+    canvas,
+    progress,
+    video {
+        display: inline-block;
+        vertical-align: baseline;
+    }
+    audio:not([controls]) {
+        display: none;
+        height: 0;
+    }
+    [hidden],
+    template {
+        display: none;
+    }
+    a {
+        background: transparent;
+    }
+    a:active,
+    a:hover {
+        outline: 0;
+    }
+    abbr[title] {
+        border-bottom: 1px dotted;
+    }
+    b,
+    strong {
+        font-weight: bold;
+    }
+    dfn {
+        font-style: italic;
+    }
+    h1 {
+        font-size: 2em;
+        margin: 0.67em 0;
+    }
+    mark {
+        background: #ff0;
+        color: #000;
+    }
+    small {
+        font-size: 80%;
+    }
+    sub,
+    sup {
+        font-size: 75%;
+        line-height: 0;
+        position: relative;
+        vertical-align: baseline;
+    }
+    sup {
+        top: -0.5em;
+    }
+    sub {
+        bottom: -0.25em;
+    }
+    img {
+        border: 0;
+    }
+    svg:not(:root) {
+        overflow: hidden;
+    }
+    figure {
+        margin: 1em 40px;
+    }
+    hr {
+        -moz-box-sizing: content-box;
+        box-sizing: content-box;
+        height: 0;
+    }
+    pre {
+        overflow: auto;
+    }
+    code,
+    kbd,
+    pre,
+    samp {
+        font-family: monospace, monospace;
+        font-size: 1em;
+    }
+    button,
+    input,
+    optgroup,
+    select,
+    textarea {
+        color: inherit;
+        font: inherit;
+        margin: 0;
+    }
+    button {
+        overflow: visible;
+    }
+    button,
+    select {
+        text-transform: none;
+    }
+    button,
+    html input[type="button"],
+    input[type="reset"],
+    input[type="submit"] {
+        -webkit-appearance: button;
+        cursor: pointer;
+    }
+    button[disabled],
+    html input[disabled] {
+        cursor: default;
+    }
+    button::-moz-focus-inner,
+    input::-moz-focus-inner {
+        border: 0;
+        padding: 0;
+    }
+    input {
+        line-height: normal;
+    }
+    input[type="checkbox"],
+    input[type="radio"] {
+        box-sizing: border-box;
+        padding: 0;
+    }
+    input[type="number"]::-webkit-inner-spin-button,
+    input[type="number"]::-webkit-outer-spin-button {
+        height: auto;
+    }
+    input[type="search"] {
+        -webkit-appearance: textfield;
+        -moz-box-sizing: content-box;
+        -webkit-box-sizing: content-box;
+        box-sizing: content-box;
+    }
+    input[type="search"]::-webkit-search-cancel-button,
+    input[type="search"]::-webkit-search-decoration {
+        -webkit-appearance: none;
+    }
+    fieldset {
+        border: 1px solid #c0c0c0;
+        margin: 0 2px;
+        padding: 0.35em 0.625em 0.75em;
+    }
+    legend {
+        border: 0;
+        padding: 0;
+    }
+    textarea {
+        overflow: auto;
+    }
+    optgroup {
+        font-weight: bold;
+    }
+    table {
+        border-collapse: collapse;
+        border-spacing: 0;
+    }
+    td,
+    th {
+        padding: 0;
+    }
+    @media print {
+        * {
+            text-shadow: none !important;
+            color: #000 !important;
+            background: transparent !important;
+            box-shadow: none !important;
+        }
+        a,
+        a:visited {
+            text-decoration: underline;
+        }
+        a[href]:after {
+            content: " (" attr(href) ")";
+        }
+        abbr[title]:after {
+            content: " (" attr(title) ")";
+        }
+        a[href^="javascript:"]:after,
+        a[href^="#"]:after {
+            content: "";
+        }
+        pre,
+        blockquote {
+            border: 1px solid #999;
+            page-break-inside: avoid;
+        }
+        thead {
+            display: table-header-group;
+        }
+        tr,
+        img {
+            page-break-inside: avoid;
+        }
+        img {
+            max-width: 100% !important;
+        }
+        p,
+        h2,
+        h3 {
+            orphans: 3;
+            widows: 3;
+        }
+        h2,
+        h3 {
+            page-break-after: avoid;
+        }
+        select {
+            background: #fff !important;
+        }
+        .navbar {
+            display: none;
+        }
+        .table td,
+        .table th {
+            background-color: #fff !important;
+        }
+        .btn > .caret,
+        .dropup > .btn > .caret {
+            border-top-color: #000 !important;
+        }
+        .label {
+            border: 1px solid #000;
+        }
+        .table {
+            border-collapse: collapse !important;
+        }
+        .table-bordered th,
+        .table-bordered td {
+            border: 1px solid #ddd !important;
+        }
+    }
+    * {
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+    *:before,
+    *:after {
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+    html {
+        font-size: 62.5%;
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    }
+    body {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        line-height: 1.42857143;
+        color: #333333;
+        background-color: #ffffff;
+    }
+    input,
+    button,
+    select,
+    textarea {
+        font-family: inherit;
+        font-size: inherit;
+        line-height: inherit;
+    }
+    a {
+        color: #428bca;
+        text-decoration: none;
+    }
+    a:hover,
+    a:focus {
+        color: #2a6496;
+        text-decoration: underline;
+    }
+    a:focus {
+        outline: thin dotted;
+        outline: 5px auto -webkit-focus-ring-color;
+        outline-offset: -2px;
+    }
+    figure {
+        margin: 0;
+    }
+    img {
+        vertical-align: middle;
+    }
+    .img-responsive {
+        display: block;
+        max-width: 100%;
+        height: auto;
+    }
+    .img-rounded {
+        border-radius: 6px;
+    }
+    .img-thumbnail {
+        padding: 4px;
+        line-height: 1.42857143;
+        background-color: #ffffff;
+        border: 1px solid #dddddd;
+        border-radius: 4px;
+        -webkit-transition: all 0.2s ease-in-out;
+        transition: all 0.2s ease-in-out;
+        display: inline-block;
+        max-width: 100%;
+        height: auto;
+    }
+    .img-circle {
+        border-radius: 50%;
+    }
+    hr {
+        margin-top: 20px;
+        margin-bottom: 20px;
+        border: 0;
+        border-top: 1px solid #eeeeee;
+    }
+    .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        margin: -1px;
+        padding: 0;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        border: 0;
+    }
+    code,
+    kbd,
+    pre,
+    samp {
+        font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+    }
+    code {
+        padding: 2px 4px;
+        font-size: 90%;
+        color: #c7254e;
+        background-color: #f9f2f4;
+        white-space: nowrap;
+        border-radius: 4px;
+    }
+    kbd {
+        padding: 2px 4px;
+        font-size: 90%;
+        color: #ffffff;
+        background-color: #333333;
+        border-radius: 3px;
+        box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.25);
+    }
+    pre {
+        display: block;
+        padding: 9.5px;
+        margin: 0 0 10px;
+        font-size: 13px;
+        line-height: 1.42857143;
+        word-break: break-all;
+        word-wrap: break-word;
+        color: #333333;
+        background-color: #f5f5f5;
+        border: 1px solid #cccccc;
+        border-radius: 4px;
+    }
+    pre code {
+        padding: 0;
+        font-size: inherit;
+        color: inherit;
+        white-space: pre-wrap;
+        background-color: transparent;
+        border-radius: 0;
+    }
+    .pre-scrollable {
+        max-height: 340px;
+        overflow-y: scroll;
+    }
+    .container {
+        margin-right: auto;
+        margin-left: auto;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    @media (min-width: 768px) {
+        .container {
+            width: 750px;
+        }
+    }
+    @media (min-width: 992px) {
+        .container {
+            width: 970px;
+        }
+    }
+    @media (min-width: 1200px) {
+        .container {
+            width: 1170px;
+        }
+    }
+    .container-fluid {
+        margin-right: auto;
+        margin-left: auto;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    .row {
+        margin-left: -15px;
+        margin-right: -15px;
+    }
+    .col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 {
+        position: relative;
+        min-height: 1px;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    .col-xs-1, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9, .col-xs-10, .col-xs-11, .col-xs-12 {
+        float: left;
+    }
+    .col-xs-12 {
+        width: 100%;
+    }
+    .col-xs-11 {
+        width: 91.66666667%;
+    }
+    .col-xs-10 {
+        width: 83.33333333%;
+    }
+    .col-xs-9 {
+        width: 75%;
+    }
+    .col-xs-8 {
+        width: 66.66666667%;
+    }
+    .col-xs-7 {
+        width: 58.33333333%;
+    }
+    .col-xs-6 {
+        width: 50%;
+    }
+    .col-xs-5 {
+        width: 41.66666667%;
+    }
+    .col-xs-4 {
+        width: 33.33333333%;
+    }
+    .col-xs-3 {
+        width: 25%;
+    }
+    .col-xs-2 {
+        width: 16.66666667%;
+    }
+    .col-xs-1 {
+        width: 8.33333333%;
+    }
+    .col-xs-pull-12 {
+        right: 100%;
+    }
+    .col-xs-pull-11 {
+        right: 91.66666667%;
+    }
+    .col-xs-pull-10 {
+        right: 83.33333333%;
+    }
+    .col-xs-pull-9 {
+        right: 75%;
+    }
+    .col-xs-pull-8 {
+        right: 66.66666667%;
+    }
+    .col-xs-pull-7 {
+        right: 58.33333333%;
+    }
+    .col-xs-pull-6 {
+        right: 50%;
+    }
+    .col-xs-pull-5 {
+        right: 41.66666667%;
+    }
+    .col-xs-pull-4 {
+        right: 33.33333333%;
+    }
+    .col-xs-pull-3 {
+        right: 25%;
+    }
+    .col-xs-pull-2 {
+        right: 16.66666667%;
+    }
+    .col-xs-pull-1 {
+        right: 8.33333333%;
+    }
+    .col-xs-pull-0 {
+        right: 0%;
+    }
+    .col-xs-push-12 {
+        left: 100%;
+    }
+    .col-xs-push-11 {
+        left: 91.66666667%;
+    }
+    .col-xs-push-10 {
+        left: 83.33333333%;
+    }
+    .col-xs-push-9 {
+        left: 75%;
+    }
+    .col-xs-push-8 {
+        left: 66.66666667%;
+    }
+    .col-xs-push-7 {
+        left: 58.33333333%;
+    }
+    .col-xs-push-6 {
+        left: 50%;
+    }
+    .col-xs-push-5 {
+        left: 41.66666667%;
+    }
+    .col-xs-push-4 {
+        left: 33.33333333%;
+    }
+    .col-xs-push-3 {
+        left: 25%;
+    }
+    .col-xs-push-2 {
+        left: 16.66666667%;
+    }
+    .col-xs-push-1 {
+        left: 8.33333333%;
+    }
+    .col-xs-push-0 {
+        left: 0%;
+    }
+    .col-xs-offset-12 {
+        margin-left: 100%;
+    }
+    .col-xs-offset-11 {
+        margin-left: 91.66666667%;
+    }
+    .col-xs-offset-10 {
+        margin-left: 83.33333333%;
+    }
+    .col-xs-offset-9 {
+        margin-left: 75%;
+    }
+    .col-xs-offset-8 {
+        margin-left: 66.66666667%;
+    }
+    .col-xs-offset-7 {
+        margin-left: 58.33333333%;
+    }
+    .col-xs-offset-6 {
+        margin-left: 50%;
+    }
+    .col-xs-offset-5 {
+        margin-left: 41.66666667%;
+    }
+    .col-xs-offset-4 {
+        margin-left: 33.33333333%;
+    }
+    .col-xs-offset-3 {
+        margin-left: 25%;
+    }
+    .col-xs-offset-2 {
+        margin-left: 16.66666667%;
+    }
+    .col-xs-offset-1 {
+        margin-left: 8.33333333%;
+    }
+    .col-xs-offset-0 {
+        margin-left: 0%;
+    }
+    @media (min-width: 768px) {
+        .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12 {
+            float: left;
+        }
+        .col-sm-12 {
+            width: 100%;
+        }
+        .col-sm-11 {
+            width: 91.66666667%;
+        }
+        .col-sm-10 {
+            width: 83.33333333%;
+        }
+        .col-sm-9 {
+            width: 75%;
+        }
+        .col-sm-8 {
+            width: 66.66666667%;
+        }
+        .col-sm-7 {
+            width: 58.33333333%;
+        }
+        .col-sm-6 {
+            width: 50%;
+        }
+        .col-sm-5 {
+            width: 41.66666667%;
+        }
+        .col-sm-4 {
+            width: 33.33333333%;
+        }
+        .col-sm-3 {
+            width: 25%;
+        }
+        .col-sm-2 {
+            width: 16.66666667%;
+        }
+        .col-sm-1 {
+            width: 8.33333333%;
+        }
+        .col-sm-pull-12 {
+            right: 100%;
+        }
+        .col-sm-pull-11 {
+            right: 91.66666667%;
+        }
+        .col-sm-pull-10 {
+            right: 83.33333333%;
+        }
+        .col-sm-pull-9 {
+            right: 75%;
+        }
+        .col-sm-pull-8 {
+            right: 66.66666667%;
+        }
+        .col-sm-pull-7 {
+            right: 58.33333333%;
+        }
+        .col-sm-pull-6 {
+            right: 50%;
+        }
+        .col-sm-pull-5 {
+            right: 41.66666667%;
+        }
+        .col-sm-pull-4 {
+            right: 33.33333333%;
+        }
+        .col-sm-pull-3 {
+            right: 25%;
+        }
+        .col-sm-pull-2 {
+            right: 16.66666667%;
+        }
+        .col-sm-pull-1 {
+            right: 8.33333333%;
+        }
+        .col-sm-pull-0 {
+            right: 0%;
+        }
+        .col-sm-push-12 {
+            left: 100%;
+        }
+        .col-sm-push-11 {
+            left: 91.66666667%;
+        }
+        .col-sm-push-10 {
+            left: 83.33333333%;
+        }
+        .col-sm-push-9 {
+            left: 75%;
+        }
+        .col-sm-push-8 {
+            left: 66.66666667%;
+        }
+        .col-sm-push-7 {
+            left: 58.33333333%;
+        }
+        .col-sm-push-6 {
+            left: 50%;
+        }
+        .col-sm-push-5 {
+            left: 41.66666667%;
+        }
+        .col-sm-push-4 {
+            left: 33.33333333%;
+        }
+        .col-sm-push-3 {
+            left: 25%;
+        }
+        .col-sm-push-2 {
+            left: 16.66666667%;
+        }
+        .col-sm-push-1 {
+            left: 8.33333333%;
+        }
+        .col-sm-push-0 {
+            left: 0%;
+        }
+        .col-sm-offset-12 {
+            margin-left: 100%;
+        }
+        .col-sm-offset-11 {
+            margin-left: 91.66666667%;
+        }
+        .col-sm-offset-10 {
+            margin-left: 83.33333333%;
+        }
+        .col-sm-offset-9 {
+            margin-left: 75%;
+        }
+        .col-sm-offset-8 {
+            margin-left: 66.66666667%;
+        }
+        .col-sm-offset-7 {
+            margin-left: 58.33333333%;
+        }
+        .col-sm-offset-6 {
+            margin-left: 50%;
+        }
+        .col-sm-offset-5 {
+            margin-left: 41.66666667%;
+        }
+        .col-sm-offset-4 {
+            margin-left: 33.33333333%;
+        }
+        .col-sm-offset-3 {
+            margin-left: 25%;
+        }
+        .col-sm-offset-2 {
+            margin-left: 16.66666667%;
+        }
+        .col-sm-offset-1 {
+            margin-left: 8.33333333%;
+        }
+        .col-sm-offset-0 {
+            margin-left: 0%;
+        }
+    }
+    @media (min-width: 992px) {
+        .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12 {
+            float: left;
+        }
+        .col-md-12 {
+            width: 100%;
+        }
+        .col-md-11 {
+            width: 91.66666667%;
+        }
+        .col-md-10 {
+            width: 83.33333333%;
+        }
+        .col-md-9 {
+            width: 75%;
+        }
+        .col-md-8 {
+            width: 66.66666667%;
+        }
+        .col-md-7 {
+            width: 58.33333333%;
+        }
+        .col-md-6 {
+            width: 50%;
+        }
+        .col-md-5 {
+            width: 41.66666667%;
+        }
+        .col-md-4 {
+            width: 33.33333333%;
+        }
+        .col-md-3 {
+            width: 25%;
+        }
+        .col-md-2 {
+            width: 16.66666667%;
+        }
+        .col-md-1 {
+            width: 8.33333333%;
+        }
+        .col-md-pull-12 {
+            right: 100%;
+        }
+        .col-md-pull-11 {
+            right: 91.66666667%;
+        }
+        .col-md-pull-10 {
+            right: 83.33333333%;
+        }
+        .col-md-pull-9 {
+            right: 75%;
+        }
+        .col-md-pull-8 {
+            right: 66.66666667%;
+        }
+        .col-md-pull-7 {
+            right: 58.33333333%;
+        }
+        .col-md-pull-6 {
+            right: 50%;
+        }
+        .col-md-pull-5 {
+            right: 41.66666667%;
+        }
+        .col-md-pull-4 {
+            right: 33.33333333%;
+        }
+        .col-md-pull-3 {
+            right: 25%;
+        }
+        .col-md-pull-2 {
+            right: 16.66666667%;
+        }
+        .col-md-pull-1 {
+            right: 8.33333333%;
+        }
+        .col-md-pull-0 {
+            right: 0%;
+        }
+        .col-md-push-12 {
+            left: 100%;
+        }
+        .col-md-push-11 {
+            left: 91.66666667%;
+        }
+        .col-md-push-10 {
+            left: 83.33333333%;
+        }
+        .col-md-push-9 {
+            left: 75%;
+        }
+        .col-md-push-8 {
+            left: 66.66666667%;
+        }
+        .col-md-push-7 {
+            left: 58.33333333%;
+        }
+        .col-md-push-6 {
+            left: 50%;
+        }
+        .col-md-push-5 {
+            left: 41.66666667%;
+        }
+        .col-md-push-4 {
+            left: 33.33333333%;
+        }
+        .col-md-push-3 {
+            left: 25%;
+        }
+        .col-md-push-2 {
+            left: 16.66666667%;
+        }
+        .col-md-push-1 {
+            left: 8.33333333%;
+        }
+        .col-md-push-0 {
+            left: 0%;
+        }
+        .col-md-offset-12 {
+            margin-left: 100%;
+        }
+        .col-md-offset-11 {
+            margin-left: 91.66666667%;
+        }
+        .col-md-offset-10 {
+            margin-left: 83.33333333%;
+        }
+        .col-md-offset-9 {
+            margin-left: 75%;
+        }
+        .col-md-offset-8 {
+            margin-left: 66.66666667%;
+        }
+        .col-md-offset-7 {
+            margin-left: 58.33333333%;
+        }
+        .col-md-offset-6 {
+            margin-left: 50%;
+        }
+        .col-md-offset-5 {
+            margin-left: 41.66666667%;
+        }
+        .col-md-offset-4 {
+            margin-left: 33.33333333%;
+        }
+        .col-md-offset-3 {
+            margin-left: 25%;
+        }
+        .col-md-offset-2 {
+            margin-left: 16.66666667%;
+        }
+        .col-md-offset-1 {
+            margin-left: 8.33333333%;
+        }
+        .col-md-offset-0 {
+            margin-left: 0%;
+        }
+    }
+    @media (min-width: 1200px) {
+        .col-lg-1, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-10, .col-lg-11, .col-lg-12 {
+            float: left;
+        }
+        .col-lg-12 {
+            width: 100%;
+        }
+        .col-lg-11 {
+            width: 91.66666667%;
+        }
+        .col-lg-10 {
+            width: 83.33333333%;
+        }
+        .col-lg-9 {
+            width: 75%;
+        }
+        .col-lg-8 {
+            width: 66.66666667%;
+        }
+        .col-lg-7 {
+            width: 58.33333333%;
+        }
+        .col-lg-6 {
+            width: 50%;
+        }
+        .col-lg-5 {
+            width: 41.66666667%;
+        }
+        .col-lg-4 {
+            width: 33.33333333%;
+        }
+        .col-lg-3 {
+            width: 25%;
+        }
+        .col-lg-2 {
+            width: 16.66666667%;
+        }
+        .col-lg-1 {
+            width: 8.33333333%;
+        }
+        .col-lg-pull-12 {
+            right: 100%;
+        }
+        .col-lg-pull-11 {
+            right: 91.66666667%;
+        }
+        .col-lg-pull-10 {
+            right: 83.33333333%;
+        }
+        .col-lg-pull-9 {
+            right: 75%;
+        }
+        .col-lg-pull-8 {
+            right: 66.66666667%;
+        }
+        .col-lg-pull-7 {
+            right: 58.33333333%;
+        }
+        .col-lg-pull-6 {
+            right: 50%;
+        }
+        .col-lg-pull-5 {
+            right: 41.66666667%;
+        }
+        .col-lg-pull-4 {
+            right: 33.33333333%;
+        }
+        .col-lg-pull-3 {
+            right: 25%;
+        }
+        .col-lg-pull-2 {
+            right: 16.66666667%;
+        }
+        .col-lg-pull-1 {
+            right: 8.33333333%;
+        }
+        .col-lg-pull-0 {
+            right: 0%;
+        }
+        .col-lg-push-12 {
+            left: 100%;
+        }
+        .col-lg-push-11 {
+            left: 91.66666667%;
+        }
+        .col-lg-push-10 {
+            left: 83.33333333%;
+        }
+        .col-lg-push-9 {
+            left: 75%;
+        }
+        .col-lg-push-8 {
+            left: 66.66666667%;
+        }
+        .col-lg-push-7 {
+            left: 58.33333333%;
+        }
+        .col-lg-push-6 {
+            left: 50%;
+        }
+        .col-lg-push-5 {
+            left: 41.66666667%;
+        }
+        .col-lg-push-4 {
+            left: 33.33333333%;
+        }
+        .col-lg-push-3 {
+            left: 25%;
+        }
+        .col-lg-push-2 {
+            left: 16.66666667%;
+        }
+        .col-lg-push-1 {
+            left: 8.33333333%;
+        }
+        .col-lg-push-0 {
+            left: 0%;
+        }
+        .col-lg-offset-12 {
+            margin-left: 100%;
+        }
+        .col-lg-offset-11 {
+            margin-left: 91.66666667%;
+        }
+        .col-lg-offset-10 {
+            margin-left: 83.33333333%;
+        }
+        .col-lg-offset-9 {
+            margin-left: 75%;
+        }
+        .col-lg-offset-8 {
+            margin-left: 66.66666667%;
+        }
+        .col-lg-offset-7 {
+            margin-left: 58.33333333%;
+        }
+        .col-lg-offset-6 {
+            margin-left: 50%;
+        }
+        .col-lg-offset-5 {
+            margin-left: 41.66666667%;
+        }
+        .col-lg-offset-4 {
+            margin-left: 33.33333333%;
+        }
+        .col-lg-offset-3 {
+            margin-left: 25%;
+        }
+        .col-lg-offset-2 {
+            margin-left: 16.66666667%;
+        }
+        .col-lg-offset-1 {
+            margin-left: 8.33333333%;
+        }
+        .col-lg-offset-0 {
+            margin-left: 0%;
+        }
+    }
+    .clearfix:before,
+    .clearfix:after,
+    .container:before,
+    .container:after,
+    .container-fluid:before,
+    .container-fluid:after,
+    .row:before,
+    .row:after {
+        content: " ";
+        display: table;
+    }
+    .clearfix:after,
+    .container:after,
+    .container-fluid:after,
+    .row:after {
+        clear: both;
+    }
+    .center-block {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .pull-right {
+        float: right !important;
+    }
+    .pull-left {
+        float: left !important;
+    }
+    .hide {
+        display: none !important;
+    }
+    .show {
+        display: block !important;
+    }
+    .invisible {
+        visibility: hidden;
+    }
+    .text-hide {
+        font: 0/0 a;
+        color: transparent;
+        text-shadow: none;
+        background-color: transparent;
+        border: 0;
+    }
+    .hidden {
+        display: none !important;
+        visibility: hidden !important;
+    }
+    .affix {
+        position: fixed;
+    }
+    @-ms-viewport {
+        width: device-width;
+    }
+    .visible-xs,
+    .visible-sm,
+    .visible-md,
+    .visible-lg {
+        display: none !important;
+    }
+    @media (max-width: 767px) {
+        .visible-xs {
+            display: block !important;
+        }
+        table.visible-xs {
+            display: table;
+        }
+        tr.visible-xs {
+            display: table-row !important;
+        }
+        th.visible-xs,
+        td.visible-xs {
+            display: table-cell !important;
+        }
+    }
+    @media (min-width: 768px) and (max-width: 991px) {
+        .visible-sm {
+            display: block !important;
+        }
+        table.visible-sm {
+            display: table;
+        }
+        tr.visible-sm {
+            display: table-row !important;
+        }
+        th.visible-sm,
+        td.visible-sm {
+            display: table-cell !important;
+        }
+    }
+    @media (min-width: 992px) and (max-width: 1199px) {
+        .visible-md {
+            display: block !important;
+        }
+        table.visible-md {
+            display: table;
+        }
+        tr.visible-md {
+            display: table-row !important;
+        }
+        th.visible-md,
+        td.visible-md {
+            display: table-cell !important;
+        }
+    }
+    @media (min-width: 1200px) {
+        .visible-lg {
+            display: block !important;
+        }
+        table.visible-lg {
+            display: table;
+        }
+        tr.visible-lg {
+            display: table-row !important;
+        }
+        th.visible-lg,
+        td.visible-lg {
+            display: table-cell !important;
+        }
+    }
+    @media (max-width: 767px) {
+        .hidden-xs {
+            display: none !important;
+        }
+    }
+    @media (min-width: 768px) and (max-width: 991px) {
+        .hidden-sm {
+            display: none !important;
+        }
+    }
+    @media (min-width: 992px) and (max-width: 1199px) {
+        .hidden-md {
+            display: none !important;
+        }
+    }
+    @media (min-width: 1200px) {
+        .hidden-lg {
+            display: none !important;
+        }
+    }
+    .visible-print {
+        display: none !important;
+    }
+    @media print {
+        .visible-print {
+            display: block !important;
+        }
+        table.visible-print {
+            display: table;
+        }
+        tr.visible-print {
+            display: table-row !important;
+        }
+        th.visible-print,
+        td.visible-print {
+            display: table-cell !important;
+        }
+    }
+    @media print {
+        .hidden-print {
+            display: none !important;
+        }
+    }
+
+    h1{
+        color: #480 !important;
+    }
+
+    </style>
+</head>
+<body>
+<div class="container"><h1 id="modules">Modules</h1>
+<pre><code>Stability: 5 - Locked
+</code></pre><!--name=module-->
+
+<p>Node has a simple module loading system.  In Node, files and modules are in
+one-to-one correspondence.  As an example, <code>foo.js</code> loads the module
+<code>circle.js</code> in the same directory.</p>
+<p>The contents of <code>foo.js</code>:</p>
+<pre><code>var circle = require(&#39;./circle.js&#39;);
+console.log( &#39;The area of a circle of radius 4 is &#39;
+           + circle.area(4));
+</code></pre><p>The contents of <code>circle.js</code>:</p>
+<pre><code>var PI = Math.PI;
+
+exports.area = function (r) {
+  return PI * r * r;
+};
+
+exports.circumference = function (r) {
+  return 2 * PI * r;
+};
+</code></pre><p>The module <code>circle.js</code> has exported the functions <code>area()</code> and
+<code>circumference()</code>.  To add functions and objects to the root of your module,
+you can add them to the special <code>exports</code> object.</p>
+<p>Variables local to the module will be private, as though the module was wrapped
+in a function. In this example the variable <code>PI</code> is private to <code>circle.js</code>.</p>
+<p>If you want the root of your module&#39;s export to be a function (such as a
+constructor) or if you want to export a complete object in one assignment
+instead of building it one property at a time, assign it to <code>module.exports</code>
+instead of <code>exports</code>.</p>
+<p>Below, <code>bar.js</code> makes use of the <code>square</code> module, which exports a constructor:</p>
+<pre><code>var square = require(&#39;./square.js&#39;);
+var mySquare = square(2);
+console.log(&#39;The area of my square is &#39; + mySquare.area());
+</code></pre><p>The <code>square</code> module is defined in <code>square.js</code>:</p>
+<pre><code>// assigning to exports will not modify module, must use module.exports
+module.exports = function(width) {
+  return {
+    area: function() {
+      return width * width;
+    }
+  };
+}
+</code></pre><p>The module system is implemented in the <code>require(&quot;module&quot;)</code> module.</p>
+<h2 id="cycles">Cycles</h2>
+<!--type=misc-->
+
+<p>When there are circular <code>require()</code> calls, a module might not be
+done being executed when it is returned.</p>
+<p>Consider this situation:</p>
+<p><code>a.js</code>:</p>
+<pre><code>console.log(&#39;a starting&#39;);
+exports.done = false;
+var b = require(&#39;./b.js&#39;);
+console.log(&#39;in a, b.done = %j&#39;, b.done);
+exports.done = true;
+console.log(&#39;a done&#39;);
+</code></pre><p><code>b.js</code>:</p>
+<pre><code>console.log(&#39;b starting&#39;);
+exports.done = false;
+var a = require(&#39;./a.js&#39;);
+console.log(&#39;in b, a.done = %j&#39;, a.done);
+exports.done = true;
+console.log(&#39;b done&#39;);
+</code></pre><p><code>main.js</code>:</p>
+<pre><code>console.log(&#39;main starting&#39;);
+var a = require(&#39;./a.js&#39;);
+var b = require(&#39;./b.js&#39;);
+console.log(&#39;in main, a.done=%j, b.done=%j&#39;, a.done, b.done);
+</code></pre><p>When <code>main.js</code> loads <code>a.js</code>, then <code>a.js</code> in turn loads <code>b.js</code>.  At that
+point, <code>b.js</code> tries to load <code>a.js</code>.  In order to prevent an infinite
+loop an <strong>unfinished copy</strong> of the <code>a.js</code> exports object is returned to the
+<code>b.js</code> module.  <code>b.js</code> then finishes loading, and its <code>exports</code> object is
+provided to the <code>a.js</code> module.</p>
+<p>By the time <code>main.js</code> has loaded both modules, they&#39;re both finished.
+The output of this program would thus be:</p>
+<pre><code>$ node main.js
+main starting
+a starting
+b starting
+in b, a.done = false
+b done
+in a, b.done = true
+a done
+in main, a.done=true, b.done=true
+</code></pre><p>If you have cyclic module dependencies in your program, make sure to
+plan accordingly.</p>
+<h2 id="core-modules">Core Modules</h2>
+<!--type=misc-->
+
+<p>Node has several modules compiled into the binary.  These modules are
+described in greater detail elsewhere in this documentation.</p>
+<p>The core modules are defined in node&#39;s source in the <code>lib/</code> folder.</p>
+<p>Core modules are always preferentially loaded if their identifier is
+passed to <code>require()</code>.  For instance, <code>require(&#39;http&#39;)</code> will always
+return the built in HTTP module, even if there is a file by that name.</p>
+<h2 id="file-modules">File Modules</h2>
+<!--type=misc-->
+
+<p>If the exact filename is not found, then node will attempt to load the
+required filename with the added extension of <code>.js</code>, <code>.json</code>, and then <code>.node</code>.</p>
+<p><code>.js</code> files are interpreted as JavaScript text files, and <code>.json</code> files are
+parsed as JSON text files. <code>.node</code> files are interpreted as compiled addon
+modules loaded with <code>dlopen</code>.</p>
+<p>A module prefixed with <code>&#39;/&#39;</code> is an absolute path to the file.  For
+example, <code>require(&#39;/home/marco/foo.js&#39;)</code> will load the file at
+<code>/home/marco/foo.js</code>.</p>
+<p>A module prefixed with <code>&#39;./&#39;</code> is relative to the file calling <code>require()</code>.
+That is, <code>circle.js</code> must be in the same directory as <code>foo.js</code> for
+<code>require(&#39;./circle&#39;)</code> to find it.</p>
+<p>Without a leading &#39;/&#39; or &#39;./&#39; to indicate a file, the module is either a
+&quot;core module&quot; or is loaded from a <code>node_modules</code> folder.</p>
+<p>If the given path does not exist, <code>require()</code> will throw an Error with its
+<code>code</code> property set to <code>&#39;MODULE_NOT_FOUND&#39;</code>.</p>
+<h2 id="loading-from-node_modules-folders">Loading from <code>node_modules</code> Folders</h2>
+<!--type=misc-->
+
+<p>If the module identifier passed to <code>require()</code> is not a native module,
+and does not begin with <code>&#39;/&#39;</code>, <code>&#39;../&#39;</code>, or <code>&#39;./&#39;</code>, then node starts at the
+parent directory of the current module, and adds <code>/node_modules</code>, and
+attempts to load the module from that location.</p>
+<p>If it is not found there, then it moves to the parent directory, and so
+on, until the root of the tree is reached.</p>
+<p>For example, if the file at <code>&#39;/home/ry/projects/foo.js&#39;</code> called
+<code>require(&#39;bar.js&#39;)</code>, then node would look in the following locations, in
+this order:</p>
+<ul>
+<li><code>/home/ry/projects/node_modules/bar.js</code></li>
+<li><code>/home/ry/node_modules/bar.js</code></li>
+<li><code>/home/node_modules/bar.js</code></li>
+<li><code>/node_modules/bar.js</code></li>
+</ul>
+<p>This allows programs to localize their dependencies, so that they do not
+clash.</p>
+<h2 id="folders-as-modules">Folders as Modules</h2>
+<!--type=misc-->
+
+<p>It is convenient to organize programs and libraries into self-contained
+directories, and then provide a single entry point to that library.
+There are three ways in which a folder may be passed to <code>require()</code> as
+an argument.</p>
+<p>The first is to create a <code>package.json</code> file in the root of the folder,
+which specifies a <code>main</code> module.  An example package.json file might
+look like this:</p>
+<pre><code>{ &quot;name&quot; : &quot;some-library&quot;,
+  &quot;main&quot; : &quot;./lib/some-library.js&quot; }
+</code></pre><p>If this was in a folder at <code>./some-library</code>, then
+<code>require(&#39;./some-library&#39;)</code> would attempt to load
+<code>./some-library/lib/some-library.js</code>.</p>
+<p>This is the extent of Node&#39;s awareness of package.json files.</p>
+<p>If there is no package.json file present in the directory, then node
+will attempt to load an <code>index.js</code> or <code>index.node</code> file out of that
+directory.  For example, if there was no package.json file in the above
+example, then <code>require(&#39;./some-library&#39;)</code> would attempt to load:</p>
+<ul>
+<li><code>./some-library/index.js</code></li>
+<li><code>./some-library/index.node</code></li>
+</ul>
+<h2 id="caching">Caching</h2>
+<!--type=misc-->
+
+<p>Modules are cached after the first time they are loaded.  This means
+(among other things) that every call to <code>require(&#39;foo&#39;)</code> will get
+exactly the same object returned, if it would resolve to the same file.</p>
+<p>Multiple calls to <code>require(&#39;foo&#39;)</code> may not cause the module code to be
+executed multiple times.  This is an important feature.  With it,
+&quot;partially done&quot; objects can be returned, thus allowing transitive
+dependencies to be loaded even when they would cause cycles.</p>
+<p>If you want to have a module execute code multiple times, then export a
+function, and call that function.</p>
+<h3 id="module-caching-caveats">Module Caching Caveats</h3>
+<!--type=misc-->
+
+<p>Modules are cached based on their resolved filename.  Since modules may
+resolve to a different filename based on the location of the calling
+module (loading from <code>node_modules</code> folders), it is not a <em>guarantee</em>
+that <code>require(&#39;foo&#39;)</code> will always return the exact same object, if it
+would resolve to different files.</p>
+<h2 id="the-module-object">The <code>module</code> Object</h2>
+<!-- type=var -->
+<!-- name=module -->
+
+<ul>
+<li>{Object}</li>
+</ul>
+<p>In each module, the <code>module</code> free variable is a reference to the object
+representing the current module.  For convenience, <code>module.exports</code> is
+also accessible via the <code>exports</code> module-global. <code>module</code> isn&#39;t actually
+a global but rather local to each module.</p>
+<h3 id="module-exports">module.exports</h3>
+<ul>
+<li>{Object}</li>
+</ul>
+<p>The <code>module.exports</code> object is created by the Module system. Sometimes this is not
+acceptable; many want their module to be an instance of some class. To do this
+assign the desired export object to <code>module.exports</code>. Note that assigning the
+desired object to <code>exports</code> will simply rebind the local <code>exports</code> variable,
+which is probably not what you want to do.</p>
+<p>For example suppose we were making a module called <code>a.js</code></p>
+<pre><code>var EventEmitter = require(&#39;events&#39;).EventEmitter;
+
+module.exports = new EventEmitter();
+
+// Do some work, and after some time emit
+// the &#39;ready&#39; event from the module itself.
+setTimeout(function() {
+  module.exports.emit(&#39;ready&#39;);
+}, 1000);
+</code></pre><p>Then in another file we could do</p>
+<pre><code>var a = require(&#39;./a&#39;);
+a.on(&#39;ready&#39;, function() {
+  console.log(&#39;module a is ready&#39;);
+});
+</code></pre><p>Note that assignment to <code>module.exports</code> must be done immediately. It cannot be
+done in any callbacks.  This does not work:</p>
+<p>x.js:</p>
+<pre><code>setTimeout(function() {
+  module.exports = { a: &quot;hello&quot; };
+}, 0);
+</code></pre><p>y.js:</p>
+<pre><code>var x = require(&#39;./x&#39;);
+console.log(x.a);
+</code></pre><h4 id="exports-alias">exports alias</h4>
+<p>The <code>exports</code> variable that is available within a module starts as a reference
+to <code>module.exports</code>. As with any variable, if you assign a new value to it, it
+is no longer bound to the previous value.</p>
+<p>To illustrate the behaviour, imagine this hypothetical implementation of
+<code>require()</code>:</p>
+<pre><code>function require(...) {
+  // ...
+  function (module, exports) {
+    // Your module code here
+    exports = some_func;        // re-assigns exports, exports is no longer
+                                // a shortcut, and nothing is exported.
+    module.exports = some_func; // makes your module export 0
+  } (module, module.exports);
+  return module;
+}
+</code></pre><p>As a guideline, if the relationship between <code>exports</code> and <code>module.exports</code>
+seems like magic to you, ignore <code>exports</code> and only use <code>module.exports</code>.</p>
+<h3 id="module-require-id-">module.require(id)</h3>
+<ul>
+<li><code>id</code> {String}</li>
+<li>Return: {Object} <code>module.exports</code> from the resolved module</li>
+</ul>
+<p>The <code>module.require</code> method provides a way to load a module as if
+<code>require()</code> was called from the original module.</p>
+<p>Note that in order to do this, you must get a reference to the <code>module</code>
+object.  Since <code>require()</code> returns the <code>module.exports</code>, and the <code>module</code> is
+typically <em>only</em> available within a specific module&#39;s code, it must be
+explicitly exported in order to be used.</p>
+<h3 id="module-id">module.id</h3>
+<ul>
+<li>{String}</li>
+</ul>
+<p>The identifier for the module.  Typically this is the fully resolved
+filename.</p>
+<h3 id="module-filename">module.filename</h3>
+<ul>
+<li>{String}</li>
+</ul>
+<p>The fully resolved filename to the module.</p>
+<h3 id="module-loaded">module.loaded</h3>
+<ul>
+<li>{Boolean}</li>
+</ul>
+<p>Whether or not the module is done loading, or is in the process of
+loading.</p>
+<h3 id="module-parent">module.parent</h3>
+<ul>
+<li>{Module Object}</li>
+</ul>
+<p>The module that required this one.</p>
+<h3 id="module-children">module.children</h3>
+<ul>
+<li>{Array}</li>
+</ul>
+<p>The module objects required by this one.</p>
+<h2 id="all-together-">All Together...</h2>
+<!-- type=misc -->
+
+<p>To get the exact filename that will be loaded when <code>require()</code> is called, use
+the <code>require.resolve()</code> function.</p>
+<p>Putting together all of the above, here is the high-level algorithm
+in pseudocode of what require.resolve does:</p>
+<pre><code>require(X) from module at path Y
+1. If X is a core module,
+   a. return the core module
+   b. STOP
+2. If X begins with &#39;./&#39; or &#39;/&#39; or &#39;../&#39;
+   a. LOAD_AS_FILE(Y + X)
+   b. LOAD_AS_DIRECTORY(Y + X)
+3. LOAD_NODE_MODULES(X, dirname(Y))
+4. THROW &quot;not found&quot;
+
+LOAD_AS_FILE(X)
+1. If X is a file, load X as JavaScript text.  STOP
+2. If X.js is a file, load X.js as JavaScript text.  STOP
+3. If X.node is a file, load X.node as binary addon.  STOP
+
+LOAD_AS_DIRECTORY(X)
+1. If X/package.json is a file,
+   a. Parse X/package.json, and look for &quot;main&quot; field.
+   b. let M = X + (json main field)
+   c. LOAD_AS_FILE(M)
+2. If X/index.js is a file, load X/index.js as JavaScript text.  STOP
+3. If X/index.node is a file, load X/index.node as binary addon.  STOP
+
+LOAD_NODE_MODULES(X, START)
+1. let DIRS=NODE_MODULES_PATHS(START)
+2. for each DIR in DIRS:
+   a. LOAD_AS_FILE(DIR/X)
+   b. LOAD_AS_DIRECTORY(DIR/X)
+
+NODE_MODULES_PATHS(START)
+1. let PARTS = path split(START)
+2. let ROOT = index of first instance of &quot;node_modules&quot; in PARTS, or 0
+3. let I = count of PARTS - 1
+4. let DIRS = []
+5. while I &gt; ROOT,
+   a. if PARTS[I] = &quot;node_modules&quot; CONTINUE
+   c. DIR = path join(PARTS[0 .. I] + &quot;node_modules&quot;)
+   b. DIRS = DIRS + DIR
+   c. let I = I - 1
+6. return DIRS
+</code></pre><h2 id="loading-from-the-global-folders">Loading from the global folders</h2>
+<!-- type=misc -->
+
+<p>If the <code>NODE_PATH</code> environment variable is set to a colon-delimited list
+of absolute paths, then node will search those paths for modules if they
+are not found elsewhere.  (Note: On Windows, <code>NODE_PATH</code> is delimited by
+semicolons instead of colons.)</p>
+<p>Additionally, node will search in the following locations:</p>
+<ul>
+<li>1: <code>$HOME/.node_modules</code></li>
+<li>2: <code>$HOME/.node_libraries</code></li>
+<li>3: <code>$PREFIX/lib/node</code></li>
+</ul>
+<p>Where <code>$HOME</code> is the user&#39;s home directory, and <code>$PREFIX</code> is node&#39;s
+configured <code>node_prefix</code>.</p>
+<p>These are mostly for historic reasons.  You are highly encouraged to
+place your dependencies locally in <code>node_modules</code> folders.  They will be
+loaded faster, and more reliably.</p>
+<h2 id="accessing-the-main-module">Accessing the main module</h2>
+<!-- type=misc -->
+
+<p>When a file is run directly from Node, <code>require.main</code> is set to its
+<code>module</code>. That means that you can determine whether a file has been run
+directly by testing</p>
+<pre><code>require.main === module
+</code></pre><p>For a file <code>foo.js</code>, this will be <code>true</code> if run via <code>node foo.js</code>, but
+<code>false</code> if run by <code>require(&#39;./foo&#39;)</code>.</p>
+<p>Because <code>module</code> provides a <code>filename</code> property (normally equivalent to
+<code>__filename</code>), the entry point of the current application can be obtained
+by checking <code>require.main.filename</code>.</p>
+<h2 id="addenda-package-manager-tips">Addenda: Package Manager Tips</h2>
+<!-- type=misc -->
+
+<p>The semantics of Node&#39;s <code>require()</code> function were designed to be general
+enough to support a number of sane directory structures. Package manager
+programs such as <code>dpkg</code>, <code>rpm</code>, and <code>npm</code> will hopefully find it possible to
+build native packages from Node modules without modification.</p>
+<p>Below we give a suggested directory structure that could work:</p>
+<p>Let&#39;s say that we wanted to have the folder at
+<code>/usr/lib/node/&lt;some-package&gt;/&lt;some-version&gt;</code> hold the contents of a
+specific version of a package.</p>
+<p>Packages can depend on one another. In order to install package <code>foo</code>, you
+may have to install a specific version of package <code>bar</code>.  The <code>bar</code> package
+may itself have dependencies, and in some cases, these dependencies may even
+collide or form cycles.</p>
+<p>Since Node looks up the <code>realpath</code> of any modules it loads (that is,
+resolves symlinks), and then looks for their dependencies in the
+<code>node_modules</code> folders as described above, this situation is very simple to
+resolve with the following architecture:</p>
+<ul>
+<li><code>/usr/lib/node/foo/1.2.3/</code> - Contents of the <code>foo</code> package, version 1.2.3.</li>
+<li><code>/usr/lib/node/bar/4.3.2/</code> - Contents of the <code>bar</code> package that <code>foo</code>
+depends on.</li>
+<li><code>/usr/lib/node/foo/1.2.3/node_modules/bar</code> - Symbolic link to
+<code>/usr/lib/node/bar/4.3.2/</code>.</li>
+<li><code>/usr/lib/node/bar/4.3.2/node_modules/*</code> - Symbolic links to the packages
+that <code>bar</code> depends on.</li>
+</ul>
+<p>Thus, even if a cycle is encountered, or if there are dependency
+conflicts, every module will be able to get a version of its dependency
+that it can use.</p>
+<p>When the code in the <code>foo</code> package does <code>require(&#39;bar&#39;)</code>, it will get the
+version that is symlinked into <code>/usr/lib/node/foo/1.2.3/node_modules/bar</code>.
+Then, when the code in the <code>bar</code> package calls <code>require(&#39;quux&#39;)</code>, it&#39;ll get
+the version that is symlinked into
+<code>/usr/lib/node/bar/4.3.2/node_modules/quux</code>.</p>
+<p>Furthermore, to make the module lookup process even more optimal, rather
+than putting packages directly in <code>/usr/lib/node</code>, we could put them in
+<code>/usr/lib/node_modules/&lt;name&gt;/&lt;version&gt;</code>.  Then node will not bother
+looking for missing dependencies in <code>/usr/node_modules</code> or <code>/node_modules</code>.</p>
+<p>In order to make modules available to the node REPL, it might be useful to
+also add the <code>/usr/lib/node_modules</code> folder to the <code>$NODE_PATH</code> environment
+variable.  Since the module lookups using <code>node_modules</code> folders are all
+relative, and based on the real path of the files making the calls to
+<code>require()</code>, the packages themselves can be anywhere.</p>
+</div>
+</body>
+</html>

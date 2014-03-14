@@ -1,0 +1,1517 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zlib</title>
+    <style type="text/css">
+    /*!
+* Bootstrap v3.1.1 (http://getbootstrap.com)
+* Copyright 2011-2014 Twitter, Inc.
+* Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+*/
+
+    /*! normalize.css v3.0.0 | MIT License | git.io/normalize */
+    html {
+        font-family: sans-serif;
+        -ms-text-size-adjust: 100%;
+        -webkit-text-size-adjust: 100%;
+    }
+    body {
+        margin: 0;
+    }
+    article,
+    aside,
+    details,
+    figcaption,
+    figure,
+    footer,
+    header,
+    hgroup,
+    main,
+    nav,
+    section,
+    summary {
+        display: block;
+    }
+    audio,
+    canvas,
+    progress,
+    video {
+        display: inline-block;
+        vertical-align: baseline;
+    }
+    audio:not([controls]) {
+        display: none;
+        height: 0;
+    }
+    [hidden],
+    template {
+        display: none;
+    }
+    a {
+        background: transparent;
+    }
+    a:active,
+    a:hover {
+        outline: 0;
+    }
+    abbr[title] {
+        border-bottom: 1px dotted;
+    }
+    b,
+    strong {
+        font-weight: bold;
+    }
+    dfn {
+        font-style: italic;
+    }
+    h1 {
+        font-size: 2em;
+        margin: 0.67em 0;
+    }
+    mark {
+        background: #ff0;
+        color: #000;
+    }
+    small {
+        font-size: 80%;
+    }
+    sub,
+    sup {
+        font-size: 75%;
+        line-height: 0;
+        position: relative;
+        vertical-align: baseline;
+    }
+    sup {
+        top: -0.5em;
+    }
+    sub {
+        bottom: -0.25em;
+    }
+    img {
+        border: 0;
+    }
+    svg:not(:root) {
+        overflow: hidden;
+    }
+    figure {
+        margin: 1em 40px;
+    }
+    hr {
+        -moz-box-sizing: content-box;
+        box-sizing: content-box;
+        height: 0;
+    }
+    pre {
+        overflow: auto;
+    }
+    code,
+    kbd,
+    pre,
+    samp {
+        font-family: monospace, monospace;
+        font-size: 1em;
+    }
+    button,
+    input,
+    optgroup,
+    select,
+    textarea {
+        color: inherit;
+        font: inherit;
+        margin: 0;
+    }
+    button {
+        overflow: visible;
+    }
+    button,
+    select {
+        text-transform: none;
+    }
+    button,
+    html input[type="button"],
+    input[type="reset"],
+    input[type="submit"] {
+        -webkit-appearance: button;
+        cursor: pointer;
+    }
+    button[disabled],
+    html input[disabled] {
+        cursor: default;
+    }
+    button::-moz-focus-inner,
+    input::-moz-focus-inner {
+        border: 0;
+        padding: 0;
+    }
+    input {
+        line-height: normal;
+    }
+    input[type="checkbox"],
+    input[type="radio"] {
+        box-sizing: border-box;
+        padding: 0;
+    }
+    input[type="number"]::-webkit-inner-spin-button,
+    input[type="number"]::-webkit-outer-spin-button {
+        height: auto;
+    }
+    input[type="search"] {
+        -webkit-appearance: textfield;
+        -moz-box-sizing: content-box;
+        -webkit-box-sizing: content-box;
+        box-sizing: content-box;
+    }
+    input[type="search"]::-webkit-search-cancel-button,
+    input[type="search"]::-webkit-search-decoration {
+        -webkit-appearance: none;
+    }
+    fieldset {
+        border: 1px solid #c0c0c0;
+        margin: 0 2px;
+        padding: 0.35em 0.625em 0.75em;
+    }
+    legend {
+        border: 0;
+        padding: 0;
+    }
+    textarea {
+        overflow: auto;
+    }
+    optgroup {
+        font-weight: bold;
+    }
+    table {
+        border-collapse: collapse;
+        border-spacing: 0;
+    }
+    td,
+    th {
+        padding: 0;
+    }
+    @media print {
+        * {
+            text-shadow: none !important;
+            color: #000 !important;
+            background: transparent !important;
+            box-shadow: none !important;
+        }
+        a,
+        a:visited {
+            text-decoration: underline;
+        }
+        a[href]:after {
+            content: " (" attr(href) ")";
+        }
+        abbr[title]:after {
+            content: " (" attr(title) ")";
+        }
+        a[href^="javascript:"]:after,
+        a[href^="#"]:after {
+            content: "";
+        }
+        pre,
+        blockquote {
+            border: 1px solid #999;
+            page-break-inside: avoid;
+        }
+        thead {
+            display: table-header-group;
+        }
+        tr,
+        img {
+            page-break-inside: avoid;
+        }
+        img {
+            max-width: 100% !important;
+        }
+        p,
+        h2,
+        h3 {
+            orphans: 3;
+            widows: 3;
+        }
+        h2,
+        h3 {
+            page-break-after: avoid;
+        }
+        select {
+            background: #fff !important;
+        }
+        .navbar {
+            display: none;
+        }
+        .table td,
+        .table th {
+            background-color: #fff !important;
+        }
+        .btn > .caret,
+        .dropup > .btn > .caret {
+            border-top-color: #000 !important;
+        }
+        .label {
+            border: 1px solid #000;
+        }
+        .table {
+            border-collapse: collapse !important;
+        }
+        .table-bordered th,
+        .table-bordered td {
+            border: 1px solid #ddd !important;
+        }
+    }
+    * {
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+    *:before,
+    *:after {
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+    html {
+        font-size: 62.5%;
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    }
+    body {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        line-height: 1.42857143;
+        color: #333333;
+        background-color: #ffffff;
+    }
+    input,
+    button,
+    select,
+    textarea {
+        font-family: inherit;
+        font-size: inherit;
+        line-height: inherit;
+    }
+    a {
+        color: #428bca;
+        text-decoration: none;
+    }
+    a:hover,
+    a:focus {
+        color: #2a6496;
+        text-decoration: underline;
+    }
+    a:focus {
+        outline: thin dotted;
+        outline: 5px auto -webkit-focus-ring-color;
+        outline-offset: -2px;
+    }
+    figure {
+        margin: 0;
+    }
+    img {
+        vertical-align: middle;
+    }
+    .img-responsive {
+        display: block;
+        max-width: 100%;
+        height: auto;
+    }
+    .img-rounded {
+        border-radius: 6px;
+    }
+    .img-thumbnail {
+        padding: 4px;
+        line-height: 1.42857143;
+        background-color: #ffffff;
+        border: 1px solid #dddddd;
+        border-radius: 4px;
+        -webkit-transition: all 0.2s ease-in-out;
+        transition: all 0.2s ease-in-out;
+        display: inline-block;
+        max-width: 100%;
+        height: auto;
+    }
+    .img-circle {
+        border-radius: 50%;
+    }
+    hr {
+        margin-top: 20px;
+        margin-bottom: 20px;
+        border: 0;
+        border-top: 1px solid #eeeeee;
+    }
+    .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        margin: -1px;
+        padding: 0;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        border: 0;
+    }
+    code,
+    kbd,
+    pre,
+    samp {
+        font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+    }
+    code {
+        padding: 2px 4px;
+        font-size: 90%;
+        color: #c7254e;
+        background-color: #f9f2f4;
+        white-space: nowrap;
+        border-radius: 4px;
+    }
+    kbd {
+        padding: 2px 4px;
+        font-size: 90%;
+        color: #ffffff;
+        background-color: #333333;
+        border-radius: 3px;
+        box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.25);
+    }
+    pre {
+        display: block;
+        padding: 9.5px;
+        margin: 0 0 10px;
+        font-size: 13px;
+        line-height: 1.42857143;
+        word-break: break-all;
+        word-wrap: break-word;
+        color: #333333;
+        background-color: #f5f5f5;
+        border: 1px solid #cccccc;
+        border-radius: 4px;
+    }
+    pre code {
+        padding: 0;
+        font-size: inherit;
+        color: inherit;
+        white-space: pre-wrap;
+        background-color: transparent;
+        border-radius: 0;
+    }
+    .pre-scrollable {
+        max-height: 340px;
+        overflow-y: scroll;
+    }
+    .container {
+        margin-right: auto;
+        margin-left: auto;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    @media (min-width: 768px) {
+        .container {
+            width: 750px;
+        }
+    }
+    @media (min-width: 992px) {
+        .container {
+            width: 970px;
+        }
+    }
+    @media (min-width: 1200px) {
+        .container {
+            width: 1170px;
+        }
+    }
+    .container-fluid {
+        margin-right: auto;
+        margin-left: auto;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    .row {
+        margin-left: -15px;
+        margin-right: -15px;
+    }
+    .col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 {
+        position: relative;
+        min-height: 1px;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    .col-xs-1, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9, .col-xs-10, .col-xs-11, .col-xs-12 {
+        float: left;
+    }
+    .col-xs-12 {
+        width: 100%;
+    }
+    .col-xs-11 {
+        width: 91.66666667%;
+    }
+    .col-xs-10 {
+        width: 83.33333333%;
+    }
+    .col-xs-9 {
+        width: 75%;
+    }
+    .col-xs-8 {
+        width: 66.66666667%;
+    }
+    .col-xs-7 {
+        width: 58.33333333%;
+    }
+    .col-xs-6 {
+        width: 50%;
+    }
+    .col-xs-5 {
+        width: 41.66666667%;
+    }
+    .col-xs-4 {
+        width: 33.33333333%;
+    }
+    .col-xs-3 {
+        width: 25%;
+    }
+    .col-xs-2 {
+        width: 16.66666667%;
+    }
+    .col-xs-1 {
+        width: 8.33333333%;
+    }
+    .col-xs-pull-12 {
+        right: 100%;
+    }
+    .col-xs-pull-11 {
+        right: 91.66666667%;
+    }
+    .col-xs-pull-10 {
+        right: 83.33333333%;
+    }
+    .col-xs-pull-9 {
+        right: 75%;
+    }
+    .col-xs-pull-8 {
+        right: 66.66666667%;
+    }
+    .col-xs-pull-7 {
+        right: 58.33333333%;
+    }
+    .col-xs-pull-6 {
+        right: 50%;
+    }
+    .col-xs-pull-5 {
+        right: 41.66666667%;
+    }
+    .col-xs-pull-4 {
+        right: 33.33333333%;
+    }
+    .col-xs-pull-3 {
+        right: 25%;
+    }
+    .col-xs-pull-2 {
+        right: 16.66666667%;
+    }
+    .col-xs-pull-1 {
+        right: 8.33333333%;
+    }
+    .col-xs-pull-0 {
+        right: 0%;
+    }
+    .col-xs-push-12 {
+        left: 100%;
+    }
+    .col-xs-push-11 {
+        left: 91.66666667%;
+    }
+    .col-xs-push-10 {
+        left: 83.33333333%;
+    }
+    .col-xs-push-9 {
+        left: 75%;
+    }
+    .col-xs-push-8 {
+        left: 66.66666667%;
+    }
+    .col-xs-push-7 {
+        left: 58.33333333%;
+    }
+    .col-xs-push-6 {
+        left: 50%;
+    }
+    .col-xs-push-5 {
+        left: 41.66666667%;
+    }
+    .col-xs-push-4 {
+        left: 33.33333333%;
+    }
+    .col-xs-push-3 {
+        left: 25%;
+    }
+    .col-xs-push-2 {
+        left: 16.66666667%;
+    }
+    .col-xs-push-1 {
+        left: 8.33333333%;
+    }
+    .col-xs-push-0 {
+        left: 0%;
+    }
+    .col-xs-offset-12 {
+        margin-left: 100%;
+    }
+    .col-xs-offset-11 {
+        margin-left: 91.66666667%;
+    }
+    .col-xs-offset-10 {
+        margin-left: 83.33333333%;
+    }
+    .col-xs-offset-9 {
+        margin-left: 75%;
+    }
+    .col-xs-offset-8 {
+        margin-left: 66.66666667%;
+    }
+    .col-xs-offset-7 {
+        margin-left: 58.33333333%;
+    }
+    .col-xs-offset-6 {
+        margin-left: 50%;
+    }
+    .col-xs-offset-5 {
+        margin-left: 41.66666667%;
+    }
+    .col-xs-offset-4 {
+        margin-left: 33.33333333%;
+    }
+    .col-xs-offset-3 {
+        margin-left: 25%;
+    }
+    .col-xs-offset-2 {
+        margin-left: 16.66666667%;
+    }
+    .col-xs-offset-1 {
+        margin-left: 8.33333333%;
+    }
+    .col-xs-offset-0 {
+        margin-left: 0%;
+    }
+    @media (min-width: 768px) {
+        .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12 {
+            float: left;
+        }
+        .col-sm-12 {
+            width: 100%;
+        }
+        .col-sm-11 {
+            width: 91.66666667%;
+        }
+        .col-sm-10 {
+            width: 83.33333333%;
+        }
+        .col-sm-9 {
+            width: 75%;
+        }
+        .col-sm-8 {
+            width: 66.66666667%;
+        }
+        .col-sm-7 {
+            width: 58.33333333%;
+        }
+        .col-sm-6 {
+            width: 50%;
+        }
+        .col-sm-5 {
+            width: 41.66666667%;
+        }
+        .col-sm-4 {
+            width: 33.33333333%;
+        }
+        .col-sm-3 {
+            width: 25%;
+        }
+        .col-sm-2 {
+            width: 16.66666667%;
+        }
+        .col-sm-1 {
+            width: 8.33333333%;
+        }
+        .col-sm-pull-12 {
+            right: 100%;
+        }
+        .col-sm-pull-11 {
+            right: 91.66666667%;
+        }
+        .col-sm-pull-10 {
+            right: 83.33333333%;
+        }
+        .col-sm-pull-9 {
+            right: 75%;
+        }
+        .col-sm-pull-8 {
+            right: 66.66666667%;
+        }
+        .col-sm-pull-7 {
+            right: 58.33333333%;
+        }
+        .col-sm-pull-6 {
+            right: 50%;
+        }
+        .col-sm-pull-5 {
+            right: 41.66666667%;
+        }
+        .col-sm-pull-4 {
+            right: 33.33333333%;
+        }
+        .col-sm-pull-3 {
+            right: 25%;
+        }
+        .col-sm-pull-2 {
+            right: 16.66666667%;
+        }
+        .col-sm-pull-1 {
+            right: 8.33333333%;
+        }
+        .col-sm-pull-0 {
+            right: 0%;
+        }
+        .col-sm-push-12 {
+            left: 100%;
+        }
+        .col-sm-push-11 {
+            left: 91.66666667%;
+        }
+        .col-sm-push-10 {
+            left: 83.33333333%;
+        }
+        .col-sm-push-9 {
+            left: 75%;
+        }
+        .col-sm-push-8 {
+            left: 66.66666667%;
+        }
+        .col-sm-push-7 {
+            left: 58.33333333%;
+        }
+        .col-sm-push-6 {
+            left: 50%;
+        }
+        .col-sm-push-5 {
+            left: 41.66666667%;
+        }
+        .col-sm-push-4 {
+            left: 33.33333333%;
+        }
+        .col-sm-push-3 {
+            left: 25%;
+        }
+        .col-sm-push-2 {
+            left: 16.66666667%;
+        }
+        .col-sm-push-1 {
+            left: 8.33333333%;
+        }
+        .col-sm-push-0 {
+            left: 0%;
+        }
+        .col-sm-offset-12 {
+            margin-left: 100%;
+        }
+        .col-sm-offset-11 {
+            margin-left: 91.66666667%;
+        }
+        .col-sm-offset-10 {
+            margin-left: 83.33333333%;
+        }
+        .col-sm-offset-9 {
+            margin-left: 75%;
+        }
+        .col-sm-offset-8 {
+            margin-left: 66.66666667%;
+        }
+        .col-sm-offset-7 {
+            margin-left: 58.33333333%;
+        }
+        .col-sm-offset-6 {
+            margin-left: 50%;
+        }
+        .col-sm-offset-5 {
+            margin-left: 41.66666667%;
+        }
+        .col-sm-offset-4 {
+            margin-left: 33.33333333%;
+        }
+        .col-sm-offset-3 {
+            margin-left: 25%;
+        }
+        .col-sm-offset-2 {
+            margin-left: 16.66666667%;
+        }
+        .col-sm-offset-1 {
+            margin-left: 8.33333333%;
+        }
+        .col-sm-offset-0 {
+            margin-left: 0%;
+        }
+    }
+    @media (min-width: 992px) {
+        .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12 {
+            float: left;
+        }
+        .col-md-12 {
+            width: 100%;
+        }
+        .col-md-11 {
+            width: 91.66666667%;
+        }
+        .col-md-10 {
+            width: 83.33333333%;
+        }
+        .col-md-9 {
+            width: 75%;
+        }
+        .col-md-8 {
+            width: 66.66666667%;
+        }
+        .col-md-7 {
+            width: 58.33333333%;
+        }
+        .col-md-6 {
+            width: 50%;
+        }
+        .col-md-5 {
+            width: 41.66666667%;
+        }
+        .col-md-4 {
+            width: 33.33333333%;
+        }
+        .col-md-3 {
+            width: 25%;
+        }
+        .col-md-2 {
+            width: 16.66666667%;
+        }
+        .col-md-1 {
+            width: 8.33333333%;
+        }
+        .col-md-pull-12 {
+            right: 100%;
+        }
+        .col-md-pull-11 {
+            right: 91.66666667%;
+        }
+        .col-md-pull-10 {
+            right: 83.33333333%;
+        }
+        .col-md-pull-9 {
+            right: 75%;
+        }
+        .col-md-pull-8 {
+            right: 66.66666667%;
+        }
+        .col-md-pull-7 {
+            right: 58.33333333%;
+        }
+        .col-md-pull-6 {
+            right: 50%;
+        }
+        .col-md-pull-5 {
+            right: 41.66666667%;
+        }
+        .col-md-pull-4 {
+            right: 33.33333333%;
+        }
+        .col-md-pull-3 {
+            right: 25%;
+        }
+        .col-md-pull-2 {
+            right: 16.66666667%;
+        }
+        .col-md-pull-1 {
+            right: 8.33333333%;
+        }
+        .col-md-pull-0 {
+            right: 0%;
+        }
+        .col-md-push-12 {
+            left: 100%;
+        }
+        .col-md-push-11 {
+            left: 91.66666667%;
+        }
+        .col-md-push-10 {
+            left: 83.33333333%;
+        }
+        .col-md-push-9 {
+            left: 75%;
+        }
+        .col-md-push-8 {
+            left: 66.66666667%;
+        }
+        .col-md-push-7 {
+            left: 58.33333333%;
+        }
+        .col-md-push-6 {
+            left: 50%;
+        }
+        .col-md-push-5 {
+            left: 41.66666667%;
+        }
+        .col-md-push-4 {
+            left: 33.33333333%;
+        }
+        .col-md-push-3 {
+            left: 25%;
+        }
+        .col-md-push-2 {
+            left: 16.66666667%;
+        }
+        .col-md-push-1 {
+            left: 8.33333333%;
+        }
+        .col-md-push-0 {
+            left: 0%;
+        }
+        .col-md-offset-12 {
+            margin-left: 100%;
+        }
+        .col-md-offset-11 {
+            margin-left: 91.66666667%;
+        }
+        .col-md-offset-10 {
+            margin-left: 83.33333333%;
+        }
+        .col-md-offset-9 {
+            margin-left: 75%;
+        }
+        .col-md-offset-8 {
+            margin-left: 66.66666667%;
+        }
+        .col-md-offset-7 {
+            margin-left: 58.33333333%;
+        }
+        .col-md-offset-6 {
+            margin-left: 50%;
+        }
+        .col-md-offset-5 {
+            margin-left: 41.66666667%;
+        }
+        .col-md-offset-4 {
+            margin-left: 33.33333333%;
+        }
+        .col-md-offset-3 {
+            margin-left: 25%;
+        }
+        .col-md-offset-2 {
+            margin-left: 16.66666667%;
+        }
+        .col-md-offset-1 {
+            margin-left: 8.33333333%;
+        }
+        .col-md-offset-0 {
+            margin-left: 0%;
+        }
+    }
+    @media (min-width: 1200px) {
+        .col-lg-1, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-10, .col-lg-11, .col-lg-12 {
+            float: left;
+        }
+        .col-lg-12 {
+            width: 100%;
+        }
+        .col-lg-11 {
+            width: 91.66666667%;
+        }
+        .col-lg-10 {
+            width: 83.33333333%;
+        }
+        .col-lg-9 {
+            width: 75%;
+        }
+        .col-lg-8 {
+            width: 66.66666667%;
+        }
+        .col-lg-7 {
+            width: 58.33333333%;
+        }
+        .col-lg-6 {
+            width: 50%;
+        }
+        .col-lg-5 {
+            width: 41.66666667%;
+        }
+        .col-lg-4 {
+            width: 33.33333333%;
+        }
+        .col-lg-3 {
+            width: 25%;
+        }
+        .col-lg-2 {
+            width: 16.66666667%;
+        }
+        .col-lg-1 {
+            width: 8.33333333%;
+        }
+        .col-lg-pull-12 {
+            right: 100%;
+        }
+        .col-lg-pull-11 {
+            right: 91.66666667%;
+        }
+        .col-lg-pull-10 {
+            right: 83.33333333%;
+        }
+        .col-lg-pull-9 {
+            right: 75%;
+        }
+        .col-lg-pull-8 {
+            right: 66.66666667%;
+        }
+        .col-lg-pull-7 {
+            right: 58.33333333%;
+        }
+        .col-lg-pull-6 {
+            right: 50%;
+        }
+        .col-lg-pull-5 {
+            right: 41.66666667%;
+        }
+        .col-lg-pull-4 {
+            right: 33.33333333%;
+        }
+        .col-lg-pull-3 {
+            right: 25%;
+        }
+        .col-lg-pull-2 {
+            right: 16.66666667%;
+        }
+        .col-lg-pull-1 {
+            right: 8.33333333%;
+        }
+        .col-lg-pull-0 {
+            right: 0%;
+        }
+        .col-lg-push-12 {
+            left: 100%;
+        }
+        .col-lg-push-11 {
+            left: 91.66666667%;
+        }
+        .col-lg-push-10 {
+            left: 83.33333333%;
+        }
+        .col-lg-push-9 {
+            left: 75%;
+        }
+        .col-lg-push-8 {
+            left: 66.66666667%;
+        }
+        .col-lg-push-7 {
+            left: 58.33333333%;
+        }
+        .col-lg-push-6 {
+            left: 50%;
+        }
+        .col-lg-push-5 {
+            left: 41.66666667%;
+        }
+        .col-lg-push-4 {
+            left: 33.33333333%;
+        }
+        .col-lg-push-3 {
+            left: 25%;
+        }
+        .col-lg-push-2 {
+            left: 16.66666667%;
+        }
+        .col-lg-push-1 {
+            left: 8.33333333%;
+        }
+        .col-lg-push-0 {
+            left: 0%;
+        }
+        .col-lg-offset-12 {
+            margin-left: 100%;
+        }
+        .col-lg-offset-11 {
+            margin-left: 91.66666667%;
+        }
+        .col-lg-offset-10 {
+            margin-left: 83.33333333%;
+        }
+        .col-lg-offset-9 {
+            margin-left: 75%;
+        }
+        .col-lg-offset-8 {
+            margin-left: 66.66666667%;
+        }
+        .col-lg-offset-7 {
+            margin-left: 58.33333333%;
+        }
+        .col-lg-offset-6 {
+            margin-left: 50%;
+        }
+        .col-lg-offset-5 {
+            margin-left: 41.66666667%;
+        }
+        .col-lg-offset-4 {
+            margin-left: 33.33333333%;
+        }
+        .col-lg-offset-3 {
+            margin-left: 25%;
+        }
+        .col-lg-offset-2 {
+            margin-left: 16.66666667%;
+        }
+        .col-lg-offset-1 {
+            margin-left: 8.33333333%;
+        }
+        .col-lg-offset-0 {
+            margin-left: 0%;
+        }
+    }
+    .clearfix:before,
+    .clearfix:after,
+    .container:before,
+    .container:after,
+    .container-fluid:before,
+    .container-fluid:after,
+    .row:before,
+    .row:after {
+        content: " ";
+        display: table;
+    }
+    .clearfix:after,
+    .container:after,
+    .container-fluid:after,
+    .row:after {
+        clear: both;
+    }
+    .center-block {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .pull-right {
+        float: right !important;
+    }
+    .pull-left {
+        float: left !important;
+    }
+    .hide {
+        display: none !important;
+    }
+    .show {
+        display: block !important;
+    }
+    .invisible {
+        visibility: hidden;
+    }
+    .text-hide {
+        font: 0/0 a;
+        color: transparent;
+        text-shadow: none;
+        background-color: transparent;
+        border: 0;
+    }
+    .hidden {
+        display: none !important;
+        visibility: hidden !important;
+    }
+    .affix {
+        position: fixed;
+    }
+    @-ms-viewport {
+        width: device-width;
+    }
+    .visible-xs,
+    .visible-sm,
+    .visible-md,
+    .visible-lg {
+        display: none !important;
+    }
+    @media (max-width: 767px) {
+        .visible-xs {
+            display: block !important;
+        }
+        table.visible-xs {
+            display: table;
+        }
+        tr.visible-xs {
+            display: table-row !important;
+        }
+        th.visible-xs,
+        td.visible-xs {
+            display: table-cell !important;
+        }
+    }
+    @media (min-width: 768px) and (max-width: 991px) {
+        .visible-sm {
+            display: block !important;
+        }
+        table.visible-sm {
+            display: table;
+        }
+        tr.visible-sm {
+            display: table-row !important;
+        }
+        th.visible-sm,
+        td.visible-sm {
+            display: table-cell !important;
+        }
+    }
+    @media (min-width: 992px) and (max-width: 1199px) {
+        .visible-md {
+            display: block !important;
+        }
+        table.visible-md {
+            display: table;
+        }
+        tr.visible-md {
+            display: table-row !important;
+        }
+        th.visible-md,
+        td.visible-md {
+            display: table-cell !important;
+        }
+    }
+    @media (min-width: 1200px) {
+        .visible-lg {
+            display: block !important;
+        }
+        table.visible-lg {
+            display: table;
+        }
+        tr.visible-lg {
+            display: table-row !important;
+        }
+        th.visible-lg,
+        td.visible-lg {
+            display: table-cell !important;
+        }
+    }
+    @media (max-width: 767px) {
+        .hidden-xs {
+            display: none !important;
+        }
+    }
+    @media (min-width: 768px) and (max-width: 991px) {
+        .hidden-sm {
+            display: none !important;
+        }
+    }
+    @media (min-width: 992px) and (max-width: 1199px) {
+        .hidden-md {
+            display: none !important;
+        }
+    }
+    @media (min-width: 1200px) {
+        .hidden-lg {
+            display: none !important;
+        }
+    }
+    .visible-print {
+        display: none !important;
+    }
+    @media print {
+        .visible-print {
+            display: block !important;
+        }
+        table.visible-print {
+            display: table;
+        }
+        tr.visible-print {
+            display: table-row !important;
+        }
+        th.visible-print,
+        td.visible-print {
+            display: table-cell !important;
+        }
+    }
+    @media print {
+        .hidden-print {
+            display: none !important;
+        }
+    }
+
+    h1{
+        color: #480 !important;
+    }
+
+    </style>
+</head>
+<body>
+<div class="container"><h1 id="zlib">Zlib</h1>
+<pre><code>Stability: 3 - Stable
+</code></pre><p>You can access this module with:</p>
+<pre><code>var zlib = require(&#39;zlib&#39;);
+</code></pre><p>This provides bindings to Gzip/Gunzip, Deflate/Inflate, and
+DeflateRaw/InflateRaw classes.  Each class takes the same options, and
+is a readable/writable Stream.</p>
+<h2 id="examples">Examples</h2>
+<p>Compressing or decompressing a file can be done by piping an
+fs.ReadStream into a zlib stream, then into an fs.WriteStream.</p>
+<pre><code>var gzip = zlib.createGzip();
+var fs = require(&#39;fs&#39;);
+var inp = fs.createReadStream(&#39;input.txt&#39;);
+var out = fs.createWriteStream(&#39;input.txt.gz&#39;);
+
+inp.pipe(gzip).pipe(out);
+</code></pre><p>Compressing or decompressing data in one step can be done by using
+the convenience methods.</p>
+<pre><code>var input = &#39;.................................&#39;;
+zlib.deflate(input, function(err, buffer) {
+  if (!err) {
+    console.log(buffer.toString(&#39;base64&#39;));
+  }
+});
+
+var buffer = new Buffer(&#39;eJzT0yMAAGTvBe8=&#39;, &#39;base64&#39;);
+zlib.unzip(buffer, function(err, buffer) {
+  if (!err) {
+    console.log(buffer.toString());
+  }
+});
+</code></pre><p>To use this module in an HTTP client or server, use the
+<a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.3">accept-encoding</a>
+on requests, and the
+<a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11">content-encoding</a>
+header on responses.</p>
+<p><strong>Note: these examples are drastically simplified to show
+the basic concept.</strong>  Zlib encoding can be expensive, and the results
+ought to be cached.  See <a href="#zlib_memory_usage_tuning">Memory Usage Tuning</a>
+below for more information on the speed/memory/compression
+tradeoffs involved in zlib usage.</p>
+<pre><code>// client request example
+var zlib = require(&#39;zlib&#39;);
+var http = require(&#39;http&#39;);
+var fs = require(&#39;fs&#39;);
+var request = http.get({ host: &#39;izs.me&#39;,
+                         path: &#39;/&#39;,
+                         port: 80,
+                         headers: { &#39;accept-encoding&#39;: &#39;gzip,deflate&#39; } });
+request.on(&#39;response&#39;, function(response) {
+  var output = fs.createWriteStream(&#39;izs.me_index.html&#39;);
+
+  switch (response.headers[&#39;content-encoding&#39;]) {
+    // or, just use zlib.createUnzip() to handle both cases
+    case &#39;gzip&#39;:
+      response.pipe(zlib.createGunzip()).pipe(output);
+      break;
+    case &#39;deflate&#39;:
+      response.pipe(zlib.createInflate()).pipe(output);
+      break;
+    default:
+      response.pipe(output);
+      break;
+  }
+});
+
+// server example
+// Running a gzip operation on every request is quite expensive.
+// It would be much more efficient to cache the compressed buffer.
+var zlib = require(&#39;zlib&#39;);
+var http = require(&#39;http&#39;);
+var fs = require(&#39;fs&#39;);
+http.createServer(function(request, response) {
+  var raw = fs.createReadStream(&#39;index.html&#39;);
+  var acceptEncoding = request.headers[&#39;accept-encoding&#39;];
+  if (!acceptEncoding) {
+    acceptEncoding = &#39;&#39;;
+  }
+
+  // Note: this is not a conformant accept-encoding parser.
+  // See http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.3
+  if (acceptEncoding.match(/\bdeflate\b/)) {
+    response.writeHead(200, { &#39;content-encoding&#39;: &#39;deflate&#39; });
+    raw.pipe(zlib.createDeflate()).pipe(response);
+  } else if (acceptEncoding.match(/\bgzip\b/)) {
+    response.writeHead(200, { &#39;content-encoding&#39;: &#39;gzip&#39; });
+    raw.pipe(zlib.createGzip()).pipe(response);
+  } else {
+    response.writeHead(200, {});
+    raw.pipe(response);
+  }
+}).listen(1337);
+</code></pre><h2 id="zlib-creategzip-options-">zlib.createGzip([options])</h2>
+<p>Returns a new <a href="#zlib_class_zlib_gzip">Gzip</a> object with an
+<a href="#zlib_options">options</a>.</p>
+<h2 id="zlib-creategunzip-options-">zlib.createGunzip([options])</h2>
+<p>Returns a new <a href="#zlib_class_zlib_gunzip">Gunzip</a> object with an
+<a href="#zlib_options">options</a>.</p>
+<h2 id="zlib-createdeflate-options-">zlib.createDeflate([options])</h2>
+<p>Returns a new <a href="#zlib_class_zlib_deflate">Deflate</a> object with an
+<a href="#zlib_options">options</a>.</p>
+<h2 id="zlib-createinflate-options-">zlib.createInflate([options])</h2>
+<p>Returns a new <a href="#zlib_class_zlib_inflate">Inflate</a> object with an
+<a href="#zlib_options">options</a>.</p>
+<h2 id="zlib-createdeflateraw-options-">zlib.createDeflateRaw([options])</h2>
+<p>Returns a new <a href="#zlib_class_zlib_deflateraw">DeflateRaw</a> object with an
+<a href="#zlib_options">options</a>.</p>
+<h2 id="zlib-createinflateraw-options-">zlib.createInflateRaw([options])</h2>
+<p>Returns a new <a href="#zlib_class_zlib_inflateraw">InflateRaw</a> object with an
+<a href="#zlib_options">options</a>.</p>
+<h2 id="zlib-createunzip-options-">zlib.createUnzip([options])</h2>
+<p>Returns a new <a href="#zlib_class_zlib_unzip">Unzip</a> object with an
+<a href="#zlib_options">options</a>.</p>
+<h2 id="class-zlib-zlib">Class: zlib.Zlib</h2>
+<p>Not exported by the <code>zlib</code> module. It is documented here because it is the base
+class of the compressor/decompressor classes.</p>
+<h3 id="zlib-flush-kind-callback-">zlib.flush([kind], callback)</h3>
+<p><code>kind</code> defaults to <code>zlib.Z_FULL_FLUSH</code>.</p>
+<p>Flush pending data. Don&#39;t call this frivolously, premature flushes negatively
+impact the effectiveness of the compression algorithm.</p>
+<h3 id="zlib-params-level-strategy-callback-">zlib.params(level, strategy, callback)</h3>
+<p>Dynamically update the compression level and compression strategy.
+Only applicable to deflate algorithm.</p>
+<h3 id="zlib-reset-">zlib.reset()</h3>
+<p>Reset the compressor/decompressor to factory defaults. Only applicable to
+the inflate and deflate algorithms.</p>
+<h2 id="class-zlib-gzip">Class: zlib.Gzip</h2>
+<p>Compress data using gzip.</p>
+<h2 id="class-zlib-gunzip">Class: zlib.Gunzip</h2>
+<p>Decompress a gzip stream.</p>
+<h2 id="class-zlib-deflate">Class: zlib.Deflate</h2>
+<p>Compress data using deflate.</p>
+<h2 id="class-zlib-inflate">Class: zlib.Inflate</h2>
+<p>Decompress a deflate stream.</p>
+<h2 id="class-zlib-deflateraw">Class: zlib.DeflateRaw</h2>
+<p>Compress data using deflate, and do not append a zlib header.</p>
+<h2 id="class-zlib-inflateraw">Class: zlib.InflateRaw</h2>
+<p>Decompress a raw deflate stream.</p>
+<h2 id="class-zlib-unzip">Class: zlib.Unzip</h2>
+<p>Decompress either a Gzip- or Deflate-compressed stream by auto-detecting
+the header.</p>
+<h2 id="convenience-methods">Convenience Methods</h2>
+<!--type=misc-->
+
+<p>All of these take a string or buffer as the first argument, an optional second
+argument to supply options to the zlib classes and will call the supplied
+callback with <code>callback(error, result)</code>.</p>
+<p>Every method has a <code>*Sync</code> counterpart, which accept the same arguments, but
+without a callback.</p>
+<h2 id="zlib-deflate-buf-options-callback-">zlib.deflate(buf, [options], callback)</h2>
+<h2 id="zlib-deflatesync-buf-options-">zlib.deflateSync(buf, [options])</h2>
+<p>Compress a string with Deflate.</p>
+<h2 id="zlib-deflateraw-buf-options-callback-">zlib.deflateRaw(buf, [options], callback)</h2>
+<h2 id="zlib-deflaterawsync-buf-options-">zlib.deflateRawSync(buf, [options])</h2>
+<p>Compress a string with DeflateRaw.</p>
+<h2 id="zlib-gzip-buf-options-callback-">zlib.gzip(buf, [options], callback)</h2>
+<h2 id="zlib-gzipsync-buf-options-">zlib.gzipSync(buf, [options])</h2>
+<p>Compress a string with Gzip.</p>
+<h2 id="zlib-gunzip-buf-options-callback-">zlib.gunzip(buf, [options], callback)</h2>
+<h2 id="zlib-gunzipsync-buf-options-">zlib.gunzipSync(buf, [options])</h2>
+<p>Decompress a raw Buffer with Gunzip.</p>
+<h2 id="zlib-inflate-buf-options-callback-">zlib.inflate(buf, [options], callback)</h2>
+<h2 id="zlib-inflatesync-buf-options-">zlib.inflateSync(buf, [options])</h2>
+<p>Decompress a raw Buffer with Inflate.</p>
+<h2 id="zlib-inflateraw-buf-options-callback-">zlib.inflateRaw(buf, [options], callback)</h2>
+<h2 id="zlib-inflaterawsync-buf-options-">zlib.inflateRawSync(buf, [options])</h2>
+<p>Decompress a raw Buffer with InflateRaw.</p>
+<h2 id="zlib-unzip-buf-options-callback-">zlib.unzip(buf, [options], callback)</h2>
+<h2 id="zlib-unzipsync-buf-options-">zlib.unzipSync(buf, [options])</h2>
+<p>Decompress a raw Buffer with Unzip.</p>
+<h2 id="options">Options</h2>
+<!--type=misc-->
+
+<p>Each class takes an options object.  All options are optional.</p>
+<p>Note that some options are only relevant when compressing, and are
+ignored by the decompression classes.</p>
+<ul>
+<li>flush (default: <code>zlib.Z_NO_FLUSH</code>)</li>
+<li>chunkSize (default: 16*1024)</li>
+<li>windowBits</li>
+<li>level (compression only)</li>
+<li>memLevel (compression only)</li>
+<li>strategy (compression only)</li>
+<li>dictionary (deflate/inflate only, empty dictionary by default)</li>
+</ul>
+<p>See the description of <code>deflateInit2</code> and <code>inflateInit2</code> at
+<a href="http://zlib.net/manual.html#Advanced">http://zlib.net/manual.html#Advanced</a> for more information on these.</p>
+<h2 id="memory-usage-tuning">Memory Usage Tuning</h2>
+<!--type=misc-->
+
+<p>From <code>zlib/zconf.h</code>, modified to node&#39;s usage:</p>
+<p>The memory requirements for deflate are (in bytes):</p>
+<pre><code>(1 &lt;&lt; (windowBits+2)) +  (1 &lt;&lt; (memLevel+9))
+</code></pre><p>that is: 128K for windowBits=15  +  128K for memLevel = 8
+(default values) plus a few kilobytes for small objects.</p>
+<p>For example, if you want to reduce
+the default memory requirements from 256K to 128K, set the options to:</p>
+<pre><code>{ windowBits: 14, memLevel: 7 }
+</code></pre><p>Of course this will generally degrade compression (there&#39;s no free lunch).</p>
+<p>The memory requirements for inflate are (in bytes)</p>
+<pre><code>1 &lt;&lt; windowBits
+</code></pre><p>that is, 32K for windowBits=15 (default value) plus a few kilobytes
+for small objects.</p>
+<p>This is in addition to a single internal output slab buffer of size
+<code>chunkSize</code>, which defaults to 16K.</p>
+<p>The speed of zlib compression is affected most dramatically by the
+<code>level</code> setting.  A higher level will result in better compression, but
+will take longer to complete.  A lower level will result in less
+compression, but will be much faster.</p>
+<p>In general, greater memory usage options will mean that node has to make
+fewer calls to zlib, since it&#39;ll be able to process more data in a
+single <code>write</code> operation.  So, this is another factor that affects the
+speed, at the cost of memory usage.</p>
+<h2 id="constants">Constants</h2>
+<!--type=misc-->
+
+<p>All of the constants defined in zlib.h are also defined on
+<code>require(&#39;zlib&#39;)</code>.
+In the normal course of operations, you will not need to ever set any of
+these.  They are documented here so that their presence is not
+surprising.  This section is taken almost directly from the <a href="http://zlib.net/manual.html#Constants">zlib
+documentation</a>.  See
+<a href="http://zlib.net/manual.html#Constants">http://zlib.net/manual.html#Constants</a> for more details.</p>
+<p>Allowed flush values.</p>
+<ul>
+<li><code>zlib.Z_NO_FLUSH</code></li>
+<li><code>zlib.Z_PARTIAL_FLUSH</code></li>
+<li><code>zlib.Z_SYNC_FLUSH</code></li>
+<li><code>zlib.Z_FULL_FLUSH</code></li>
+<li><code>zlib.Z_FINISH</code></li>
+<li><code>zlib.Z_BLOCK</code></li>
+<li><code>zlib.Z_TREES</code></li>
+</ul>
+<p>Return codes for the compression/decompression functions. Negative
+values are errors, positive values are used for special but normal
+events.</p>
+<ul>
+<li><code>zlib.Z_OK</code></li>
+<li><code>zlib.Z_STREAM_END</code></li>
+<li><code>zlib.Z_NEED_DICT</code></li>
+<li><code>zlib.Z_ERRNO</code></li>
+<li><code>zlib.Z_STREAM_ERROR</code></li>
+<li><code>zlib.Z_DATA_ERROR</code></li>
+<li><code>zlib.Z_MEM_ERROR</code></li>
+<li><code>zlib.Z_BUF_ERROR</code></li>
+<li><code>zlib.Z_VERSION_ERROR</code></li>
+</ul>
+<p>Compression levels.</p>
+<ul>
+<li><code>zlib.Z_NO_COMPRESSION</code></li>
+<li><code>zlib.Z_BEST_SPEED</code></li>
+<li><code>zlib.Z_BEST_COMPRESSION</code></li>
+<li><code>zlib.Z_DEFAULT_COMPRESSION</code></li>
+</ul>
+<p>Compression strategy.</p>
+<ul>
+<li><code>zlib.Z_FILTERED</code></li>
+<li><code>zlib.Z_HUFFMAN_ONLY</code></li>
+<li><code>zlib.Z_RLE</code></li>
+<li><code>zlib.Z_FIXED</code></li>
+<li><code>zlib.Z_DEFAULT_STRATEGY</code></li>
+</ul>
+<p>Possible values of the data_type field.</p>
+<ul>
+<li><code>zlib.Z_BINARY</code></li>
+<li><code>zlib.Z_TEXT</code></li>
+<li><code>zlib.Z_ASCII</code></li>
+<li><code>zlib.Z_UNKNOWN</code></li>
+</ul>
+<p>The deflate compression method (the only one supported in this version).</p>
+<ul>
+<li><code>zlib.Z_DEFLATED</code></li>
+</ul>
+<p>For initializing zalloc, zfree, opaque.</p>
+<ul>
+<li><code>zlib.Z_NULL</code></li>
+</ul>
+</div>
+</body>
+</html>

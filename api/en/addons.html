@@ -1,0 +1,1857 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Addons</title>
+    <style type="text/css">
+    /*!
+* Bootstrap v3.1.1 (http://getbootstrap.com)
+* Copyright 2011-2014 Twitter, Inc.
+* Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+*/
+
+    /*! normalize.css v3.0.0 | MIT License | git.io/normalize */
+    html {
+        font-family: sans-serif;
+        -ms-text-size-adjust: 100%;
+        -webkit-text-size-adjust: 100%;
+    }
+    body {
+        margin: 0;
+    }
+    article,
+    aside,
+    details,
+    figcaption,
+    figure,
+    footer,
+    header,
+    hgroup,
+    main,
+    nav,
+    section,
+    summary {
+        display: block;
+    }
+    audio,
+    canvas,
+    progress,
+    video {
+        display: inline-block;
+        vertical-align: baseline;
+    }
+    audio:not([controls]) {
+        display: none;
+        height: 0;
+    }
+    [hidden],
+    template {
+        display: none;
+    }
+    a {
+        background: transparent;
+    }
+    a:active,
+    a:hover {
+        outline: 0;
+    }
+    abbr[title] {
+        border-bottom: 1px dotted;
+    }
+    b,
+    strong {
+        font-weight: bold;
+    }
+    dfn {
+        font-style: italic;
+    }
+    h1 {
+        font-size: 2em;
+        margin: 0.67em 0;
+    }
+    mark {
+        background: #ff0;
+        color: #000;
+    }
+    small {
+        font-size: 80%;
+    }
+    sub,
+    sup {
+        font-size: 75%;
+        line-height: 0;
+        position: relative;
+        vertical-align: baseline;
+    }
+    sup {
+        top: -0.5em;
+    }
+    sub {
+        bottom: -0.25em;
+    }
+    img {
+        border: 0;
+    }
+    svg:not(:root) {
+        overflow: hidden;
+    }
+    figure {
+        margin: 1em 40px;
+    }
+    hr {
+        -moz-box-sizing: content-box;
+        box-sizing: content-box;
+        height: 0;
+    }
+    pre {
+        overflow: auto;
+    }
+    code,
+    kbd,
+    pre,
+    samp {
+        font-family: monospace, monospace;
+        font-size: 1em;
+    }
+    button,
+    input,
+    optgroup,
+    select,
+    textarea {
+        color: inherit;
+        font: inherit;
+        margin: 0;
+    }
+    button {
+        overflow: visible;
+    }
+    button,
+    select {
+        text-transform: none;
+    }
+    button,
+    html input[type="button"],
+    input[type="reset"],
+    input[type="submit"] {
+        -webkit-appearance: button;
+        cursor: pointer;
+    }
+    button[disabled],
+    html input[disabled] {
+        cursor: default;
+    }
+    button::-moz-focus-inner,
+    input::-moz-focus-inner {
+        border: 0;
+        padding: 0;
+    }
+    input {
+        line-height: normal;
+    }
+    input[type="checkbox"],
+    input[type="radio"] {
+        box-sizing: border-box;
+        padding: 0;
+    }
+    input[type="number"]::-webkit-inner-spin-button,
+    input[type="number"]::-webkit-outer-spin-button {
+        height: auto;
+    }
+    input[type="search"] {
+        -webkit-appearance: textfield;
+        -moz-box-sizing: content-box;
+        -webkit-box-sizing: content-box;
+        box-sizing: content-box;
+    }
+    input[type="search"]::-webkit-search-cancel-button,
+    input[type="search"]::-webkit-search-decoration {
+        -webkit-appearance: none;
+    }
+    fieldset {
+        border: 1px solid #c0c0c0;
+        margin: 0 2px;
+        padding: 0.35em 0.625em 0.75em;
+    }
+    legend {
+        border: 0;
+        padding: 0;
+    }
+    textarea {
+        overflow: auto;
+    }
+    optgroup {
+        font-weight: bold;
+    }
+    table {
+        border-collapse: collapse;
+        border-spacing: 0;
+    }
+    td,
+    th {
+        padding: 0;
+    }
+    @media print {
+        * {
+            text-shadow: none !important;
+            color: #000 !important;
+            background: transparent !important;
+            box-shadow: none !important;
+        }
+        a,
+        a:visited {
+            text-decoration: underline;
+        }
+        a[href]:after {
+            content: " (" attr(href) ")";
+        }
+        abbr[title]:after {
+            content: " (" attr(title) ")";
+        }
+        a[href^="javascript:"]:after,
+        a[href^="#"]:after {
+            content: "";
+        }
+        pre,
+        blockquote {
+            border: 1px solid #999;
+            page-break-inside: avoid;
+        }
+        thead {
+            display: table-header-group;
+        }
+        tr,
+        img {
+            page-break-inside: avoid;
+        }
+        img {
+            max-width: 100% !important;
+        }
+        p,
+        h2,
+        h3 {
+            orphans: 3;
+            widows: 3;
+        }
+        h2,
+        h3 {
+            page-break-after: avoid;
+        }
+        select {
+            background: #fff !important;
+        }
+        .navbar {
+            display: none;
+        }
+        .table td,
+        .table th {
+            background-color: #fff !important;
+        }
+        .btn > .caret,
+        .dropup > .btn > .caret {
+            border-top-color: #000 !important;
+        }
+        .label {
+            border: 1px solid #000;
+        }
+        .table {
+            border-collapse: collapse !important;
+        }
+        .table-bordered th,
+        .table-bordered td {
+            border: 1px solid #ddd !important;
+        }
+    }
+    * {
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+    *:before,
+    *:after {
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+    html {
+        font-size: 62.5%;
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    }
+    body {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        line-height: 1.42857143;
+        color: #333333;
+        background-color: #ffffff;
+    }
+    input,
+    button,
+    select,
+    textarea {
+        font-family: inherit;
+        font-size: inherit;
+        line-height: inherit;
+    }
+    a {
+        color: #428bca;
+        text-decoration: none;
+    }
+    a:hover,
+    a:focus {
+        color: #2a6496;
+        text-decoration: underline;
+    }
+    a:focus {
+        outline: thin dotted;
+        outline: 5px auto -webkit-focus-ring-color;
+        outline-offset: -2px;
+    }
+    figure {
+        margin: 0;
+    }
+    img {
+        vertical-align: middle;
+    }
+    .img-responsive {
+        display: block;
+        max-width: 100%;
+        height: auto;
+    }
+    .img-rounded {
+        border-radius: 6px;
+    }
+    .img-thumbnail {
+        padding: 4px;
+        line-height: 1.42857143;
+        background-color: #ffffff;
+        border: 1px solid #dddddd;
+        border-radius: 4px;
+        -webkit-transition: all 0.2s ease-in-out;
+        transition: all 0.2s ease-in-out;
+        display: inline-block;
+        max-width: 100%;
+        height: auto;
+    }
+    .img-circle {
+        border-radius: 50%;
+    }
+    hr {
+        margin-top: 20px;
+        margin-bottom: 20px;
+        border: 0;
+        border-top: 1px solid #eeeeee;
+    }
+    .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        margin: -1px;
+        padding: 0;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        border: 0;
+    }
+    code,
+    kbd,
+    pre,
+    samp {
+        font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+    }
+    code {
+        padding: 2px 4px;
+        font-size: 90%;
+        color: #c7254e;
+        background-color: #f9f2f4;
+        white-space: nowrap;
+        border-radius: 4px;
+    }
+    kbd {
+        padding: 2px 4px;
+        font-size: 90%;
+        color: #ffffff;
+        background-color: #333333;
+        border-radius: 3px;
+        box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.25);
+    }
+    pre {
+        display: block;
+        padding: 9.5px;
+        margin: 0 0 10px;
+        font-size: 13px;
+        line-height: 1.42857143;
+        word-break: break-all;
+        word-wrap: break-word;
+        color: #333333;
+        background-color: #f5f5f5;
+        border: 1px solid #cccccc;
+        border-radius: 4px;
+    }
+    pre code {
+        padding: 0;
+        font-size: inherit;
+        color: inherit;
+        white-space: pre-wrap;
+        background-color: transparent;
+        border-radius: 0;
+    }
+    .pre-scrollable {
+        max-height: 340px;
+        overflow-y: scroll;
+    }
+    .container {
+        margin-right: auto;
+        margin-left: auto;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    @media (min-width: 768px) {
+        .container {
+            width: 750px;
+        }
+    }
+    @media (min-width: 992px) {
+        .container {
+            width: 970px;
+        }
+    }
+    @media (min-width: 1200px) {
+        .container {
+            width: 1170px;
+        }
+    }
+    .container-fluid {
+        margin-right: auto;
+        margin-left: auto;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    .row {
+        margin-left: -15px;
+        margin-right: -15px;
+    }
+    .col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 {
+        position: relative;
+        min-height: 1px;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    .col-xs-1, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9, .col-xs-10, .col-xs-11, .col-xs-12 {
+        float: left;
+    }
+    .col-xs-12 {
+        width: 100%;
+    }
+    .col-xs-11 {
+        width: 91.66666667%;
+    }
+    .col-xs-10 {
+        width: 83.33333333%;
+    }
+    .col-xs-9 {
+        width: 75%;
+    }
+    .col-xs-8 {
+        width: 66.66666667%;
+    }
+    .col-xs-7 {
+        width: 58.33333333%;
+    }
+    .col-xs-6 {
+        width: 50%;
+    }
+    .col-xs-5 {
+        width: 41.66666667%;
+    }
+    .col-xs-4 {
+        width: 33.33333333%;
+    }
+    .col-xs-3 {
+        width: 25%;
+    }
+    .col-xs-2 {
+        width: 16.66666667%;
+    }
+    .col-xs-1 {
+        width: 8.33333333%;
+    }
+    .col-xs-pull-12 {
+        right: 100%;
+    }
+    .col-xs-pull-11 {
+        right: 91.66666667%;
+    }
+    .col-xs-pull-10 {
+        right: 83.33333333%;
+    }
+    .col-xs-pull-9 {
+        right: 75%;
+    }
+    .col-xs-pull-8 {
+        right: 66.66666667%;
+    }
+    .col-xs-pull-7 {
+        right: 58.33333333%;
+    }
+    .col-xs-pull-6 {
+        right: 50%;
+    }
+    .col-xs-pull-5 {
+        right: 41.66666667%;
+    }
+    .col-xs-pull-4 {
+        right: 33.33333333%;
+    }
+    .col-xs-pull-3 {
+        right: 25%;
+    }
+    .col-xs-pull-2 {
+        right: 16.66666667%;
+    }
+    .col-xs-pull-1 {
+        right: 8.33333333%;
+    }
+    .col-xs-pull-0 {
+        right: 0%;
+    }
+    .col-xs-push-12 {
+        left: 100%;
+    }
+    .col-xs-push-11 {
+        left: 91.66666667%;
+    }
+    .col-xs-push-10 {
+        left: 83.33333333%;
+    }
+    .col-xs-push-9 {
+        left: 75%;
+    }
+    .col-xs-push-8 {
+        left: 66.66666667%;
+    }
+    .col-xs-push-7 {
+        left: 58.33333333%;
+    }
+    .col-xs-push-6 {
+        left: 50%;
+    }
+    .col-xs-push-5 {
+        left: 41.66666667%;
+    }
+    .col-xs-push-4 {
+        left: 33.33333333%;
+    }
+    .col-xs-push-3 {
+        left: 25%;
+    }
+    .col-xs-push-2 {
+        left: 16.66666667%;
+    }
+    .col-xs-push-1 {
+        left: 8.33333333%;
+    }
+    .col-xs-push-0 {
+        left: 0%;
+    }
+    .col-xs-offset-12 {
+        margin-left: 100%;
+    }
+    .col-xs-offset-11 {
+        margin-left: 91.66666667%;
+    }
+    .col-xs-offset-10 {
+        margin-left: 83.33333333%;
+    }
+    .col-xs-offset-9 {
+        margin-left: 75%;
+    }
+    .col-xs-offset-8 {
+        margin-left: 66.66666667%;
+    }
+    .col-xs-offset-7 {
+        margin-left: 58.33333333%;
+    }
+    .col-xs-offset-6 {
+        margin-left: 50%;
+    }
+    .col-xs-offset-5 {
+        margin-left: 41.66666667%;
+    }
+    .col-xs-offset-4 {
+        margin-left: 33.33333333%;
+    }
+    .col-xs-offset-3 {
+        margin-left: 25%;
+    }
+    .col-xs-offset-2 {
+        margin-left: 16.66666667%;
+    }
+    .col-xs-offset-1 {
+        margin-left: 8.33333333%;
+    }
+    .col-xs-offset-0 {
+        margin-left: 0%;
+    }
+    @media (min-width: 768px) {
+        .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12 {
+            float: left;
+        }
+        .col-sm-12 {
+            width: 100%;
+        }
+        .col-sm-11 {
+            width: 91.66666667%;
+        }
+        .col-sm-10 {
+            width: 83.33333333%;
+        }
+        .col-sm-9 {
+            width: 75%;
+        }
+        .col-sm-8 {
+            width: 66.66666667%;
+        }
+        .col-sm-7 {
+            width: 58.33333333%;
+        }
+        .col-sm-6 {
+            width: 50%;
+        }
+        .col-sm-5 {
+            width: 41.66666667%;
+        }
+        .col-sm-4 {
+            width: 33.33333333%;
+        }
+        .col-sm-3 {
+            width: 25%;
+        }
+        .col-sm-2 {
+            width: 16.66666667%;
+        }
+        .col-sm-1 {
+            width: 8.33333333%;
+        }
+        .col-sm-pull-12 {
+            right: 100%;
+        }
+        .col-sm-pull-11 {
+            right: 91.66666667%;
+        }
+        .col-sm-pull-10 {
+            right: 83.33333333%;
+        }
+        .col-sm-pull-9 {
+            right: 75%;
+        }
+        .col-sm-pull-8 {
+            right: 66.66666667%;
+        }
+        .col-sm-pull-7 {
+            right: 58.33333333%;
+        }
+        .col-sm-pull-6 {
+            right: 50%;
+        }
+        .col-sm-pull-5 {
+            right: 41.66666667%;
+        }
+        .col-sm-pull-4 {
+            right: 33.33333333%;
+        }
+        .col-sm-pull-3 {
+            right: 25%;
+        }
+        .col-sm-pull-2 {
+            right: 16.66666667%;
+        }
+        .col-sm-pull-1 {
+            right: 8.33333333%;
+        }
+        .col-sm-pull-0 {
+            right: 0%;
+        }
+        .col-sm-push-12 {
+            left: 100%;
+        }
+        .col-sm-push-11 {
+            left: 91.66666667%;
+        }
+        .col-sm-push-10 {
+            left: 83.33333333%;
+        }
+        .col-sm-push-9 {
+            left: 75%;
+        }
+        .col-sm-push-8 {
+            left: 66.66666667%;
+        }
+        .col-sm-push-7 {
+            left: 58.33333333%;
+        }
+        .col-sm-push-6 {
+            left: 50%;
+        }
+        .col-sm-push-5 {
+            left: 41.66666667%;
+        }
+        .col-sm-push-4 {
+            left: 33.33333333%;
+        }
+        .col-sm-push-3 {
+            left: 25%;
+        }
+        .col-sm-push-2 {
+            left: 16.66666667%;
+        }
+        .col-sm-push-1 {
+            left: 8.33333333%;
+        }
+        .col-sm-push-0 {
+            left: 0%;
+        }
+        .col-sm-offset-12 {
+            margin-left: 100%;
+        }
+        .col-sm-offset-11 {
+            margin-left: 91.66666667%;
+        }
+        .col-sm-offset-10 {
+            margin-left: 83.33333333%;
+        }
+        .col-sm-offset-9 {
+            margin-left: 75%;
+        }
+        .col-sm-offset-8 {
+            margin-left: 66.66666667%;
+        }
+        .col-sm-offset-7 {
+            margin-left: 58.33333333%;
+        }
+        .col-sm-offset-6 {
+            margin-left: 50%;
+        }
+        .col-sm-offset-5 {
+            margin-left: 41.66666667%;
+        }
+        .col-sm-offset-4 {
+            margin-left: 33.33333333%;
+        }
+        .col-sm-offset-3 {
+            margin-left: 25%;
+        }
+        .col-sm-offset-2 {
+            margin-left: 16.66666667%;
+        }
+        .col-sm-offset-1 {
+            margin-left: 8.33333333%;
+        }
+        .col-sm-offset-0 {
+            margin-left: 0%;
+        }
+    }
+    @media (min-width: 992px) {
+        .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12 {
+            float: left;
+        }
+        .col-md-12 {
+            width: 100%;
+        }
+        .col-md-11 {
+            width: 91.66666667%;
+        }
+        .col-md-10 {
+            width: 83.33333333%;
+        }
+        .col-md-9 {
+            width: 75%;
+        }
+        .col-md-8 {
+            width: 66.66666667%;
+        }
+        .col-md-7 {
+            width: 58.33333333%;
+        }
+        .col-md-6 {
+            width: 50%;
+        }
+        .col-md-5 {
+            width: 41.66666667%;
+        }
+        .col-md-4 {
+            width: 33.33333333%;
+        }
+        .col-md-3 {
+            width: 25%;
+        }
+        .col-md-2 {
+            width: 16.66666667%;
+        }
+        .col-md-1 {
+            width: 8.33333333%;
+        }
+        .col-md-pull-12 {
+            right: 100%;
+        }
+        .col-md-pull-11 {
+            right: 91.66666667%;
+        }
+        .col-md-pull-10 {
+            right: 83.33333333%;
+        }
+        .col-md-pull-9 {
+            right: 75%;
+        }
+        .col-md-pull-8 {
+            right: 66.66666667%;
+        }
+        .col-md-pull-7 {
+            right: 58.33333333%;
+        }
+        .col-md-pull-6 {
+            right: 50%;
+        }
+        .col-md-pull-5 {
+            right: 41.66666667%;
+        }
+        .col-md-pull-4 {
+            right: 33.33333333%;
+        }
+        .col-md-pull-3 {
+            right: 25%;
+        }
+        .col-md-pull-2 {
+            right: 16.66666667%;
+        }
+        .col-md-pull-1 {
+            right: 8.33333333%;
+        }
+        .col-md-pull-0 {
+            right: 0%;
+        }
+        .col-md-push-12 {
+            left: 100%;
+        }
+        .col-md-push-11 {
+            left: 91.66666667%;
+        }
+        .col-md-push-10 {
+            left: 83.33333333%;
+        }
+        .col-md-push-9 {
+            left: 75%;
+        }
+        .col-md-push-8 {
+            left: 66.66666667%;
+        }
+        .col-md-push-7 {
+            left: 58.33333333%;
+        }
+        .col-md-push-6 {
+            left: 50%;
+        }
+        .col-md-push-5 {
+            left: 41.66666667%;
+        }
+        .col-md-push-4 {
+            left: 33.33333333%;
+        }
+        .col-md-push-3 {
+            left: 25%;
+        }
+        .col-md-push-2 {
+            left: 16.66666667%;
+        }
+        .col-md-push-1 {
+            left: 8.33333333%;
+        }
+        .col-md-push-0 {
+            left: 0%;
+        }
+        .col-md-offset-12 {
+            margin-left: 100%;
+        }
+        .col-md-offset-11 {
+            margin-left: 91.66666667%;
+        }
+        .col-md-offset-10 {
+            margin-left: 83.33333333%;
+        }
+        .col-md-offset-9 {
+            margin-left: 75%;
+        }
+        .col-md-offset-8 {
+            margin-left: 66.66666667%;
+        }
+        .col-md-offset-7 {
+            margin-left: 58.33333333%;
+        }
+        .col-md-offset-6 {
+            margin-left: 50%;
+        }
+        .col-md-offset-5 {
+            margin-left: 41.66666667%;
+        }
+        .col-md-offset-4 {
+            margin-left: 33.33333333%;
+        }
+        .col-md-offset-3 {
+            margin-left: 25%;
+        }
+        .col-md-offset-2 {
+            margin-left: 16.66666667%;
+        }
+        .col-md-offset-1 {
+            margin-left: 8.33333333%;
+        }
+        .col-md-offset-0 {
+            margin-left: 0%;
+        }
+    }
+    @media (min-width: 1200px) {
+        .col-lg-1, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-10, .col-lg-11, .col-lg-12 {
+            float: left;
+        }
+        .col-lg-12 {
+            width: 100%;
+        }
+        .col-lg-11 {
+            width: 91.66666667%;
+        }
+        .col-lg-10 {
+            width: 83.33333333%;
+        }
+        .col-lg-9 {
+            width: 75%;
+        }
+        .col-lg-8 {
+            width: 66.66666667%;
+        }
+        .col-lg-7 {
+            width: 58.33333333%;
+        }
+        .col-lg-6 {
+            width: 50%;
+        }
+        .col-lg-5 {
+            width: 41.66666667%;
+        }
+        .col-lg-4 {
+            width: 33.33333333%;
+        }
+        .col-lg-3 {
+            width: 25%;
+        }
+        .col-lg-2 {
+            width: 16.66666667%;
+        }
+        .col-lg-1 {
+            width: 8.33333333%;
+        }
+        .col-lg-pull-12 {
+            right: 100%;
+        }
+        .col-lg-pull-11 {
+            right: 91.66666667%;
+        }
+        .col-lg-pull-10 {
+            right: 83.33333333%;
+        }
+        .col-lg-pull-9 {
+            right: 75%;
+        }
+        .col-lg-pull-8 {
+            right: 66.66666667%;
+        }
+        .col-lg-pull-7 {
+            right: 58.33333333%;
+        }
+        .col-lg-pull-6 {
+            right: 50%;
+        }
+        .col-lg-pull-5 {
+            right: 41.66666667%;
+        }
+        .col-lg-pull-4 {
+            right: 33.33333333%;
+        }
+        .col-lg-pull-3 {
+            right: 25%;
+        }
+        .col-lg-pull-2 {
+            right: 16.66666667%;
+        }
+        .col-lg-pull-1 {
+            right: 8.33333333%;
+        }
+        .col-lg-pull-0 {
+            right: 0%;
+        }
+        .col-lg-push-12 {
+            left: 100%;
+        }
+        .col-lg-push-11 {
+            left: 91.66666667%;
+        }
+        .col-lg-push-10 {
+            left: 83.33333333%;
+        }
+        .col-lg-push-9 {
+            left: 75%;
+        }
+        .col-lg-push-8 {
+            left: 66.66666667%;
+        }
+        .col-lg-push-7 {
+            left: 58.33333333%;
+        }
+        .col-lg-push-6 {
+            left: 50%;
+        }
+        .col-lg-push-5 {
+            left: 41.66666667%;
+        }
+        .col-lg-push-4 {
+            left: 33.33333333%;
+        }
+        .col-lg-push-3 {
+            left: 25%;
+        }
+        .col-lg-push-2 {
+            left: 16.66666667%;
+        }
+        .col-lg-push-1 {
+            left: 8.33333333%;
+        }
+        .col-lg-push-0 {
+            left: 0%;
+        }
+        .col-lg-offset-12 {
+            margin-left: 100%;
+        }
+        .col-lg-offset-11 {
+            margin-left: 91.66666667%;
+        }
+        .col-lg-offset-10 {
+            margin-left: 83.33333333%;
+        }
+        .col-lg-offset-9 {
+            margin-left: 75%;
+        }
+        .col-lg-offset-8 {
+            margin-left: 66.66666667%;
+        }
+        .col-lg-offset-7 {
+            margin-left: 58.33333333%;
+        }
+        .col-lg-offset-6 {
+            margin-left: 50%;
+        }
+        .col-lg-offset-5 {
+            margin-left: 41.66666667%;
+        }
+        .col-lg-offset-4 {
+            margin-left: 33.33333333%;
+        }
+        .col-lg-offset-3 {
+            margin-left: 25%;
+        }
+        .col-lg-offset-2 {
+            margin-left: 16.66666667%;
+        }
+        .col-lg-offset-1 {
+            margin-left: 8.33333333%;
+        }
+        .col-lg-offset-0 {
+            margin-left: 0%;
+        }
+    }
+    .clearfix:before,
+    .clearfix:after,
+    .container:before,
+    .container:after,
+    .container-fluid:before,
+    .container-fluid:after,
+    .row:before,
+    .row:after {
+        content: " ";
+        display: table;
+    }
+    .clearfix:after,
+    .container:after,
+    .container-fluid:after,
+    .row:after {
+        clear: both;
+    }
+    .center-block {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .pull-right {
+        float: right !important;
+    }
+    .pull-left {
+        float: left !important;
+    }
+    .hide {
+        display: none !important;
+    }
+    .show {
+        display: block !important;
+    }
+    .invisible {
+        visibility: hidden;
+    }
+    .text-hide {
+        font: 0/0 a;
+        color: transparent;
+        text-shadow: none;
+        background-color: transparent;
+        border: 0;
+    }
+    .hidden {
+        display: none !important;
+        visibility: hidden !important;
+    }
+    .affix {
+        position: fixed;
+    }
+    @-ms-viewport {
+        width: device-width;
+    }
+    .visible-xs,
+    .visible-sm,
+    .visible-md,
+    .visible-lg {
+        display: none !important;
+    }
+    @media (max-width: 767px) {
+        .visible-xs {
+            display: block !important;
+        }
+        table.visible-xs {
+            display: table;
+        }
+        tr.visible-xs {
+            display: table-row !important;
+        }
+        th.visible-xs,
+        td.visible-xs {
+            display: table-cell !important;
+        }
+    }
+    @media (min-width: 768px) and (max-width: 991px) {
+        .visible-sm {
+            display: block !important;
+        }
+        table.visible-sm {
+            display: table;
+        }
+        tr.visible-sm {
+            display: table-row !important;
+        }
+        th.visible-sm,
+        td.visible-sm {
+            display: table-cell !important;
+        }
+    }
+    @media (min-width: 992px) and (max-width: 1199px) {
+        .visible-md {
+            display: block !important;
+        }
+        table.visible-md {
+            display: table;
+        }
+        tr.visible-md {
+            display: table-row !important;
+        }
+        th.visible-md,
+        td.visible-md {
+            display: table-cell !important;
+        }
+    }
+    @media (min-width: 1200px) {
+        .visible-lg {
+            display: block !important;
+        }
+        table.visible-lg {
+            display: table;
+        }
+        tr.visible-lg {
+            display: table-row !important;
+        }
+        th.visible-lg,
+        td.visible-lg {
+            display: table-cell !important;
+        }
+    }
+    @media (max-width: 767px) {
+        .hidden-xs {
+            display: none !important;
+        }
+    }
+    @media (min-width: 768px) and (max-width: 991px) {
+        .hidden-sm {
+            display: none !important;
+        }
+    }
+    @media (min-width: 992px) and (max-width: 1199px) {
+        .hidden-md {
+            display: none !important;
+        }
+    }
+    @media (min-width: 1200px) {
+        .hidden-lg {
+            display: none !important;
+        }
+    }
+    .visible-print {
+        display: none !important;
+    }
+    @media print {
+        .visible-print {
+            display: block !important;
+        }
+        table.visible-print {
+            display: table;
+        }
+        tr.visible-print {
+            display: table-row !important;
+        }
+        th.visible-print,
+        td.visible-print {
+            display: table-cell !important;
+        }
+    }
+    @media print {
+        .hidden-print {
+            display: none !important;
+        }
+    }
+
+    h1{
+        color: #480 !important;
+    }
+
+    </style>
+</head>
+<body>
+<div class="container"><h1 id="addons">Addons</h1>
+<p>Addons are dynamically linked shared objects. They can provide glue to C and
+C++ libraries. The API (at the moment) is rather complex, involving
+knowledge of several libraries:</p>
+<ul>
+<li><p>V8 JavaScript, a C++ library. Used for interfacing with JavaScript:
+creating objects, calling functions, etc.  Documented mostly in the
+<code>v8.h</code> header file (<code>deps/v8/include/v8.h</code> in the Node source
+tree), which is also available
+<a href="http://izs.me/v8-docs/main.html">online</a>.</p>
+</li>
+<li><p><a href="https://github.com/joyent/libuv">libuv</a>, C event loop library.
+Anytime one needs to wait for a file descriptor to become readable,
+wait for a timer, or wait for a signal to be received one will need
+to interface with libuv. That is, if you perform any I/O, libuv will
+need to be used.</p>
+</li>
+<li><p>Internal Node libraries. Most importantly is the <code>node::ObjectWrap</code>
+class which you will likely want to derive from.</p>
+</li>
+<li><p>Others. Look in <code>deps/</code> for what else is available.</p>
+</li>
+</ul>
+<p>Node statically compiles all its dependencies into the executable.
+When compiling your module, you don&#39;t need to worry about linking to
+any of these libraries.</p>
+<p>All of the following examples are available for
+<a href="https://github.com/rvagg/node-addon-examples">download</a> and may be
+used as a starting-point for your own Addon.</p>
+<h2 id="hello-world">Hello world</h2>
+<p>To get started let&#39;s make a small Addon which is the C++ equivalent of
+the following JavaScript code:</p>
+<pre><code>module.exports.hello = function() { return &#39;world&#39;; };
+</code></pre><p>First we create a file <code>hello.cc</code>:</p>
+<pre><code>// hello.cc
+#include &lt;node.h&gt;
+
+using namespace v8;
+
+void Method(const FunctionCallbackInfo&lt;Value&gt;&amp; args) {
+  Isolate* isolate = Isolate::GetCurrent();
+  HandleScope scope(isolate);
+  args.GetReturnValue().Set(String::NewFromUtf8(isolate, &quot;world&quot;));
+}
+
+void init(Handle&lt;Object&gt; exports) {
+  NODE_SET_METHOD(exports, &quot;hello&quot;, Method);
+}
+
+NODE_MODULE(addon, init)
+</code></pre><p>Note that all Node addons must export an initialization function:</p>
+<pre><code>void Initialize (Handle&lt;Object&gt; exports);
+NODE_MODULE(module_name, Initialize)
+</code></pre><p>There is no semi-colon after <code>NODE_MODULE</code> as it&#39;s not a function (see
+<code>node.h</code>).</p>
+<p>The <code>module_name</code> needs to match the filename of the final binary (minus the
+.node suffix).</p>
+<p>The source code needs to be built into <code>addon.node</code>, the binary Addon. To
+do this we create a file called <code>binding.gyp</code> which describes the configuration
+to build your module in a JSON-like format. This file gets compiled by
+<a href="https://github.com/TooTallNate/node-gyp">node-gyp</a>.</p>
+<pre><code>{
+  &quot;targets&quot;: [
+    {
+      &quot;target_name&quot;: &quot;addon&quot;,
+      &quot;sources&quot;: [ &quot;hello.cc&quot; ]
+    }
+  ]
+}
+</code></pre><p>The next step is to generate the appropriate project build files for the
+current platform. Use <code>node-gyp configure</code> for that.</p>
+<p>Now you will have either a <code>Makefile</code> (on Unix platforms) or a <code>vcxproj</code> file
+(on Windows) in the <code>build/</code> directory. Next invoke the <code>node-gyp build</code>
+command.</p>
+<p>Now you have your compiled <code>.node</code> bindings file! The compiled bindings end up
+in <code>build/Release/</code>.</p>
+<p>You can now use the binary addon in a Node project <code>hello.js</code> by pointing
+<code>require</code> to the recently built <code>hello.node</code> module:</p>
+<pre><code>// hello.js
+var addon = require(&#39;./build/Release/addon&#39;);
+
+console.log(addon.hello()); // &#39;world&#39;
+</code></pre><p>Please see patterns below for further information or
+<a href="https://github.com/arturadib/node-qt">https://github.com/arturadib/node-qt</a> for an example in production.</p>
+<h2 id="addon-patterns">Addon patterns</h2>
+<p>Below are some addon patterns to help you get started. Consult the online
+<a href="http://izs.me/v8-docs/main.html">v8 reference</a> for help with the various v8
+calls, and v8&#39;s <a href="http://code.google.com/apis/v8/embed.html">Embedder&#39;s Guide</a>
+for an explanation of several concepts used such as handles, scopes,
+function templates, etc.</p>
+<p>In order to use these examples you need to compile them using <code>node-gyp</code>.
+Create the following <code>binding.gyp</code> file:</p>
+<pre><code>{
+  &quot;targets&quot;: [
+    {
+      &quot;target_name&quot;: &quot;addon&quot;,
+      &quot;sources&quot;: [ &quot;addon.cc&quot; ]
+    }
+  ]
+}
+</code></pre><p>In cases where there is more than one <code>.cc</code> file, simply add the file name to
+the <code>sources</code> array, e.g.:</p>
+<pre><code>&quot;sources&quot;: [&quot;addon.cc&quot;, &quot;myexample.cc&quot;]
+</code></pre><p>Now that you have your <code>binding.gyp</code> ready, you can configure and build the
+addon:</p>
+<pre><code>$ node-gyp configure build
+</code></pre><h3 id="function-arguments">Function arguments</h3>
+<p>The following pattern illustrates how to read arguments from JavaScript
+function calls and return a result. This is the main and only needed source
+<code>addon.cc</code>:</p>
+<pre><code>// addon.cc
+#include &lt;node.h&gt;
+
+using namespace v8;
+
+void Add(const FunctionCallbackInfo&lt;Value&gt;&amp; args) {
+  Isolate* isolate = Isolate::GetCurrent();
+  HandleScope scope(isolate);
+
+  if (args.Length() &lt; 2) {
+    isolate-&gt;ThrowException(Exception::TypeError(
+        String::NewFromUtf8(isolate, &quot;Wrong number of arguments&quot;)));
+    return;
+  }
+
+  if (!args[0]-&gt;IsNumber() || !args[1]-&gt;IsNumber()) {
+    isolate-&gt;ThrowException(Exception::TypeError(
+        String::NewFromUtf8(isolate, &quot;Wrong arguments&quot;)));
+    return;
+  }
+
+  Local&lt;Number&gt; num = Number::New(args[0]-&gt;NumberValue() +
+      args[1]-&gt;NumberValue());
+
+  args.GetReturnValue().Set(num);
+}
+
+void Init(Handle&lt;Object&gt; exports) {
+  NODE_SET_METHOD(exports, &quot;add&quot;, Add);
+}
+
+NODE_MODULE(addon, Init)
+</code></pre><p>You can test it with the following JavaScript snippet:</p>
+<pre><code>// test.js
+var addon = require(&#39;./build/Release/addon&#39;);
+
+console.log( &#39;This should be eight:&#39;, addon.add(3,5) );
+</code></pre><h3 id="callbacks">Callbacks</h3>
+<p>You can pass JavaScript functions to a C++ function and execute them from
+there. Here&#39;s <code>addon.cc</code>:</p>
+<pre><code>// addon.cc
+#include &lt;node.h&gt;
+
+using namespace v8;
+
+void RunCallback(const FunctionCallbackInfo&lt;Value&gt;&amp; args) {
+  Isolate* isolate = Isolate::GetCurrent();
+  HandleScope scope(isolate);
+
+  Local&lt;Function&gt; cb = Local&lt;Function&gt;::Cast(args[0]);
+  const unsigned argc = 1;
+  Local&lt;Value&gt; argv[argc] = { String::NewFromUtf8(isolate, &quot;hello world&quot;) };
+  cb-&gt;Call(Context::GetCurrent()-&gt;Global(), argc, argv);
+}
+
+void Init(Handle&lt;Object&gt; exports, Handle&lt;Object&gt; module) {
+  NODE_SET_METHOD(module, &quot;exports&quot;, RunCallback);
+}
+
+NODE_MODULE(addon, Init)
+</code></pre><p>Note that this example uses a two-argument form of <code>Init()</code> that receives
+the full <code>module</code> object as the second argument. This allows the addon
+to completely overwrite <code>exports</code> with a single function instead of
+adding the function as a property of <code>exports</code>.</p>
+<p>To test it run the following JavaScript snippet:</p>
+<pre><code>// test.js
+var addon = require(&#39;./build/Release/addon&#39;);
+
+addon(function(msg){
+  console.log(msg); // &#39;hello world&#39;
+});
+</code></pre><h3 id="object-factory">Object factory</h3>
+<p>You can create and return new objects from within a C++ function with this
+<code>addon.cc</code> pattern, which returns an object with property <code>msg</code> that echoes
+the string passed to <code>createObject()</code>:</p>
+<pre><code>// addon.cc
+#include &lt;node.h&gt;
+
+using namespace v8;
+
+void CreateObject(const FunctionCallbackInfo&lt;Value&gt;&amp; args) {
+  Isolate* isolate = Isolate::GetCurrent();
+  HandleScope scope(isolate);
+
+  Local&lt;Object&gt; obj = Object::New();
+  obj-&gt;Set(String::NewFromUtf8(isolate, &quot;msg&quot;), args[0]-&gt;ToString());
+
+  args.GetReturnValue().Set(obj);
+}
+
+void Init(Handle&lt;Object&gt; exports, Handle&lt;Object&gt; module) {
+  NODE_SET_METHOD(module, &quot;exports&quot;, CreateObject);
+}
+
+NODE_MODULE(addon, Init)
+</code></pre><p>To test it in JavaScript:</p>
+<pre><code>// test.js
+var addon = require(&#39;./build/Release/addon&#39;);
+
+var obj1 = addon(&#39;hello&#39;);
+var obj2 = addon(&#39;world&#39;);
+console.log(obj1.msg+&#39; &#39;+obj2.msg); // &#39;hello world&#39;
+</code></pre><h3 id="function-factory">Function factory</h3>
+<p>This pattern illustrates how to create and return a JavaScript function that
+wraps a C++ function:</p>
+<pre><code>// addon.cc
+#include &lt;node.h&gt;
+
+using namespace v8;
+
+void MyFunction(const FunctionCallbackInfo&lt;Value&gt;&amp; args) {
+  Isolate* isolate = Isolate::GetCurrent();
+  HandleScope scope(isolate);
+  args.GetReturnValue().Set(String::NewFromUtf8(isolate, &quot;hello world&quot;));
+}
+
+void CreateFunction(const FunctionCallbackInfo&lt;Value&gt;&amp; args) {
+  Isolate* isolate = Isolate::GetCurrent();
+  HandleScope scope(isolate);
+
+  Local&lt;FunctionTemplate&gt; tpl = FunctionTemplate::New(MyFunction);
+  Local&lt;Function&gt; fn = tpl-&gt;GetFunction();
+
+  // omit this to make it anonymous
+  fn-&gt;SetName(String::NewFromUtf8(isolate, &quot;theFunction&quot;));
+
+  args.GetReturnValue().Set(fn);
+}
+
+void Init(Handle&lt;Object&gt; exports, Handle&lt;Object&gt; module) {
+  NODE_SET_METHOD(module, &quot;exports&quot;, CreateFunction);
+}
+
+NODE_MODULE(addon, Init)
+</code></pre><p>To test:</p>
+<pre><code>// test.js
+var addon = require(&#39;./build/Release/addon&#39;);
+
+var fn = addon();
+console.log(fn()); // &#39;hello world&#39;
+</code></pre><h3 id="wrapping-c-objects">Wrapping C++ objects</h3>
+<p>Here we will create a wrapper for a C++ object/class <code>MyObject</code> that can be
+instantiated in JavaScript through the <code>new</code> operator. First prepare the main
+module <code>addon.cc</code>:</p>
+<pre><code>// addon.cc
+#include &lt;node.h&gt;
+#include &quot;myobject.h&quot;
+
+using namespace v8;
+
+void InitAll(Handle&lt;Object&gt; exports) {
+  MyObject::Init(exports);
+}
+
+NODE_MODULE(addon, InitAll)
+</code></pre><p>Then in <code>myobject.h</code> make your wrapper inherit from <code>node::ObjectWrap</code>:</p>
+<pre><code>// myobject.h
+#ifndef MYOBJECT_H
+#define MYOBJECT_H
+
+#include &lt;node.h&gt;
+#include &lt;node_object_wrap.h&gt;
+
+class MyObject : public node::ObjectWrap {
+ public:
+  static void Init(v8::Handle&lt;v8::Object&gt; exports);
+
+ private:
+  explicit MyObject(double value = 0);
+  ~MyObject();
+
+  static void New(const v8::FunctionCallbackInfo&lt;v8::Value&gt;&amp; args);
+  static void PlusOne(const v8::FunctionCallbackInfo&lt;v8::Value&gt;&amp; args);
+  static v8::Persistent&lt;v8::Function&gt; constructor;
+  double value_;
+};
+
+#endif
+</code></pre><p>And in <code>myobject.cc</code> implement the various methods that you want to expose.
+Here we expose the method <code>plusOne</code> by adding it to the constructor&#39;s
+prototype:</p>
+<pre><code>// myobject.cc
+#include &quot;myobject.h&quot;
+
+using namespace v8;
+
+Persistent&lt;Function&gt; MyObject::constructor;
+
+MyObject::MyObject(double value) : value_(value) {
+}
+
+MyObject::~MyObject() {
+}
+
+void MyObject::Init(Handle&lt;Object&gt; exports) {
+  Isolate* isolate = Isolate::GetCurrent();
+
+  // Prepare constructor template
+  Local&lt;FunctionTemplate&gt; tpl = FunctionTemplate::New(New);
+  tpl-&gt;SetClassName(String::NewFromUtf8(isolate, &quot;MyObject&quot;));
+  tpl-&gt;InstanceTemplate()-&gt;SetInternalFieldCount(1);
+
+  // Prototype
+  NODE_SET_PROTOTYPE_METHOD(tpl, &quot;plusOne&quot;, PlusOne);
+
+  constructor.Reset(isolate, tpl-&gt;GetFunction());
+  exports-&gt;Set(String::NewFromUtf8(isolate, &quot;MyObject&quot;),
+               tpl-&gt;GetFunction());
+}
+
+void MyObject::New(const FunctionCallbackInfo&lt;Value&gt;&amp; args) {
+  Isolate* isolate = Isolate::GetCurrent();
+  HandleScope scope(isolate);
+
+  if (args.IsConstructCall()) {
+    // Invoked as constructor: `new MyObject(...)`
+    double value = args[0]-&gt;IsUndefined() ? 0 : args[0]-&gt;NumberValue();
+    MyObject* obj = new MyObject(value);
+    obj-&gt;Wrap(args.This());
+    args.GetReturnValue().Set(args.This());
+  } else {
+    // Invoked as plain function `MyObject(...)`, turn into construct call.
+    const int argc = 1;
+    Local&lt;Value&gt; argv[argc] = { args[0] };
+    Local&lt;Function&gt; cons = Local&lt;Function&gt;::New(isolate, constructor);
+    args.GetReturnValue().Set(cons-&gt;NewInstance(argc, argv));
+  }
+}
+
+void MyObject::PlusOne(const FunctionCallbackInfo&lt;Value&gt;&amp; args) {
+  Isolate* isolate = Isolate::GetCurrent();
+  HandleScope scope(isolate);
+
+  MyObject* obj = ObjectWrap::Unwrap&lt;MyObject&gt;(args.This());
+  obj-&gt;value_ += 1;
+
+  args.GetReturnValue().Set(Number::New(obj-&gt;value_));
+}
+</code></pre><p>Test it with:</p>
+<pre><code>// test.js
+var addon = require(&#39;./build/Release/addon&#39;);
+
+var obj = new addon.MyObject(10);
+console.log( obj.plusOne() ); // 11
+console.log( obj.plusOne() ); // 12
+console.log( obj.plusOne() ); // 13
+</code></pre><h3 id="factory-of-wrapped-objects">Factory of wrapped objects</h3>
+<p>This is useful when you want to be able to create native objects without
+explicitly instantiating them with the <code>new</code> operator in JavaScript, e.g.</p>
+<pre><code>var obj = addon.createObject();
+// instead of:
+// var obj = new addon.Object();
+</code></pre><p>Let&#39;s register our <code>createObject</code> method in <code>addon.cc</code>:</p>
+<pre><code>// addon.cc
+#include &lt;node.h&gt;
+#include &quot;myobject.h&quot;
+
+using namespace v8;
+
+void CreateObject(const FunctionCallbackInfo&lt;Value&gt;&amp; args) {
+  Isolate* isolate = Isolate::GetCurrent();
+  HandleScope scope(isolate);
+  MyObject::NewInstance(args);
+}
+
+void InitAll(Handle&lt;Object&gt; exports, Handle&lt;Object&gt; module) {
+  MyObject::Init();
+
+  NODE_SET_METHOD(module, &quot;exports&quot;, CreateObject);
+}
+
+NODE_MODULE(addon, InitAll)
+</code></pre><p>In <code>myobject.h</code> we now introduce the static method <code>NewInstance</code> that takes
+care of instantiating the object (i.e. it does the job of <code>new</code> in JavaScript):</p>
+<pre><code>// myobject.h
+#ifndef MYOBJECT_H
+#define MYOBJECT_H
+
+#include &lt;node.h&gt;
+#include &lt;node_object_wrap.h&gt;
+
+class MyObject : public node::ObjectWrap {
+ public:
+  static void Init();
+  static void NewInstance(const v8::FunctionCallbackInfo&lt;v8::Value&gt;&amp; args);
+
+ private:
+  explicit MyObject(double value = 0);
+  ~MyObject();
+
+  static void New(const v8::FunctionCallbackInfo&lt;v8::Value&gt;&amp; args);
+  static void PlusOne(const v8::FunctionCallbackInfo&lt;v8::Value&gt;&amp; args);
+  static v8::Persistent&lt;v8::Function&gt; constructor;
+  double value_;
+};
+
+#endif
+</code></pre><p>The implementation is similar to the above in <code>myobject.cc</code>:</p>
+<pre><code>// myobject.cc
+#include &lt;node.h&gt;
+#include &quot;myobject.h&quot;
+
+using namespace v8;
+
+Persistent&lt;Function&gt; MyObject::constructor;
+
+MyObject::MyObject(double value) : value_(value) {
+}
+
+MyObject::~MyObject() {
+}
+
+void MyObject::Init() {
+  Isolate* isolate = Isolate::GetCurrent();
+  // Prepare constructor template
+  Local&lt;FunctionTemplate&gt; tpl = FunctionTemplate::New(New);
+  tpl-&gt;SetClassName(String::NewFromUtf8(isolate, &quot;MyObject&quot;));
+  tpl-&gt;InstanceTemplate()-&gt;SetInternalFieldCount(1);
+
+  // Prototype
+  NODE_SET_PROTOTYPE_METHOD(tpl, &quot;plusOne&quot;, PlusOne);
+
+  constructor.Reset(isolate, tpl-&gt;GetFunction());
+}
+
+void MyObject::New(const FunctionCallbackInfo&lt;Value&gt;&amp; args) {
+  Isolate* isolate = Isolate::GetCurrent();
+  HandleScope scope(isolate);
+
+  if (args.IsConstructCall()) {
+    // Invoked as constructor: `new MyObject(...)`
+    double value = args[0]-&gt;IsUndefined() ? 0 : args[0]-&gt;NumberValue();
+    MyObject* obj = new MyObject(value);
+    obj-&gt;Wrap(args.This());
+    args.GetReturnValue().Set(args.This());
+  } else {
+    // Invoked as plain function `MyObject(...)`, turn into construct call.
+    const int argc = 1;
+    Local&lt;Value&gt; argv[argc] = { args[0] };
+    Local&lt;Function&gt; cons = Local&lt;Function&gt;::New(isolate, constructor);
+    args.GetReturnValue().Set(cons-&gt;NewInstance(argc, argv));
+  }
+}
+
+void MyObject::NewInstance(const FunctionCallbackInfo&lt;Value&gt;&amp; args) {
+  Isolate* isolate = Isolate::GetCurrent();
+  HandleScope scope(isolate);
+
+  const unsigned argc = 1;
+  Handle&lt;Value&gt; argv[argc] = { args[0] };
+  Local&lt;Function&gt; cons = Local&lt;Function&gt;::New(isolate, constructor);
+  Local&lt;Object&gt; instance = cons-&gt;NewInstance(argc, argv);
+
+  args.GetReturnValue().Set(instance);
+}
+
+void MyObject::PlusOne(const FunctionCallbackInfo&lt;Value&gt;&amp; args) {
+  Isolate* isolate = Isolate::GetCurrent();
+  HandleScope scope(isolate);
+
+  MyObject* obj = ObjectWrap::Unwrap&lt;MyObject&gt;(args.This());
+  obj-&gt;value_ += 1;
+
+  args.GetReturnValue().Set(Number::New(obj-&gt;value_));
+}
+</code></pre><p>Test it with:</p>
+<pre><code>// test.js
+var createObject = require(&#39;./build/Release/addon&#39;);
+
+var obj = createObject(10);
+console.log( obj.plusOne() ); // 11
+console.log( obj.plusOne() ); // 12
+console.log( obj.plusOne() ); // 13
+
+var obj2 = createObject(20);
+console.log( obj2.plusOne() ); // 21
+console.log( obj2.plusOne() ); // 22
+console.log( obj2.plusOne() ); // 23
+</code></pre><h3 id="passing-wrapped-objects-around">Passing wrapped objects around</h3>
+<p>In addition to wrapping and returning C++ objects, you can pass them around
+by unwrapping them with Node&#39;s <code>node::ObjectWrap::Unwrap</code> helper function.
+In the following <code>addon.cc</code> we introduce a function <code>add()</code> that can take on two
+<code>MyObject</code> objects:</p>
+<pre><code>// addon.cc
+#include &lt;node.h&gt;
+#include &lt;node_object_wrap.h&gt;
+#include &quot;myobject.h&quot;
+
+using namespace v8;
+
+void CreateObject(const FunctionCallbackInfo&lt;Value&gt;&amp; args) {
+  Isolate* isolate = Isolate::GetCurrent();
+  HandleScope scope(isolate);
+  MyObject::NewInstance(args);
+}
+
+void Add(const FunctionCallbackInfo&lt;Value&gt;&amp; args) {
+  Isolate* isolate = Isolate::GetCurrent();
+  HandleScope scope(isolate);
+
+  MyObject* obj1 = node::ObjectWrap::Unwrap&lt;MyObject&gt;(
+      args[0]-&gt;ToObject());
+  MyObject* obj2 = node::ObjectWrap::Unwrap&lt;MyObject&gt;(
+      args[1]-&gt;ToObject());
+
+  double sum = obj1-&gt;value() + obj2-&gt;value();
+  args.GetReturnValue().Set(Number::New(sum));
+}
+
+void InitAll(Handle&lt;Object&gt; exports) {
+  MyObject::Init();
+
+  NODE_SET_METHOD(exports, &quot;createObject&quot;, CreateObject);
+  NODE_SET_METHOD(exports, &quot;add&quot;, Add);
+}
+
+NODE_MODULE(addon, InitAll)
+</code></pre><p>To make things interesting we introduce a public method in <code>myobject.h</code> so we
+can probe private values after unwrapping the object:</p>
+<pre><code>// myobject.h
+#ifndef MYOBJECT_H
+#define MYOBJECT_H
+
+#include &lt;node.h&gt;
+#include &lt;node_object_wrap.h&gt;
+
+class MyObject : public node::ObjectWrap {
+ public:
+  static void Init();
+  static void NewInstance(const v8::FunctionCallbackInfo&lt;v8::Value&gt;&amp; args);
+  inline double value() const { return value_; }
+
+ private:
+  explicit MyObject(double value = 0);
+  ~MyObject();
+
+  static void New(const v8::FunctionCallbackInfo&lt;v8::Value&gt;&amp; args);
+  static v8::Persistent&lt;v8::Function&gt; constructor;
+  double value_;
+};
+
+#endif
+</code></pre><p>The implementation of <code>myobject.cc</code> is similar as before:</p>
+<pre><code>// myobject.cc
+#include &lt;node.h&gt;
+#include &quot;myobject.h&quot;
+
+using namespace v8;
+
+Persistent&lt;Function&gt; MyObject::constructor;
+
+MyObject::MyObject(double value) : value_(value) {
+}
+
+MyObject::~MyObject() {
+}
+
+void MyObject::Init() {
+  Isolate* isolate = Isolate::GetCurrent();
+
+  // Prepare constructor template
+  Local&lt;FunctionTemplate&gt; tpl = FunctionTemplate::New(New);
+  tpl-&gt;SetClassName(String::NewFromUtf8(isolate, &quot;MyObject&quot;));
+  tpl-&gt;InstanceTemplate()-&gt;SetInternalFieldCount(1);
+
+  constructor.Reset(isolate, tpl-&gt;GetFunction());
+}
+
+void MyObject::New(const FunctionCallbackInfo&lt;Value&gt;&amp; args) {
+  Isolate* isolate = Isolate::GetCurrent();
+  HandleScope scope(isolate);
+
+  if (args.IsConstructCall()) {
+    // Invoked as constructor: `new MyObject(...)`
+    double value = args[0]-&gt;IsUndefined() ? 0 : args[0]-&gt;NumberValue();
+    MyObject* obj = new MyObject(value);
+    obj-&gt;Wrap(args.This());
+    args.GetReturnValue().Set(args.This());
+  } else {
+    // Invoked as plain function `MyObject(...)`, turn into construct call.
+    const int argc = 1;
+    Local&lt;Value&gt; argv[argc] = { args[0] };
+    Local&lt;Function&gt; cons = Local&lt;Function&gt;::New(isolate, constructor);
+    args.GetReturnValue().Set(cons-&gt;NewInstance(argc, argv));
+  }
+}
+
+void MyObject::NewInstance(const FunctionCallbackInfo&lt;Value&gt;&amp; args) {
+  Isolate* isolate = Isolate::GetCurrent();
+  HandleScope scope(isolate);
+
+  const unsigned argc = 1;
+  Handle&lt;Value&gt; argv[argc] = { args[0] };
+  Local&lt;Function&gt; cons = Local&lt;Function&gt;::New(isolate, constructor);
+  Local&lt;Object&gt; instance = cons-&gt;NewInstance(argc, argv);
+
+  args.GetReturnValue().Set(instance);
+}
+</code></pre><p>Test it with:</p>
+<pre><code>// test.js
+var addon = require(&#39;./build/Release/addon&#39;);
+
+var obj1 = addon.createObject(10);
+var obj2 = addon.createObject(20);
+var result = addon.add(obj1, obj2);
+
+console.log(result); // 30
+</code></pre></div>
+</body>
+</html>
