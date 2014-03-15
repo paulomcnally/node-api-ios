@@ -13,15 +13,35 @@
 @end
 
 @implementation ApiViewController
-@synthesize webView,navigationBar;
+@synthesize webView,navigationBar,navigationItem;
 
 - (void)viewDidLoad
 {
+    // Init NavigationBar
+    [self navigationBarInit];
     
+    // Load Home page
+    [self loadHome];
+    
+    [super viewDidLoad];
+	// Do any additional setup after loading the view, typically from a nib.
+}
+
+
+/**
+ *
+ * Initialize NavitationBar styling
+ */
+
+- (void)navigationBarInit{
     
     // NavigationBar background color
     [[UINavigationBar appearance] setBarTintColor:[UIColor blackColor]];
-    // NavigationBar Title Text Color
+    
+    // Change back text color
+    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+    
+    // Change title text color
     [[UINavigationBar appearance] setTitleTextAttributes:
      [NSDictionary dictionaryWithObjectsAndKeys:
       [UIColor whiteColor],
@@ -35,7 +55,53 @@
       nil]];
     
     
+    
+}
 
+/**
+ *
+ * On Page finish load
+ * - Set title
+ * - Show or Hide back button
+ */
+- (void)webViewDidFinishLoad:(UIWebView *)webViewInstance{
+    
+    NSString *title = [webViewInstance stringByEvaluatingJavaScriptFromString:@"document.title"];
+    // set Title
+    self.navigationBar.topItem.title = title;
+    
+    // Show or Hide back button
+    NSString *currentURL = [webViewInstance stringByEvaluatingJavaScriptFromString:@"window.location.href"];
+    
+    NSArray* pathSplit = [currentURL componentsSeparatedByString: @"/"];
+    int length = [pathSplit count];
+    NSString *fileName = [pathSplit objectAtIndex: length-1];
+    
+    if ([fileName isEqualToString:@"_toc.html"]) {
+        self.navigationItem.leftBarButtonItem = nil;
+    }
+    else{
+        UIBarButtonItem *tmpButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:self action:@selector(backAction)];
+        self.navigationItem.leftBarButtonItem = tmpButtonItem;
+    }
+    
+}
+
+/**
+ *
+ * Reload home page
+ */
+- (void)backAction{
+    // Load index page
+    [self loadHome];
+}
+
+/**
+ *
+ * Load home page (_toc.html)
+ */
+- (void)loadHome{
+    
     // WebView
     webView.delegate = self; // require to call webViewDidFinishLoad
     NSString *filePath=[[NSBundle mainBundle]pathForResource:@"_toc" ofType:@"html" inDirectory:nil];
@@ -43,20 +109,6 @@
     NSString *htmlstring=[NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:nil];
     [webView loadHTMLString:htmlstring baseURL:baseURL];
     
-    
-    [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
-}
-
-
-
-// Handle web title
-- (void)webViewDidFinishLoad:(UIWebView *)webView{
-    NSString *title = [webView stringByEvaluatingJavaScriptFromString:@"document.title"];
-    
-    self.navigationBar.topItem.title = title;
-    
-    //[[UINavigationBar appearance] setTitle: title];
 }
 
 - (void)didReceiveMemoryWarning

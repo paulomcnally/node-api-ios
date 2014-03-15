@@ -14,5 +14,6 @@
 
 @property(nonatomic,strong) IBOutlet UIWebView *webView;
 @property(nonatomic,strong) IBOutlet UINavigationBar *navigationBar;
+@property(nonatomic,strong) IBOutlet UINavigationItem *navigationItem;
 
 @end
