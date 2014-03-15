@@ -25,7 +25,7 @@
                                 <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
-                                    <navigationItem title="Title" id="DaI-u4-odr"/>
+                                    <navigationItem id="DaI-u4-odr"/>
                                 </items>
                             </navigationBar>
                         </subviews>
