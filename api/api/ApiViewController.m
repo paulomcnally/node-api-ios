@@ -17,6 +17,9 @@
 
 - (void)viewDidLoad
 {
+    // StatusBar apareance
+    [self setNeedsStatusBarAppearanceUpdate];
+    
     // Init NavigationBar
     [self navigationBarInit];
     
@@ -27,6 +30,9 @@
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
+-(UIStatusBarStyle)preferredStatusBarStyle{
+    return UIStatusBarStyleLightContent;
+}
 
 /**
  *
@@ -34,6 +40,9 @@
  */
 
 - (void)navigationBarInit{
+    
+    // StatusBar background
+    self.view.backgroundColor = [UIColor blackColor];
     
     // NavigationBar background color
     [[UINavigationBar appearance] setBarTintColor:[UIColor blackColor]];
@@ -103,6 +112,7 @@
 - (void)loadHome{
     
     // WebView
+    self.webView.delegate = self;
     webView.delegate = self; // require to call webViewDidFinishLoad
     NSString *filePath=[[NSBundle mainBundle]pathForResource:@"_toc" ofType:@"html" inDirectory:nil];
     NSURL *baseURL = [NSURL fileURLWithPath:filePath];
