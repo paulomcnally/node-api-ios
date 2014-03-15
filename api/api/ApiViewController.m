@@ -19,9 +19,9 @@
 {
 
     NSString *filePath=[[NSBundle mainBundle]pathForResource:@"_toc" ofType:@"html" inDirectory:nil];
-
+    NSURL *baseURL = [NSURL fileURLWithPath:filePath];
     NSString *htmlstring=[NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:nil];
-    [webView loadHTMLString:htmlstring baseURL:nil];
+    [webView loadHTMLString:htmlstring baseURL:baseURL];
 
     
     [super viewDidLoad];
