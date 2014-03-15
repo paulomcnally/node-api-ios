@@ -83,7 +83,7 @@
     NSString *currentURL = [webViewInstance stringByEvaluatingJavaScriptFromString:@"window.location.href"];
     
     NSArray* pathSplit = [currentURL componentsSeparatedByString: @"/"];
-    int length = [pathSplit count];
+    NSInteger length = [pathSplit count];
     NSString *fileName = [pathSplit objectAtIndex: length-1];
     
     if ([fileName isEqualToString:@"_toc.html"]) {
@@ -120,6 +120,12 @@
     [webView loadHTMLString:htmlstring baseURL:baseURL];
     
 }
+
+- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
+{
+    return YES;
+}
+
 
 - (void)didReceiveMemoryWarning
 {

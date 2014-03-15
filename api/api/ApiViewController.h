@@ -8,9 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ApiViewController  : UIViewController<UIWebViewDelegate>{
-    IBOutlet UIWebView *webView;
-}
+@interface ApiViewController  : UIViewController<UIWebViewDelegate>
 
 @property(nonatomic,strong) IBOutlet UIWebView *webView;
 @property(nonatomic,strong) IBOutlet UINavigationBar *navigationBar;
