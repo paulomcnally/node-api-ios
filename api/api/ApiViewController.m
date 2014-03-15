@@ -17,6 +17,9 @@
 
 - (void)viewDidLoad
 {
+    
+    self.webView.delegate = self;
+    
     // StatusBar apareance
     [self setNeedsStatusBarAppearanceUpdate];
     
@@ -75,12 +78,12 @@
  */
 - (void)webViewDidFinishLoad:(UIWebView *)webViewInstance{
     
-    NSString *title = [webViewInstance stringByEvaluatingJavaScriptFromString:@"document.title"];
-    // set Title
-    self.navigationBar.topItem.title = title;
+    NSString *title = [self.webView stringByEvaluatingJavaScriptFromString:@"document.title"];
+    
+    self.navigationItem.title = title;
     
     // Show or Hide back button
-    NSString *currentURL = [webViewInstance stringByEvaluatingJavaScriptFromString:@"window.location.href"];
+    NSString *currentURL = [self.webView stringByEvaluatingJavaScriptFromString:@"window.location.href"];
     
     NSArray* pathSplit = [currentURL componentsSeparatedByString: @"/"];
     NSInteger length = [pathSplit count];
@@ -112,7 +115,7 @@
 - (void)loadHome{
     
     // WebView
-    self.webView.delegate = self;
+    //self.webView.delegate = nil;
     webView.delegate = self; // require to call webViewDidFinishLoad
     NSString *filePath=[[NSBundle mainBundle]pathForResource:@"_toc" ofType:@"html" inDirectory:nil];
     NSURL *baseURL = [NSURL fileURLWithPath:filePath];
